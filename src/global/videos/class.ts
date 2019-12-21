@@ -58,7 +58,7 @@ export class Video implements VideoGetterInterface {
     private setSize         = (size: string): number        =>  parseInt(size, 10);
     private setTitle        = (title: string): string       =>  title;
     private setTrackId      = (trackId: string): string     =>  trackId;
-    private setUploadTime   = (uploadTime: string): string  =>  formatDate(parseDate(uploadTime));
+    private setUploadTime   = (uploadTime: string): string  =>  formatDate(parseDate(uploadTime), new Date());
     private setViews        = (views: string): number       =>  parseInt(views, 10);
     private setWidth        = (width: string): number       =>  parseInt(width, 10);
 

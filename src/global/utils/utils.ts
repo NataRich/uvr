@@ -17,13 +17,12 @@ const parseDate = (date: string): number[] => {
     return [ dt.getDate(), dt.getMonth(), dt.getFullYear(), dt.getHours(), dt.getMinutes() ];
 };
 
-const formatDate = (parsedDate: number[]): string => {
-    const now: Date             = new Date();
-    const curDate: number       = now.getUTCDate();
-    const curMonth: number      = now.getUTCMonth();
-    const curYear: number       = now.getUTCFullYear();
-    const curHour: number       = now.getUTCHours();
-    const curMinute: number     = now.getUTCMinutes();
+const formatDate = (parsedDate: number[], now: Date): string => {
+    const curDate: number       = now.getDate();
+    const curMonth: number      = now.getMonth();
+    const curYear: number       = now.getFullYear();
+    const curHour: number       = now.getHours();
+    const curMinute: number     = now.getMinutes();
     const uploadDate: number    = parsedDate[0];
     const uploadMonth: number   = parsedDate[1];
     const uploadYear: number    = parsedDate[2];
