@@ -150,7 +150,7 @@ export interface APIGeneralGetMethods {
      * @public @function getTrackId return the properties of the video of the track id, to fetch that specific video
      * 
      */
-    getTrackId: (payload: TrackIdInterface, abortSignal: AbortSignal) => Promise<VideoClassType | null>;
+    getTrackId: (payload: TrackIdInterface) => Promise<VideoClassType | null>;
 };
 
 export interface APIGeneralPostMethods {
@@ -160,8 +160,8 @@ export interface APIGeneralPostMethods {
      * @public @function postVideoStats return status, to update some statistics of the video on a regular basis, as in 'likes', 'views'
      * 
      */
-    postFilterArgs: (payload: VideoFilterArgInterface, abortSignal: AbortSignal)   => Promise<VideoClassType[] | null>;
-    postVideoStats: (payload: VideoStatsArgInterface, abortSignal: AbortSignal)    => Promise<StatusInterface>;
+    postFilterArgs: (payload: VideoFilterArgInterface)   => Promise<VideoClassType[] | null>;
+    postVideoStats: (payload: VideoStatsArgInterface)    => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredGetMethods {
@@ -183,9 +183,9 @@ export interface APILoginRequiredPostMethods {
      * @public @function postFilterSelfArgs return an array of Video class, to fetch all the videos uploaded by that specific user
      * 
      */
-    postTrackId:        (payload: TrackIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
-    postVideoId:        (payload: VideoIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
-    postVideoFile:      (payload: VideoInterface, abortSignal: AbortSignal)                => Promise<StatusInterface>;
-    postVideoArgs:      (payload: VideoInfoArgInterface, abortSignal: AbortSignal)         => Promise<StatusInterface>;
-    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal)   => Promise<VideoClassType[] | null>;
+    postTrackId:        (payload: TrackIdInterface)              => Promise<StatusInterface>;
+    postVideoId:        (payload: VideoIdInterface)              => Promise<StatusInterface>;
+    postVideoFile:      (payload: VideoInterface)                => Promise<StatusInterface>;
+    postVideoArgs:      (payload: VideoInfoArgInterface)         => Promise<StatusInterface>;
+    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface)   => Promise<VideoClassType[] | null>;
 }
