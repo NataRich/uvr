@@ -12,6 +12,18 @@ const user: UserClassType = new User({
     mediumImageSource: "mediumImageSource",
 });
 
+it("Getters (of User) return correct types", () => {
+    expect(typeof user.getEmail()).toStrictEqual("string");
+    expect(typeof user.getIdentity()).toStrictEqual("number");
+    expect(typeof user.getId()).toStrictEqual("string");
+    expect(typeof user.getIsEmailAuthed()).toStrictEqual("boolean");
+    expect(typeof user.getName()).toStrictEqual("string");
+    expect(typeof user.getNumOfVideos()).toStrictEqual("number");
+    expect(typeof user.getRegisterDate()).toStrictEqual("string");
+    expect(typeof user.getThumbImage()).toStrictEqual("string");
+    expect(typeof user.getMediumImage()).toStrictEqual("string");
+});
+
 it("Getters (of User) return correct values", () => {
     expect(user.getEmail()).toStrictEqual("example@test.com");
     expect(user.getIdentity()).toStrictEqual(1111);
