@@ -98,8 +98,8 @@ export interface APIGeneralGetMethods {
      * @public @function getUser return a User class, to fetch the properties of the user who has logged in
      * 
      */
-    getCode: () => Promise<StatusInterface>;
-    getUser: () => Promise<UserClassType | null>;
+    getCode: (abortSignal: AbortSignal) => Promise<StatusInterface>;
+    getUser: (abortSignal: AbortSignal) => Promise<UserClassType | null>;
 };
 
 export interface APIGeneralPostMethods {
@@ -113,12 +113,12 @@ export interface APIGeneralPostMethods {
      * @public @function postUsernameAndEmail   return status, to sign up
      * 
      */
-    postCode:               (payload: CodeInterface)                        => Promise<StatusInterface>;
-    postEmail:              (payload: EmailInterface)                       => Promise<StatusInterface>;
-    postPassword:           (payload: PasswordInterface)                    => Promise<StatusInterface>;
-    postNewPassword:        (payload: PasswordInterface)                    => Promise<StatusInterface>;
-    postUsernameOrEmail:    (payload: EmailInterface | UsernameInterface)   => Promise<StatusInterface>;
-    postUsernameAndEmail:   (payload: EmailInterface & UsernameInterface)   => Promise<StatusInterface>;
+    postCode:               (payload: CodeInterface, abortSignal: AbortSignal)                        => Promise<StatusInterface>;
+    postEmail:              (payload: EmailInterface, abortSignal: AbortSignal)                       => Promise<StatusInterface>;
+    postPassword:           (payload: PasswordInterface, abortSignal: AbortSignal)                    => Promise<StatusInterface>;
+    postNewPassword:        (payload: PasswordInterface, abortSignal: AbortSignal)                    => Promise<StatusInterface>;
+    postUsernameOrEmail:    (payload: EmailInterface | UsernameInterface, abortSignal: AbortSignal)   => Promise<StatusInterface>;
+    postUsernameAndEmail:   (payload: EmailInterface & UsernameInterface, abortSignal: AbortSignal)   => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredGetMethods {
@@ -128,8 +128,8 @@ export interface APILoginRequiredGetMethods {
      * @public @function getUsername    return status, to change username
      * 
      */
-    getClear:    ()                           => Promise<StatusInterface>;
-    getUsername: (payload: UsernameInterface) => Promise<StatusInterface>;
+    getClear:    (abortSignal: AbortSignal)                           => Promise<StatusInterface>;
+    getUsername: (payload: UsernameInterface, abortSignal: AbortSignal) => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredPostMethods {
@@ -139,6 +139,6 @@ export interface APILoginRequiredPostMethods {
      * @public @function postImage return status, to change the profile image
      * 
      */
-    postEmail: (payload: EmailInterface) => Promise<StatusInterface>;
-    postImage: (payload: ImageInterface) =>  Promise<StatusInterface>;
+    postEmail: (payload: EmailInterface, abortSignal: AbortSignal) => Promise<StatusInterface>;
+    postImage: (payload: ImageInterface, abortSignal: AbortSignal) =>  Promise<StatusInterface>;
 };

@@ -33,8 +33,9 @@ class UserAPI {
     protected readonly CREATE_PASSWORD_ENDPOINT   = 'create_password';
     protected readonly FORGET_PASSWORD_ENDPOINT   = 'forget_password';
 
-    protected useGet = async (url: string): Promise<StatusInterface> => {
+    protected useGet = async (url: string, signal: AbortSignal): Promise<StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal,
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -44,11 +45,12 @@ class UserAPI {
         return await response.json();
     };
 
-    protected useGetArg = async (url: string, payload: any): Promise<StatusInterface> => {
+    protected useGetArg = async (url: string, payload: any, signal: AbortSignal): Promise<StatusInterface> => {
         let argsArray: string[] = [];
         Object.keys(payload).forEach(key => argsArray.push(key + '=' + payload[key]));
         const URL: string = url + '?' + argsArray.join('&');
         const response: Response = await fetch(URL, {
+            signal,
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -58,8 +60,9 @@ class UserAPI {
         return await response.json();
     };
 
-    protected useGetUser = async (url: string): Promise<UserInterface & StatusInterface> => {
+    protected useGetUser = async (url: string, signal: AbortSignal): Promise<UserInterface & StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal,
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -69,8 +72,9 @@ class UserAPI {
         return await response.json();
     };
 
-    protected usePost = async (url: string, payload: any): Promise<StatusInterface> => {
+    protected usePost = async (url: string, payload: any, signal: AbortSignal): Promise<StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal,
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -82,8 +86,9 @@ class UserAPI {
         return await response.json();
     };
 
-    protected usePostFormData = async (url: string, payload: FormData): Promise<StatusInterface> => {
+    protected usePostFormData = async (url: string, payload: FormData, signal: AbortSignal): Promise<StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal,
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -100,13 +105,13 @@ class UserAPI {
 
 
 export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
-    public getCode = async (): Promise<StatusInterface> => {
+    public getCode = async (abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
-        return await this.useGet(URL);
+        return await this.useGet(URL, abortSignal);
     };
-    public getUser = async (): Promise<UserClassType | null> => {
+    public getUser = async (abortSignal: AbortSignal): Promise<UserClassType | null> => {
         const URL: string = DOMAIN + this.USER_ENDPOINT;
-        const response: UserInterface & StatusInterface = await this.useGetUser(URL);
+        const response: UserInterface & StatusInterface = await this.useGetUser(URL, abortSignal);
         if(!response.user)
             return null;
         const user: APIUserParamInterface = {
@@ -123,29 +128,29 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
         return new User(user)
     };
 
-    public postCode = async (payload: CodeInterface): Promise<StatusInterface> => {
+    public postCode = async (payload: CodeInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.AUTH_CODE_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
+    public postEmail = async (payload: EmailInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.FORGET_PASSWORD_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postNewPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
+    public postNewPassword = async (payload: PasswordInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CREATE_PASSWORD_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
+    public postPassword = async (payload: PasswordInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VERIFY_PASSWORD_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postUsernameAndEmail = async (payload: EmailInterface & UsernameInterface): Promise<StatusInterface> => {
+    public postUsernameAndEmail = async (payload: EmailInterface & UsernameInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.SIGNUP_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postUsernameOrEmail = async (payload: EmailInterface | UsernameInterface): Promise<StatusInterface> => {
+    public postUsernameOrEmail = async (payload: EmailInterface | UsernameInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.LOGIN_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
 };
 
@@ -153,21 +158,21 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
 
 
 export class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods  {
-    public getClear = async (): Promise<StatusInterface> => {
+    public getClear = async (abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.LOGOUT_ENDPOINT;
-        return await this.useGet(URL);
+        return await this.useGet(URL, abortSignal);
     };
-    public getUsername = async (payload: UsernameInterface): Promise<StatusInterface> => {
+    public getUsername = async (payload: UsernameInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
-        return await this.useGetArg(URL, payload);
+        return await this.useGetArg(URL, payload, abortSignal);
     };
 
-    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
+    public postEmail = async (payload: EmailInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postImage = async (payload: ImageInterface): Promise<StatusInterface> => {
+    public postImage = async (payload: ImageInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_IMAGE_ENDPOINT;
-        return await this.usePostFormData(URL, payload.image);
+        return await this.usePostFormData(URL, payload.image, abortSignal);
     };
 };
