@@ -28,25 +28,25 @@ export class User implements UserGetterInterface {
     private readonly thumbImageSource:  string;
     private readonly mediumImageSource: string;
 
-    private setEmail           = (email: string)              => { return email };
-    private setIdentity        = (identity: string)           => { return parseInt(identity, 10) };
-    private setId              = (id: string)                 => { return id };
-    private setIsEmailAuthed   = (isEmailAuthed: string)      => { return parseInt(isEmailAuthed, 10) === 0 ? false:true };
-    private setName            = (name: string)               => { return name };
-    private setNumOfVideos     = (numOfVideos: string)        => { return parseInt(numOfVideos, 10) };
-    private setRegisterDate    = (registerDate: string)       => { return registerDate };
-    private setThumbImage      = (thumbImageSource: string)   => { return thumbImageSource };
-    private setMediumImage     = (mediumImageSource: string)  => { return mediumImageSource };
+    private setEmail           = (email: string)              => email;
+    private setIdentity        = (identity: string)           => parseInt(identity, 10);
+    private setId              = (id: string)                 => id;
+    private setIsEmailAuthed   = (isEmailAuthed: string)      => parseInt(isEmailAuthed, 10) === 0 ? false:true;
+    private setName            = (name: string)               => name;
+    private setNumOfVideos     = (numOfVideos: string)        => parseInt(numOfVideos, 10);
+    private setRegisterDate    = (registerDate: string)       => registerDate;
+    private setThumbImage      = (thumbImageSource: string)   => thumbImageSource;
+    private setMediumImage     = (mediumImageSource: string)  => mediumImageSource;
 
-    public getEmail            = () => { return this.email };
-    public getIdentity         = () => { return this.identity };
-    public getId               = () => { return this.id };
-    public getIsEmailAuthed    = () => { return this.isEmailAuthed };
-    public getName             = () => { return this.name };
-    public getNumOfVideos      = () => { return this.numOfVideos };
-    public getRegisterDate     = () => { return this.registerDate };
-    public getThumbImage       = () => { return this.thumbImageSource };
-    public getMediumImage      = () => { return this.mediumImageSource }
+    public getEmail            = () => this.email;
+    public getIdentity         = () => this.identity;
+    public getId               = () => this.id;
+    public getIsEmailAuthed    = () => this.isEmailAuthed;
+    public getName             = () => this.name;
+    public getNumOfVideos      = () => this.numOfVideos;
+    public getRegisterDate     = () => this.registerDate;
+    public getThumbImage       = () => this.thumbImageSource;
+    public getMediumImage      = () => this.mediumImageSource;
 };
 
 export type UserClassType = User
