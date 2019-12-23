@@ -3,6 +3,7 @@ import styled, { AnyStyledComponent } from 'styled-components';
 const CenterInBox: AnyStyledComponent = styled.div`
     width: 100%;
     height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 `;
