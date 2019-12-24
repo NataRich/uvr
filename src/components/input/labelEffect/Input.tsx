@@ -11,6 +11,8 @@ import { InputAttributes } from './interface';
 const Input: React.FC<InputAttributes> = ({
     fontSize,
     isRequired,
+    helperText,
+    helperColor,
     onChangeHandler,
     placeholder,
     value,
@@ -33,9 +35,10 @@ const Input: React.FC<InputAttributes> = ({
                 value={value} />
             </StyledInputBox>
             {
-                isRequired ? (
-                    <StyledHelperBox {...{fontSize, width}}>
-                        <p>{isRequired ? '*Required':''}</p>
+                isRequired || helperText ? (
+                    <StyledHelperBox {...{fontSize, width, helperColor}}>
+                        <p className='required'>{isRequired ? '*Required':''}</p>
+                        <p className='helper'>{helperText ? helperText:''}</p>
                     </StyledHelperBox>
                 ):null
             }

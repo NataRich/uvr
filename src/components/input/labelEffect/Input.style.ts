@@ -14,8 +14,9 @@ type InputStyleProps = {
 };
 
 type HelperBoxStyleProps = {
-    fontSize:   number;
-    width:      number;
+    fontSize:       number;
+    width:          number;
+    helperColor:    string | undefined;
 };
 
 const StyledInputContainer = styled.div`
@@ -67,6 +68,9 @@ const StyledHelperBox = styled.div<HelperBoxStyleProps>`
         text-align: left;
         color: #8A8D89
         font-size: ${props => props.fontSize - 4}px;
+    }
+    .helper {
+        color: ${props => props.helperColor ? props.helperColor:'#8A8D89'};
     }
 `;
 
