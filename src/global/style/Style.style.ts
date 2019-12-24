@@ -1,6 +1,6 @@
-import styled, { AnyStyledComponent } from 'styled-components';
+import styled from 'styled-components';
 
-const CenterBoxByRowNonSpaced: AnyStyledComponent = styled.div`
+const CenterBoxByRowNonSpaced = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -8,7 +8,7 @@ const CenterBoxByRowNonSpaced: AnyStyledComponent = styled.div`
     align-items: center;
 `;
 
-const CenterBoxByRowSpaced: AnyStyledComponent = styled.div`
+const CenterBoxByRowSpaced = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@ const CenterBoxByRowSpaced: AnyStyledComponent = styled.div`
     align-items: center;
 `;
 
-const CenterBoxByColNonSpaced: AnyStyledComponent = styled.div`
+const CenterBoxByColNonSpaced = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -25,7 +25,7 @@ const CenterBoxByColNonSpaced: AnyStyledComponent = styled.div`
     align-items: center;
 `;
 
-const CenterBoxByColSpaced: AnyStyledComponent = styled.div`
+const CenterBoxByColSpaced = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -34,7 +34,7 @@ const CenterBoxByColSpaced: AnyStyledComponent = styled.div`
     align-items: center;
 `;
 
-const CenterLeftBoxByRow: AnyStyledComponent = styled.div`
+const CenterLeftBoxByRow = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -42,14 +42,24 @@ const CenterLeftBoxByRow: AnyStyledComponent = styled.div`
     align-items: center;
 `;
 
-export const GlobalStyled: Record<string, AnyStyledComponent> = {
-    CenterBoxByRowNonSpaced,
-    CenterBoxByRowSpaced,
-    CenterBoxByColNonSpaced,
-    CenterBoxByColSpaced,
-    CenterLeftBoxByRow,
-};
+const AutoWidthFullHeightNonMargin = styled.p`
+    width: auto;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
-export const GlobalConst: Record<string, string> = {
-    baseFont: "'Source Sans Pro', sans-serif",
+export const GlobalStyled = {
+    Box: {
+        CenterBoxByRowNonSpaced,
+        CenterBoxByRowSpaced,
+        CenterBoxByColNonSpaced,
+        CenterBoxByColSpaced,
+        CenterLeftBoxByRow,
+    },
+    Text: {
+        AutoWidthFullHeightNonMargin,
+    }
 };
