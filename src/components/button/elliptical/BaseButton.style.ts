@@ -8,5 +8,5 @@ export const StyledBaseButton = styled.button`
     font-size: 14px;
     outline: none;
     cursor: pointer;
-    transition: background-color, color, transform 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
 `;
