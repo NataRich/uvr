@@ -2,24 +2,20 @@ import React from 'react';
 
 import BaseButton from './BaseButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { ButtonAttributes } from './interface';
+import {
+    ButtonAttributes,
+    Partial,
+    GroupButtonAttributes
+} from './interface';
 
-type Partial = {
-    backgroundColor:        string;
-    defaultId?:             string;
-    defaultValue:           string;
-    fontColor:              string;
-    isLoading?:             boolean;
-    isSelected?:            boolean;
-};
-
-const ButtonGroup: React.FC<{attribute: Partial[], setAttribute: React.Dispatch<React.SetStateAction<Partial[]>>}> = ({
-    attribute,
-    setAttribute,
+const ButtonGroup: React.FC<GroupButtonAttributes> = ({
+    category,
+    attributes,
+    setAttributes,
 }) => {
     const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         let idOfElement: string = e.currentTarget.id;
-        setAttribute((prevState: Partial[]) => prevState.map(element => {
+        setAttributes((prevState: Partial[]) => prevState.map(element => {
             if (element.defaultId === idOfElement)
                 return {...element, isSelected: true};
             return {...element, isSelected: false};
@@ -27,9 +23,16 @@ const ButtonGroup: React.FC<{attribute: Partial[], setAttribute: React.Dispatch<
     };
 
     return (
-        <GlobalStyled.CenterLeftBoxByRow>
+        <GlobalStyled.Box.CenterLeftBoxByRow>
             {
-                attribute.map(btnAttr => {
+                category === undefined ? null:(
+                    <GlobalStyled.Text.AutoWidthFullHeightNonMargin>
+                        {category}:
+                    </GlobalStyled.Text.AutoWidthFullHeightNonMargin>
+                )
+            }
+            {
+                attributes.map(btnAttr => {
                     const props: ButtonAttributes = {
                         backgroundColor: btnAttr.backgroundColor,
                         defaultId: btnAttr.defaultId,
@@ -41,7 +44,7 @@ const ButtonGroup: React.FC<{attribute: Partial[], setAttribute: React.Dispatch<
                     return <BaseButton {...props} />
                 })
             }
-        </GlobalStyled.CenterLeftBoxByRow>
+        </GlobalStyled.Box.CenterLeftBoxByRow>
     );
 };
 
