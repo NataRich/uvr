@@ -32,13 +32,22 @@ const CenterBoxByColSpaced: AnyStyledComponent = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-`
+`;
+
+const CenterLeftBoxByRow: AnyStyledComponent = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+`;
 
 export const GlobalStyled: Record<string, AnyStyledComponent> = {
     CenterBoxByRowNonSpaced,
     CenterBoxByRowSpaced,
     CenterBoxByColNonSpaced,
     CenterBoxByColSpaced,
+    CenterLeftBoxByRow,
 };
 
 export const GlobalConst: Record<string, string> = {
