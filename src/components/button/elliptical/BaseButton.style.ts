@@ -5,6 +5,7 @@ export const StyledBaseButton = styled.button`
     height: 30px;
     border-radius: 50px;
     border: 1px solid;
+    margin: 0 5px 0 5px;
     font-size: 14px;
     outline: none;
     cursor: pointer;
