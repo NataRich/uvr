@@ -1,4 +1,4 @@
-import { UserClassType } from "./class";
+import { UserClassType } from './class';
 
 export interface CodeInterface {
     code: number;
