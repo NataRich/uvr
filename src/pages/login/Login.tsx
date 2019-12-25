@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
-import Form from '../../containers/login/Form';
+import Form from '../../containers/login/form/Form';
 
 const Login: React.FC = () => {
     return (

@@ -1,7 +1,7 @@
-import { UserGeneralAPI } from '../../global/user/request';
-import { APIMiddlewares } from '../../middlewares/API/APIMiddlewares';
-import { LabelEffectInputStyle } from '../../components/input/labelEffect/interface';
-import { RoundedButtonStyle } from '../../components/button/rounded/interface';
+import { UserGeneralAPI } from '../../../global/user/request';
+import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
+import { LabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
+import { RoundedButtonStyle } from '../../../components/button/rounded/interface';
 import {
     AccountConfirmation,
     LocalInputAttributes,

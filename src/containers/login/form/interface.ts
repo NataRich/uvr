@@ -2,15 +2,15 @@ import {
     EmailInterface,
     UsernameInterface,
     PasswordInterface,
-} from '../../global/user/interface';
+} from '../../../global/user/interface';
 import {
     LabelEffectInputProps,
     LabelEffectInputStyle,
-} from '../../components/input/labelEffect/interface';
+} from '../../../components/input/labelEffect/interface';
 import {
     RoundedButtonProps,
     RoundedButtonStyle,
-} from '../../components/button/rounded/interface';
+} from '../../../components/button/rounded/interface';
 
 export interface LocalInputAttributes {
     style: LabelEffectInputStyle,

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { GlobalStyled } from '../../global/style/Style.style';
-import Input from '../../components/input/labelEffect/Input';
-import Button from '../../components/button/rounded/RoundedButton';
+import { GlobalStyled } from '../../../global/style/Style.style';
+import Input from '../../../components/input/labelEffect/Input';
+import Button from '../../../components/button/rounded/RoundedButton';
 import {
     AccountConfirmation,
     LocalInputAttributes,
