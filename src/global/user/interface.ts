@@ -17,7 +17,7 @@ export interface PasswordInterface {
 }
 
 export interface StatusInterface {
-    status: string;
+    status: number;
 };
 
 export interface UsernameInterface {
@@ -145,5 +145,5 @@ export interface APILoginRequiredPostMethods {
 
 export interface UserAPIComplexPromiseReturn {
     user:   UserClassType | null,
-    status: string;
+    status: number;
 }

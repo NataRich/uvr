@@ -27,7 +27,7 @@ export interface OneVideoInterface {
 };
 
 export interface StatusInterface {
-    status: string;
+    status: number;
 };
 
 export interface TrackIdInterface {
@@ -192,5 +192,5 @@ export interface APILoginRequiredPostMethods {
 
 export interface VideoAPIComplexPromiseReturn {
     videos: VideoClassType | VideoClassType[] | null;
-    status: string;
+    status: number;
 };
