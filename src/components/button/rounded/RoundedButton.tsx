@@ -17,15 +17,8 @@ const RoundedButton: React.FC<RoundedButtonAttributes> = ({
     onClickHandler,
 }) => {
     return (
-        <StyledRoundedButton
-            onClick={onClickHandler}
-            style={{
-                width: width ? width:'200px',
-                height: height ? height:'40px',
-                borderRadius: borderRadius ? borderRadius:'10px',
-                backgroundColor,
-                color: fontColor,
-            }}>
+        <StyledRoundedButton {...{width, height, backgroundColor, borderRadius, fontColor}}
+            onClick={onClickHandler}>
             {defaultValue}
         </StyledRoundedButton>
     );
