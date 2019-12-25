@@ -4,13 +4,17 @@ import { StyledRoundedButton } from './RoundedButton.style';
 import { RoundedButtonAttributes } from './interface';
 
 const RoundedButton: React.FC<RoundedButtonAttributes> = ({
-    defaultValue,
+    style: {
+        width,
+        height,
+        backgroundColor,
+        borderRadius,
+        fontColor,
+    },
+    props: {
+        defaultValue,
+    },
     onClickHandler,
-    width,
-    height,
-    backgroundColor,
-    borderRadius,
-    fontColor,
 }) => {
     return (
         <StyledRoundedButton

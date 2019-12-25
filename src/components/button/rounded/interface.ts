@@ -1,6 +1,10 @@
 export interface RoundedButtonAttributes {
-    defaultValue:       string;
+    style: RoundedButtonStyle;
+    props: RoundedButtonProps;
     onClickHandler:     React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
+};
+
+export interface RoundedButtonStyle {
     width?:             string;
     height?:            string;
     borderRadius?:      string;
@@ -8,17 +12,12 @@ export interface RoundedButtonAttributes {
     fontColor:          string;
 };
 
-export interface Partial {
-    defaultValue:       string;
-    width?:             string;
-    height?:            string;
-    borderRadius?:      string;
-    backgroundColor:    string;
-    fontColor:          string;
+export interface RoundedButtonProps {
+    defaultValue: string;
 };
 
 export interface GroupButtonAttributes {
     category?:      string;
-    attributes:     Partial[];
-    onClickHandler:     React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
+    attributes:     Array<RoundedButtonStyle & RoundedButtonProps>;
+    onClickHandler: React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
 };

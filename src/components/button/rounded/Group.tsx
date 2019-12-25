@@ -24,13 +24,17 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
             {
                 attributes.map(attr => {
                     const props: RoundedButtonAttributes = {
-                        defaultValue: attr.defaultValue,
-                        onClickHandler,
-                        width: attr.width,
-                        height: attr.height,
-                        backgroundColor: attr.backgroundColor,
-                        fontColor: attr.fontColor,
-                        borderRadius: attr.borderRadius,
+                        style: {
+                            width: attr.width,
+                            height: attr.height,
+                            backgroundColor: attr.backgroundColor,
+                            fontColor: attr.fontColor,
+                            borderRadius: attr.borderRadius,
+                        },
+                        props: {
+                            defaultValue: attr.defaultValue,
+                        },
+                        onClickHandler,  
                     };
                     return <RoundedButton {...props} />
                 })
