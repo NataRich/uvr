@@ -5,7 +5,6 @@ import { VideoAPIComplexPromiseReturn } from '../../global/videos/interface';
 export class APIMiddlewares {
     getStatus = async (promise: Promise<StatusInterface>): Promise<StatusInterface> => {
         const status: number = (await promise).status;
-        console.log('in middleware', status)
         if (!status || status === 4444)
             throw 'Server Error';
         else
