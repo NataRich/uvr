@@ -156,11 +156,11 @@ export interface APIGeneralGetMethods {
 export interface APIGeneralPostMethods {
     /**
      * POST
-     * @public @function postFilterArgs return an array of Video class, to fetch all videos that satisfy the arguments
+     * @public @function postFilterArgs return an object, to fetch all videos that satisfy the arguments as well as the status
      * @public @function postVideoStats return status, to update some statistics of the video on a regular basis, as in 'likes', 'views'
      * 
      */
-    postFilterArgs: (payload: VideoFilterArgInterface)   => Promise<VideoClassType[] | null>;
+    postFilterArgs: (payload: VideoFilterArgInterface)   => Promise<VideoAPIComplexPromiseReturn>;
     postVideoStats: (payload: VideoStatsArgInterface)    => Promise<StatusInterface>;
 };
 
@@ -180,12 +180,17 @@ export interface APILoginRequiredPostMethods {
      * @public @function postVideoId        return status, to delete any information of the video of that id
      * @public @function postVideoFile      return status, to upload a video file
      * @public @function postVideoArgs      return status, to upload the information, as in 'title', 'description', etc..., of the just uploaded video file
-     * @public @function postFilterSelfArgs return an array of Video class, to fetch all the videos uploaded by that specific user
+     * @public @function postFilterSelfArgs return an object, to fetch all the videos uploaded by that specific user as well as the status
      * 
      */
     postTrackId:        (payload: TrackIdInterface)              => Promise<StatusInterface>;
     postVideoId:        (payload: VideoIdInterface)              => Promise<StatusInterface>;
     postVideoFile:      (payload: VideoInterface)                => Promise<StatusInterface>;
     postVideoArgs:      (payload: VideoInfoArgInterface)         => Promise<StatusInterface>;
-    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface)   => Promise<VideoClassType[] | null>;
-}
+    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface)   => Promise<VideoAPIComplexPromiseReturn>;
+};
+
+export interface VideoAPIComplexPromiseReturn {
+    videos: VideoClassType | VideoClassType[] | null;
+    status: string;
+};

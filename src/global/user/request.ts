@@ -1,6 +1,7 @@
 import { DOMAIN } from '../root/Root';
 import { User, UserClassType } from './class';
 import { APIUserParamInterface } from './interface';
+import { UserAPIComplexPromiseReturn } from './interface';
 import {
     CodeInterface,
     EmailInterface,
@@ -104,11 +105,11 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
         return await this.useGet(URL);
     };
-    public getUser = async (): Promise<UserClassType | null> => {
+    public getUser = async (): Promise<UserAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.USER_ENDPOINT;
         const response: UserInterface & StatusInterface = await this.useGetUser(URL);
         if(!response.user)
-            return null;
+            return { user: null, status: response.status};
         const user: APIUserParamInterface = {
             email:              response.user.email,
             identity:           response.user.identity,
@@ -120,30 +121,30 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
             thumbImageSource:   response.user.thumbImage,
             mediumImageSource:  response.user.mediumImage,
         };
-        return new User(user)
+        return { user: new User(user), status: response.status };
     };
 
-    public postCode = async (payload: CodeInterface, ): Promise<StatusInterface> => {
+    public postCode = async (payload: CodeInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.AUTH_CODE_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postEmail = async (payload: EmailInterface, ): Promise<StatusInterface> => {
+    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.FORGET_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postNewPassword = async (payload: PasswordInterface, ): Promise<StatusInterface> => {
+    public postNewPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CREATE_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postPassword = async (payload: PasswordInterface, ): Promise<StatusInterface> => {
+    public postPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VERIFY_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postUsernameAndEmail = async (payload: EmailInterface & UsernameInterface, ): Promise<StatusInterface> => {
+    public postUsernameAndEmail = async (payload: EmailInterface & UsernameInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.SIGNUP_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postUsernameOrEmail = async (payload: EmailInterface | UsernameInterface, ): Promise<StatusInterface> => {
+    public postUsernameOrEmail = async (payload: EmailInterface | UsernameInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.LOGIN_ENDPOINT;
         return await this.usePost(URL, payload);
     };
@@ -157,16 +158,16 @@ export class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGet
         const URL: string = DOMAIN + this.LOGOUT_ENDPOINT;
         return await this.useGet(URL);
     };
-    public getUsername = async (payload: UsernameInterface, ): Promise<StatusInterface> => {
+    public getUsername = async (payload: UsernameInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
         return await this.useGetArg(URL, payload);
     };
 
-    public postEmail = async (payload: EmailInterface, ): Promise<StatusInterface> => {
+    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postImage = async (payload: ImageInterface, ): Promise<StatusInterface> => {
+    public postImage = async (payload: ImageInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.CHANGE_IMAGE_ENDPOINT;
         return await this.usePostFormData(URL, payload.image);
     };

@@ -95,11 +95,11 @@ export interface APIGeneralGetMethods {
     /**
      * GET
      * @public @function getCode return status, to resend the authentication code to the email
-     * @public @function getUser return a User class, to fetch the properties of the user who has logged in
+     * @public @function getUser return an object, to fetch the properties of the user who has logged in as well as the status
      * 
      */
     getCode: () => Promise<StatusInterface>;
-    getUser: () => Promise<UserClassType | null>;
+    getUser: () => Promise<UserAPIComplexPromiseReturn>;
 };
 
 export interface APIGeneralPostMethods {
@@ -113,12 +113,12 @@ export interface APIGeneralPostMethods {
      * @public @function postUsernameAndEmail   return status, to sign up
      * 
      */
-    postCode:               (payload: CodeInterface, )                        => Promise<StatusInterface>;
-    postEmail:              (payload: EmailInterface, )                       => Promise<StatusInterface>;
-    postPassword:           (payload: PasswordInterface, )                    => Promise<StatusInterface>;
-    postNewPassword:        (payload: PasswordInterface, )                    => Promise<StatusInterface>;
-    postUsernameOrEmail:    (payload: EmailInterface | UsernameInterface, )   => Promise<StatusInterface>;
-    postUsernameAndEmail:   (payload: EmailInterface & UsernameInterface, )   => Promise<StatusInterface>;
+    postCode:               (payload: CodeInterface)                        => Promise<StatusInterface>;
+    postEmail:              (payload: EmailInterface)                       => Promise<StatusInterface>;
+    postPassword:           (payload: PasswordInterface)                    => Promise<StatusInterface>;
+    postNewPassword:        (payload: PasswordInterface)                    => Promise<StatusInterface>;
+    postUsernameOrEmail:    (payload: EmailInterface | UsernameInterface)   => Promise<StatusInterface>;
+    postUsernameAndEmail:   (payload: EmailInterface & UsernameInterface)   => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredGetMethods {
@@ -129,7 +129,7 @@ export interface APILoginRequiredGetMethods {
      * 
      */
     getClear:    ()                           => Promise<StatusInterface>;
-    getUsername: (payload: UsernameInterface, ) => Promise<StatusInterface>;
+    getUsername: (payload: UsernameInterface) => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredPostMethods {
@@ -139,6 +139,11 @@ export interface APILoginRequiredPostMethods {
      * @public @function postImage return status, to change the profile image
      * 
      */
-    postEmail: (payload: EmailInterface, ) => Promise<StatusInterface>;
-    postImage: (payload: ImageInterface, ) =>  Promise<StatusInterface>;
+    postEmail: (payload: EmailInterface) => Promise<StatusInterface>;
+    postImage: (payload: ImageInterface) => Promise<StatusInterface>;
 };
+
+export interface UserAPIComplexPromiseReturn {
+    user:   UserClassType | null,
+    status: string;
+}

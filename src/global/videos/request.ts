@@ -1,6 +1,7 @@
 import { DOMAIN } from '../root/Root';
 import { Video, VideoClassType } from './class';
 import { APIVideoParamInterface } from './interface';
+import { VideoAPIComplexPromiseReturn } from './interface';
 import {
     MultiVideoInterface,
     OneVideoInterface,
@@ -127,11 +128,11 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
         return new Video(video);
     };
 
-    public postFilterArgs = async (payload: VideoFilterArgInterface): Promise<VideoClassType[] | null> => {
+    public postFilterArgs = async (payload: VideoFilterArgInterface): Promise<VideoAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.VIDEOS_ENDPOINT;
         const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload);
         if (!response.videos)
-            return null;
+            return { videos: null, status: response.status };
         const videoClasses: VideoClassType[] = [];
         response.videos.forEach(video => {
             let item: APIVideoParamInterface = {
@@ -153,7 +154,7 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
             };
             videoClasses.push(new Video(item));
         });
-        return videoClasses;
+        return {videos: videoClasses, status: response.status};
     };
     public postVideoStats = async (payload: VideoStatsArgInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPDATE_STATS_ENDPOINT;
@@ -186,11 +187,11 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_INFO_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postFilterSelfArgs = async (payload: VideoFilterSelfArgInterface): Promise<VideoClassType[] | null> => {
+    public postFilterSelfArgs = async (payload: VideoFilterSelfArgInterface): Promise<VideoAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.VIDEOS_SELF_ALL_ENDPOINT;
         const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload);
         if (!response.videos)
-            return null;
+            return { videos: null, status: response.status };
         const videoClasses: VideoClassType[] = [];
         response.videos.forEach(video => {
             let item: APIVideoParamInterface = {
@@ -212,6 +213,6 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
             };
             videoClasses.push(new Video(item));
         });
-        return videoClasses;
+        return { videos: videoClasses, status: response.status };
     };
 };
