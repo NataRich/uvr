@@ -11,7 +11,7 @@ import {
     defaultAccountProps,
     defaultPasswordProps,
     defaultInputStyle,
-} from './FormLogic';
+} from './Logistics';
 
 import Button from '../../components/button/rounded/RoundedButton';
 import {
@@ -22,7 +22,7 @@ import {
     defaultConfirmButtonProps,
     defaultLogInButtonProps,
     defaultButtonStyle,
-} from './FormLogic';
+} from './Logistics';
 
 
 const Form: React.FC = () => {
