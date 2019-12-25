@@ -10,6 +10,7 @@ export interface RoundedButtonStyle {
     borderRadius:       number;
     backgroundColor:    string;
     fontColor:          string;
+    loadingBorderColor: string;
 };
 
 export interface RoundedButtonProps {
