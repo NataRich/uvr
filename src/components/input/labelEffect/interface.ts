@@ -9,8 +9,8 @@ export interface InputAttributes {
     props: {
         helperText?:        string;
         isRequired:         boolean;
-        onChangeHandler:    React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
         placeholder:        string;
         value:              string;
     },
+    onChangeHandler:    React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
 };

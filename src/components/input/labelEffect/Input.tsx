@@ -19,10 +19,10 @@ const Input: React.FC<InputAttributes> = ({
     props: {
         isRequired,
         helperText,
-        onChangeHandler,
         placeholder,
         value,
     },
+    onChangeHandler,
 }) => {
     const [ isFocused, setIsFocused ] = useState<boolean>(false);
     const toggleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
