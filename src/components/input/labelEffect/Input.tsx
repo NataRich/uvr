@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 
+import { InputAttributes } from './interface';
 import {
     StyledInputContainer,
     StyledInputBox,
     StyledInput,
     StyledHelperBox,
 } from './Input.style';
-import { InputAttributes } from './interface';
 
 const Input: React.FC<InputAttributes> = ({
-    fontSize,
-    isRequired,
-    helperText,
-    helperColor,
-    onChangeHandler,
-    placeholder,
-    value,
-    width,
-    borderColor,
-    borderRadius,
+    style: {
+        borderColor,
+        borderRadius,
+        fontSize,
+        helperColor,
+        width,
+    },
+    props: {
+        isRequired,
+        helperText,
+        onChangeHandler,
+        placeholder,
+        value,
+    },
 }) => {
     const [ isFocused, setIsFocused ] = useState<boolean>(false);
     const toggleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
