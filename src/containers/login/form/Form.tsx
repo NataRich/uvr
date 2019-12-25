@@ -52,8 +52,8 @@ const Form: React.FC = () => {
                             props: {...accountAttri.props, helperText: 'Argument interface failed to match.'}});
         else if (status === 3001)
             setAccountAttri({...accountAttri, 
-                style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
-                props: {...accountAttri.props, helperText: 'The account does not exist.'}});
+                            style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
+                            props: {...accountAttri.props, helperText: 'The account does not exist.'}});
         else if (status === 2000) {
             setAccountAttri({...accountAttri,
                             style: {...accountAttri.style, borderColor: '#149E9A'},
