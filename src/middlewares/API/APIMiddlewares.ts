@@ -1,36 +1,29 @@
 import { StatusInterface } from '../../global/user/interface';
 import { UserAPIComplexPromiseReturn } from '../../global/user/interface';
-import { UserClassType } from '../../global/user/class';
 import { VideoAPIComplexPromiseReturn } from '../../global/videos/interface';
-import { VideoClassType } from '../../global/videos/class';
 
 export class APIMiddlewares {
-    getStatus = (promise: Promise<StatusInterface>): string => {
-        var status: string | undefined = undefined;
-        promise.then(res => status = res.status);
+    getStatus = async (promise: Promise<StatusInterface>): Promise<StatusInterface> => {
+        const status: string = (await promise).status;
         if (!status || status === '4444')
             throw 'Server Error';
         else
-            return status
+            return { status }
     };
 
-    getUser = (promise: Promise<UserAPIComplexPromiseReturn>): UserAPIComplexPromiseReturn => {
-        var user: UserClassType | null = null;
-        var status: string | undefined = undefined;
-        promise.then(res => {user = res.user; status = res.status});
-        if (!status || status === '4444')
+    getUser = async (promise: Promise<UserAPIComplexPromiseReturn>): Promise<UserAPIComplexPromiseReturn> => {
+        let obj: UserAPIComplexPromiseReturn = await promise;
+        if (!obj.status || obj.status === '4444')
             throw 'Server Error';
         else
-            return { user, status };
+            return { user: obj.user, status: obj.status };
     };
 
-    getVideos = (promise: Promise<VideoAPIComplexPromiseReturn>): VideoAPIComplexPromiseReturn => {
-        var videos: VideoClassType | VideoClassType[] | null = null;
-        var status: string | undefined = undefined;
-        promise.then(res => {videos = res.videos; status = res.status});
-        if (!status || status === '4444')
+    getVideos = async (promise: Promise<VideoAPIComplexPromiseReturn>): Promise<VideoAPIComplexPromiseReturn> => {
+        let obj: VideoAPIComplexPromiseReturn = await promise;
+        if (!obj.status || obj.status === '4444')
             throw 'Server Error';
         else
-            return { videos, status };
+            return { videos: obj.videos, status: obj.status };
     };
 };
