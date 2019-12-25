@@ -27,7 +27,8 @@ export const StyledRoundedButton = styled.button<RoundedButtonStyle & {isLoading
     border-color: ${props => props.isLoading ? props.backgroundColor: ''};
     border-right-color: ${props => props.isLoading ? '#149E9A':''};
     font-size: 14px;
-    cursor: pointer;
+    cursor: ${props => props.isLoading ? 'none':'pointer'};
+    pointer-events: ${props => props.isLoading ? 'none': 'auto'};
     transition: width 300ms 0ms ease-in-out;
     ${props => props.isLoading ? animationMixin:'animation: none'};
 `;
