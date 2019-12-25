@@ -1,10 +1,10 @@
 export interface InputAttributes {
-    style: labelEffectInputStyle;
-    props: labelEffectInputProps;
+    style: LabelEffectInputStyle;
+    props: LabelEffectInputProps;
     onChangeHandler: React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
 };
 
-export interface labelEffectInputStyle {
+export interface LabelEffectInputStyle {
     borderColor:        string;
     borderRadius:       number;
     fontSize:           number;
@@ -12,7 +12,7 @@ export interface labelEffectInputStyle {
     width:              number;
 };
 
-export interface labelEffectInputProps {
+export interface LabelEffectInputProps {
     helperText?:        string;
     isRequired:         boolean;
     placeholder:        string;
