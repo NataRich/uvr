@@ -16,5 +16,6 @@ export interface LabelEffectInputProps {
     helperText?:        string;
     isRequired:         boolean;
     placeholder:        string;
+    type:               'password' | 'text';
     value:              string;
 };

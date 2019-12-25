@@ -19,10 +19,11 @@ const Input: React.FC<InputAttributes> = ({
     },
     props: {
         image,
-        onChangeHandler,
         placeholder,
+        type,
         value,
     },
+    onChangeHandler,
 }) => {
     return (
         <StyledInputContainer {...{hasBorder, borderColor, borderRadius, inputWidth, imgWidth}}>
@@ -32,6 +33,7 @@ const Input: React.FC<InputAttributes> = ({
             <StyledBox>
                 <StyledInput {...{inputWidth, imgWidth, fontSize, hasBorder, borderColor}}
                     placeholder={placeholder}
+                    type={type}
                     onChange={onChangeHandler}
                     onFocus={e => e.currentTarget.placeholder=''}
                     onBlur={e => e.currentTarget.placeholder=placeholder}

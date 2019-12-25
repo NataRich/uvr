@@ -20,6 +20,7 @@ const Input: React.FC<InputAttributes> = ({
         isRequired,
         helperText,
         placeholder,
+        type,
         value,
     },
     onChangeHandler,
@@ -33,6 +34,7 @@ const Input: React.FC<InputAttributes> = ({
         <StyledInputContainer>
             <StyledInputBox {...{fontSize, placeholder, borderRadius, width, borderColor, isFocused}}>
                 <StyledInput {...{fontSize}}
+                type={type}
                 onChange={onChangeHandler}
                 onFocus={toggleFocus}
                 onBlur={toggleFocus}
