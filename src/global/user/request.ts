@@ -1,5 +1,5 @@
 import { DOMAIN } from '../root/Root';
-import { User, UserClassType } from './class';
+import { User } from './class';
 import { APIUserParamInterface } from './interface';
 import { UserAPIComplexPromiseReturn } from './interface';
 import {
