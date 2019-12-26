@@ -63,6 +63,7 @@ const defaultButtonStyle: RoundedButtonStyle = {
     height: 40,
     borderColor: 'transparent',
     borderRadius: 5,
+    borderWidth: 5,
     backgroundColor: '#1C3144',
     fontColor: '#FFF',
     fontSize: 16,
