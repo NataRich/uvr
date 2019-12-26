@@ -61,6 +61,7 @@ const defaultPassword: PasswordConfirmation = {
 const defaultButtonStyle: RoundedButtonStyle = {
     width: 200,
     height: 40,
+    borderColor: 'transparent',
     borderRadius: 5,
     backgroundColor: '#1C3144',
     fontColor: '#FFF',
