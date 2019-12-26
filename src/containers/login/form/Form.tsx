@@ -65,11 +65,7 @@ const Form: React.FC = () => {
         let status: number = (await Middleware.getStatus(API.postUsernameOrEmail(account.account))).status;
         setConfirmButtonAttri({...confirmButtonAttri, 
                             props: {...confirmButtonAttri.props, isLoading: false}});
-        if (status === 3008)
-            setAccountAttri({...accountAttri, 
-                            style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
-                            props: {...accountAttri.props, helperText: 'Argument interface failed to match.'}});
-        else if (status === 3001)
+        if (status === 3001)
             setAccountAttri({...accountAttri, 
                             style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
                             props: {...accountAttri.props, helperText: 'The account does not exist.'}});
