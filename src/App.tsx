@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Login from './pages/login/Login';
+import Signup from './pages/signup/Signup';
 import Home from './pages/home/Home';
 
 const App: React.FC = () => {
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <Router>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
+        <Route path='/signpu' component={Signup} />
       </Router>
     </div>
   );
