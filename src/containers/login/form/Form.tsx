@@ -94,7 +94,7 @@ const Form: React.FC = () => {
         setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, isLoading: false}});
         if (status === 2000) {
             setPasswordAttri({...passwordAttri,
-                            style: {...passwordAttri.style, borderColor: '#149E9A'},
+                            style: {...passwordAttri.style, borderColor: '#149E9A'},    // barely observable
                             props: {...passwordAttri.props, helperText: 'Confirmed.'}});
             setPassword({...password, isConfirmed: true});
         } else if (status === 3005)
