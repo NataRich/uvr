@@ -42,24 +42,6 @@ const CenterLeftBoxByRow = styled.div`
     align-items: center;
 `;
 
-const CenterLeftBoxByCol = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-`;
-
-const CenterRightBoxByCol = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-`;
-
 const AutoWidthFullHeightNonMargin = styled.p`
     width: auto;
     height: 100%;
@@ -85,8 +67,6 @@ export const GlobalStyled = {
         CenterBoxByColNonSpaced,
         CenterBoxByColSpaced,
         CenterLeftBoxByRow,
-        CenterLeftBoxByCol,
-        CenterRightBoxByCol,
     },
     Text: {
         AutoWidthFullHeightNonMargin,
