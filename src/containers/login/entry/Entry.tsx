@@ -10,7 +10,7 @@ import { LocalButtonAttributes } from './interface';
 import { StyledTextBox } from './Entry.style';
 
 const Entry: React.FC = () => {
-    const [ buttonAttri, setButtonAttri ] = useState<LocalButtonAttributes>(defaultButtonAttributes);
+    const [ buttonAttri ] = useState<LocalButtonAttributes>(defaultButtonAttributes);
     const onClickHandler = () => window.location.href = '/signup';
     return (
         <>
