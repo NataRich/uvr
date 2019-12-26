@@ -23,7 +23,7 @@ const StyledInputContainer = styled.div`
     width: auto;
     height: auto;
     border:none;
-    padding: 5% 0 5% 0;
+    padding: 10px 0 10px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
