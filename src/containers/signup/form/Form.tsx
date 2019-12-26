@@ -30,7 +30,7 @@ const Form: React.FC = () => {
     const onChangeUsernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value.match(/^[a-z\d]{5,12}$/)) {
-            setUsernameAttri({...usernameAttri, props: {...usernameAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setUsernameAttri({...defaultUsernameAttributes, props: {...usernameAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setAccount({...account, account: {...account.account, username: value}});
         } else if (value === '') {
             setUsernameAttri({...defaultUsernameAttributes});
@@ -45,7 +45,7 @@ const Form: React.FC = () => {
     const onChangeEmailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value.match(/^([a-z\d]+)@([a-z\d]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/)) {
-            setEmailAttri({...emailAttri, props: {...emailAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setEmailAttri({...defaultEmailAttributes, props: {...emailAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setAccount({...account, account: {...account.account, email: value}});
         } else if (value === '') {
             setEmailAttri({...defaultEmailAttributes});
@@ -60,7 +60,7 @@ const Form: React.FC = () => {
     const onChangePasswordOneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value.match(/^[a-z\d]{8,}$/))
-            setPasswordOneAttri({...passwordOneAttri, props: {...passwordOneAttri.props, value, isRequired: false, helperText: 'Okay.'}})
+            setPasswordOneAttri({...defaultPasswordOneAttributes, props: {...passwordOneAttri.props, value, isRequired: false, helperText: 'Okay.'}})
         else if (value === '')
             setPasswordOneAttri({...defaultPasswordOneAttributes});
         else
@@ -71,7 +71,7 @@ const Form: React.FC = () => {
     const onChangePasswordTwoHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value === passwordOneAttri.props.value) {
-            setPasswordTwoAttri({...passwordTwoAttri, props: {...passwordTwoAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setPasswordTwoAttri({...defaultPasswordTwoAttributes, props: {...passwordTwoAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setAccount({...account, password: {password: value}});
         } else if (value === '') {
             setPasswordTwoAttri({...defaultPasswordTwoAttributes});
@@ -91,29 +91,34 @@ const Form: React.FC = () => {
             setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: true}});
             let accountStatus: number = (await Middleware.getStatus(API.postUsernameAndEmail(account.account))).status;
             if (accountStatus === 2000) {
-                setAccount({...account, isOkay: {...account.isOkay, account: true}});
+                setAccount({...account, isOkay: {...account.isOkay, account: true}});   // account.isOkay.account is currently useless.
+                setEmailAttri({...emailAttri, style: {...emailAttri.style, borderColor: '#149E9A'}});
+                setUsernameAttri({...usernameAttri, style: {...usernameAttri.style, borderColor: '#149E9A'}});
                 let passwordStatus: number = (await Middleware.getStatus(API.postNewPassword(account.password))).status;
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
-                if (passwordStatus === 2000)
+                if (passwordStatus === 2000) {
                     setAccount({...account, isOkay: {...account.isOkay, password: true}});
-                else if (passwordStatus === 3005) {
+                    setPasswordOneAttri({...passwordOneAttri, style: {...passwordOneAttri.style, borderColor: '#149E9A'}});
+                    setPasswordTwoAttri({...passwordTwoAttri, style: {...passwordTwoAttri.style, borderColor: '#149E9A'}});
+                } else if (passwordStatus === 3005) {
                     setAccount({...account, account: defaultAccount.account});
-                    setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
-                                    props: {...usernameAttri.props, helperText: 'Timeout. Please re-enter the username.'}});
                     setEmailAttri({style: {...emailAttri.style, borderColor: 'red', helperColor: 'red'},
                                 props: {...emailAttri.props, helperText: 'Timeout. Please re-enter the email address.'}});
+                    setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
+                                    props: {...usernameAttri.props, helperText: 'Timeout. Please re-enter the username.'}});
                 } else
                     throw 'Unknown Error.';
             } else if (accountStatus === 3002) {
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
                 setAccount({...account, account: defaultAccount.account});
-                setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
-                                props: {...usernameAttri.props, helperText: 'The username has been registered.'}});
                 setEmailAttri({style: {...emailAttri.style, borderColor: 'red', helperColor: 'red'},
                             props: {...emailAttri.props, helperText: 'The email address has been bound to an existing account.'}});
+                setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
+                                props: {...usernameAttri.props, helperText: 'The username has been registered.'}});
             } else if (accountStatus === 3003) {
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
                 setAccount({...account, account: {...account.account, username: defaultAccount.account.username}});
+                setEmailAttri({...emailAttri, style: {...emailAttri.style, borderColor: '#149E9A'}});
                 setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
                                 props: {...usernameAttri.props, helperText: 'The username has been registered.'}});
             } else if (accountStatus === 3004) {
@@ -121,6 +126,7 @@ const Form: React.FC = () => {
                 setAccount({...account, account: {...account.account, email: defaultAccount.account.email}});
                 setEmailAttri({style: {...emailAttri.style, borderColor: 'red', helperColor: 'red'},
                             props: {...emailAttri.props, helperText: 'The email address has been bound to an existing account.'}});
+                setUsernameAttri({...usernameAttri, style: {...usernameAttri.style, borderColor: '#149E9A'}});
             } else
                 throw 'Unknown Error';
         } else {
