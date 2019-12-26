@@ -2,6 +2,7 @@ import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
 import Entry from '../../containers/signup/entry/Entry';
+import Form from '../../containers/signup/form/Form';
 
 const Signup: React.FC = () => {
     return (
@@ -10,7 +11,7 @@ const Signup: React.FC = () => {
                 <Entry />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Box.CenterBoxByColNonSpaced >
-                {/* Signup form */}
+                <Form />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
         </GlobalStyled.Box.CenterBoxByRowNonSpaced>
     );
