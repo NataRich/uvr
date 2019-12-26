@@ -23,7 +23,7 @@ const defaultInputStyle: LabelEffectInputStyle = {
 const defaultAccountAttributes: LocalInputAttributes = {
     style: defaultInputStyle,
     props: {
-        helperText: 'Enter your username or email address.',
+        helperText: 'Enter maximum 12-character username or your email address.',
         isRequired: true,
         placeholder: 'Account',
         type: 'text',
@@ -71,6 +71,7 @@ const defaultConfirmButtonAttri: LocalButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Confirm',
+        disabled: true,
         isLoading: false,
     },
 };
@@ -79,6 +80,7 @@ const defaultLogInButtonAttri: LocalButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Log In',
+        disabled: true,
         isLoading: false,
     },
 };
