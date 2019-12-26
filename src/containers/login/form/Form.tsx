@@ -52,7 +52,7 @@ const Form: React.FC = () => {
         } else {
             setAccountAttri({...defaultAccountAttributes,
                             style: {...defaultAccountAttributes.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultAccountAttributes.props, value: value, helperText: 'At least 5 characters. Do not enter illegal characters or illegal forms of email address.'}});
+                            props: {...defaultAccountAttributes.props, value: value, helperText: '5-12 character username only. Do not enter illegal characters or illegal forms of email address.'}});
             setConfirmButtonAttri({...defaultConfirmButtonAttri});
             setAccount({...defaultAccount});
         };
