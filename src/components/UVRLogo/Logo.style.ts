@@ -141,6 +141,9 @@ export const StyledBox = styled.div<{position: 'LHS' | 'RHS'}>`
     div {
         overflow: hidden;
     }
+    .logo-container {
+        cursor: pointer;
+    }
     .text1 {
         ${props => props.position === 'LHS' ? text1GoRightA:text1GoLeftA};
     };
