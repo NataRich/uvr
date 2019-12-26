@@ -29,7 +29,6 @@ export const StyledRoundedButton = styled.button<RoundedButtonStyle & {isLoading
     font-size: ${props => props.fontSize}px;
     cursor: ${props => props.isLoading || props.disabled ? 'none':'pointer'};
     pointer-events: ${props => props.isLoading || props.disabled ? 'none': 'auto'};
-    filter: ${props => props.isLoading || props.disabled ? 'brightness(90%)':'none'};
     transition: width 300ms 0ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out;
     ${props => props.isLoading ? animationMixin:'animation: none'};
     :hover {
