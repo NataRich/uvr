@@ -34,6 +34,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
                         },
                         props: {
                             defaultValue: attr.defaultValue,
+                            disabled: attr.disabled,
                             isLoading: attr.isLoading,
                         },
                         onClickHandler,  

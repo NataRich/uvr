@@ -15,6 +15,7 @@ export interface RoundedButtonStyle {
 
 export interface RoundedButtonProps {
     defaultValue:   string;
+    disabled:       boolean;
     isLoading:      boolean;
 };
 
