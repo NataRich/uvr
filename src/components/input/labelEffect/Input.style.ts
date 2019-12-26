@@ -46,7 +46,7 @@ const StyledInputBox = styled.div<BoxStyleProps>`
         transition: all 200ms ease-in-out;
         left: ${props => props.isFocused ? '0':'5%'};
         transform: ${props => props.isFocused ? 'translateY(calc(-110% - 10px))':''};
-        z-index: 1;
+        z-index: -1;
         color: ${props => props.isFocused ? props.borderColor:'#D3D3D3'};
         font-size: ${props => props.isFocused ? props.fontSize - 2:props.fontSize - 1}px; 
     };
@@ -55,6 +55,7 @@ const StyledInputBox = styled.div<BoxStyleProps>`
 const StyledInput = styled.input<InputStyleProps>`
     width: 95%;
     font-size: ${props => props.fontSize}px;
+    background-color: transparent;
     outline: none;
     border: none;
     padding: 10px 0 10px 0;
