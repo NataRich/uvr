@@ -23,14 +23,14 @@ export const StyledRoundedButton = styled.button<RoundedButtonStyle & {isLoading
     background-color: ${props => props.isLoading ? '#FFF':props.backgroundColor};
     color: ${props => props.isLoading ? 'transparent':props.fontColor};
     outline: none;
-    border: 5px solid;
+    border: ${props => props.borderWidth}px solid;
     border-color: ${props => props.isLoading ? props.backgroundColor:props.borderColor};
     border-right-color: ${props => props.isLoading ? props.loadingBorderColor:''};
     font-size: ${props => props.fontSize}px;
     cursor: ${props => props.isLoading || props.disabled ? 'none':'pointer'};
     pointer-events: ${props => props.isLoading || props.disabled ? 'none': 'auto'};
     filter: ${props => props.isLoading || props.disabled ? 'brightness(90%)':'none'};
-    transition: width 300ms 0ms ease-in-out, color 300ms ease-in-out, background-color 300ms ease-in-out;
+    transition: width 300ms 0ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out;
     ${props => props.isLoading ? animationMixin:'animation: none'};
     :hover {
         color: ${props => props.invertColorH ? props.backgroundColor:props.fontColor};
