@@ -2,6 +2,7 @@ import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
 import Form from '../../containers/login/form/Form';
+import Entry from '../../containers/login/entry/Entry';
 
 const Login: React.FC = () => {
     return (
@@ -9,8 +10,8 @@ const Login: React.FC = () => {
             <GlobalStyled.Box.CenterBoxByColNonSpaced>
                 <Form />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
-            <GlobalStyled.Box.CenterBoxByColNonSpaced>
-                {/* Sign Up entry + absolutely positioned logo on top right corner */}
+            <GlobalStyled.Box.CenterBoxByColNonSpaced style={{backgroundColor: '#149E9A'}}>
+                <Entry />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
         </GlobalStyled.Box.CenterBoxByRowNonSpaced>
     );
