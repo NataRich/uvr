@@ -39,7 +39,7 @@ const Form: React.FC = () => {
             setConfirmButtonAttri({...defaultConfirmButtonAttri,
                                 props: {...defaultConfirmButtonAttri.props, disabled: false}});
             setAccount({...defaultAccount, account: {username: value}});
-        } else if (value.match(/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})$/)) {
+        } else if (value.match(/^([a-z\d]+)@([a-z\d]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/)) {
             setAccountAttri({...defaultAccountAttributes, 
                             props: {...defaultAccountAttributes.props, value: value, helperText: 'Okay.'}});
             setConfirmButtonAttri({...defaultConfirmButtonAttri,
@@ -52,7 +52,7 @@ const Form: React.FC = () => {
         } else {
             setAccountAttri({...defaultAccountAttributes,
                             style: {...defaultAccountAttributes.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultAccountAttributes.props, value: value, helperText: 'At least 5 characters. Do not enter illegal characters.'}});
+                            props: {...defaultAccountAttributes.props, value: value, helperText: 'At least 5 characters. Do not enter illegal characters or illegal forms of email address.'}});
             setConfirmButtonAttri({...defaultConfirmButtonAttri});
             setAccount({...defaultAccount});
         };
