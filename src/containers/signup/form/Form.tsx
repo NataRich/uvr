@@ -98,8 +98,8 @@ const Form: React.FC = () => {
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
                 if (passwordStatus === 2000) {
                     setAccount({...account, isOkay: {...account.isOkay, password: true}});
-                    setPasswordOneAttri({...passwordOneAttri, style: {...passwordOneAttri.style, borderColor: '#149E9A'}});
-                    setPasswordTwoAttri({...passwordTwoAttri, style: {...passwordTwoAttri.style, borderColor: '#149E9A'}});
+                    setPasswordOneAttri({...passwordOneAttri, style: {...passwordOneAttri.style, borderColor: '#149E9A'}}); // barely observable
+                    setPasswordTwoAttri({...passwordTwoAttri, style: {...passwordTwoAttri.style, borderColor: '#149E9A'}}); // barely observable
                 } else if (passwordStatus === 3005) {
                     setAccount({...account, account: defaultAccount.account});
                     setEmailAttri({style: {...emailAttri.style, borderColor: 'red', helperColor: 'red'},
