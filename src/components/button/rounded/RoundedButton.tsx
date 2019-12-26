@@ -11,6 +11,7 @@ const RoundedButton: React.FC<RoundedButtonAttributes> = ({
         borderRadius,
         fontColor,
         fontSize,
+        invertColorH,
         loadingBorderColor,
     },
     props: {
@@ -21,7 +22,10 @@ const RoundedButton: React.FC<RoundedButtonAttributes> = ({
     onClickHandler,
 }) => {
     return (
-        <StyledRoundedButton {...{width, height, backgroundColor, borderRadius, fontColor, isLoading, loadingBorderColor, disabled, fontSize}}
+        <StyledRoundedButton {...{width, height, backgroundColor, 
+                                borderRadius, fontColor, isLoading, 
+                                loadingBorderColor, disabled, fontSize,
+                                invertColorH}}
             disabled={disabled}
             onClick={onClickHandler}>
             {defaultValue}

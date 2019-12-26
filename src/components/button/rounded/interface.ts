@@ -11,6 +11,7 @@ export interface RoundedButtonStyle {
     backgroundColor:    string;
     fontColor:          string;
     fontSize:           number;
+    invertColorH:       boolean;
     loadingBorderColor: string;
 };
 

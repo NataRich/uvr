@@ -31,6 +31,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
                             loadingBorderColor: attr.loadingBorderColor,
                             fontColor: attr.fontColor,
                             fontSize: attr.fontSize,
+                            invertColorH: attr.invertColorH,
                             borderRadius: attr.borderRadius,
                         },
                         props: {
