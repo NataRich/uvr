@@ -24,7 +24,7 @@ export const StyledRoundedButton = styled.button<RoundedButtonStyle & {isLoading
     color: ${props => props.isLoading ? 'transparent':props.fontColor};
     outline: none;
     border: 5px solid;
-    border-color: ${props => props.isLoading ? props.backgroundColor: 'transparent'};
+    border-color: ${props => props.isLoading ? props.backgroundColor:props.borderColor};
     border-right-color: ${props => props.isLoading ? props.loadingBorderColor:''};
     font-size: ${props => props.fontSize}px;
     cursor: ${props => props.isLoading || props.disabled ? 'none':'pointer'};

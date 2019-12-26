@@ -7,6 +7,7 @@ export interface RoundedButtonAttributes {
 export interface RoundedButtonStyle {
     width:              number;
     height:             number;
+    borderColor:        string;
     borderRadius:       number;
     backgroundColor:    string;
     fontColor:          string;
