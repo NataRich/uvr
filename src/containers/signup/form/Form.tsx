@@ -172,23 +172,21 @@ const Form: React.FC = () => {
                     Start your VR experience!
                 </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
             </StyledTextBox>
-            <GlobalStyled.Box.CenterBoxByColNonSpaced>
-                <Input {...{style: usernameAttri.style,
-                            props: usernameAttri.props,
-                            onChangeHandler: onChangeUsernameHandler}} />
-                <Input {...{style: emailAttri.style,
-                            props: emailAttri.props,
-                            onChangeHandler: onChangeEmailHandler}} />
-                <Input {...{style: passwordOneAttri.style,
-                                        props: passwordOneAttri.props,
-                                        onChangeHandler: onChangePasswordOneHandler}} />
-                <Input {...{style: passwordTwoAttri.style,
-                            props: passwordTwoAttri.props,
-                            onChangeHandler: onChangePasswordTwoHandler}} />
-                <Button {...{style: createBtnAttri.style,
-                            props: createBtnAttri.props,
-                            onClickHandler: onClickCreateHandler}} />
-            </GlobalStyled.Box.CenterBoxByColNonSpaced>
+            <Input {...{style: usernameAttri.style,
+                        props: usernameAttri.props,
+                        onChangeHandler: onChangeUsernameHandler}} />
+            <Input {...{style: emailAttri.style,
+                        props: emailAttri.props,
+                        onChangeHandler: onChangeEmailHandler}} />
+            <Input {...{style: passwordOneAttri.style,
+                                    props: passwordOneAttri.props,
+                                    onChangeHandler: onChangePasswordOneHandler}} />
+            <Input {...{style: passwordTwoAttri.style,
+                        props: passwordTwoAttri.props,
+                        onChangeHandler: onChangePasswordTwoHandler}} />
+            <Button {...{style: createBtnAttri.style,
+                        props: createBtnAttri.props,
+                        onClickHandler: onClickCreateHandler}} />
         </>
     );
 };
