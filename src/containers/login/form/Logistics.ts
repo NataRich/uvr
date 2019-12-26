@@ -15,7 +15,7 @@ export const Middleware = new APIMiddlewares();
 const defaultInputStyle: LabelEffectInputStyle = {
     borderColor: '#18626B',
     borderRadius: 5,
-    fontSize: 16,
+    fontSize: 18,
     helperColor: undefined,
     width: 250,
 };
@@ -66,7 +66,7 @@ const defaultButtonStyle: RoundedButtonStyle = {
     borderWidth: 5,
     backgroundColor: '#1C3144',
     fontColor: '#FFF',
-    fontSize: 16,
+    fontSize: 18,
     invertColorH: false,
     loadingBorderColor: '#18626B',
 };

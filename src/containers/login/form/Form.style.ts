@@ -27,10 +27,10 @@ export const StyledTextBox = styled.div`
     padding: 5px 0 5px 0;
     p:nth-of-type(1) {
         font-weight: bold;
-        font-size: 24px;
+        font-size: 28px;
         margin-bottom: 10px;
     };
     p:nth-of-type(2) {
-        font-size: 15px;
+        font-size: 17px;
     };
 `;

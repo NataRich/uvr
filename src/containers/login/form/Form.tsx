@@ -139,14 +139,14 @@ const Form: React.FC = () => {
     return (
         <>
             <div>
-                <p style={{fontSize: '24px'}}>Log In</p>
+                <p style={{fontSize: '30px'}}>Log In</p>
             </div>
             <StyledTextBox>
                 <GlobalStyled.Text.FullWidthAutoHeightNonMargin>
                     Welcome Back
                 </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
                 <GlobalStyled.Text.FullWidthAutoHeightNonMargin>
-                    Enjoy the VR experience!
+                    Enjoy our VR experience!
                 </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
             </StyledTextBox>
             <div>
