@@ -34,25 +34,20 @@ const Form: React.FC = () => {
     const onChangeAccountHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value.match(/^[a-z\d]{5,12}$/)) {
-            setAccountAttri({...defaultAccountAttributes, 
-                            props: {...defaultAccountAttributes.props, value: value, helperText: 'Okay.'}});
-            setConfirmButtonAttri({...defaultConfirmButtonAttri,
-                                props: {...defaultConfirmButtonAttri.props, disabled: false}});
+            setAccountAttri({...defaultAccountAttributes, props: {...accountAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, disabled: false}});
             setAccount({...defaultAccount, account: {username: value}});
         } else if (value.match(/^([a-z\d]+)@([a-z\d]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/)) {
-            setAccountAttri({...defaultAccountAttributes, 
-                            props: {...defaultAccountAttributes.props, value: value, helperText: 'Okay.'}});
-            setConfirmButtonAttri({...defaultConfirmButtonAttri,
-                                props: {...defaultConfirmButtonAttri.props, disabled: false}});
+            setAccountAttri({...defaultAccountAttributes, props: {...accountAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, disabled: false}});
             setAccount({...defaultAccount, account: {email: value}});
         } else if (value === '') {
             setAccountAttri({...defaultAccountAttributes});
             setConfirmButtonAttri({...defaultConfirmButtonAttri});
             setAccount({...defaultAccount});
         } else {
-            setAccountAttri({...defaultAccountAttributes,
-                            style: {...defaultAccountAttributes.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultAccountAttributes.props, value: value, helperText: '5-12 character username only. Do not enter illegal characters or illegal forms of email address.'}});
+            setAccountAttri({style: {...accountAttri.style, borderColor: 'red', helperColor: 'red'},
+                            props: {...defaultAccountAttributes.props, value, helperText: '5-12 character username only. Do not enter illegal characters or illegal forms of email address.'}});
             setConfirmButtonAttri({...defaultConfirmButtonAttri});
             setAccount({...defaultAccount});
         };
@@ -60,40 +55,33 @@ const Form: React.FC = () => {
 
     const onClickConfirmHandler = async () => {
         // Confirm if the account exists
-        setConfirmButtonAttri({...confirmButtonAttri, 
-                            props: {...confirmButtonAttri.props, isLoading: true}});
+        setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, isLoading: true}});
         let status: number = (await Middleware.getStatus(API.postUsernameOrEmail(account.account))).status;
-        setConfirmButtonAttri({...confirmButtonAttri, 
-                            props: {...confirmButtonAttri.props, isLoading: false}});
-        if (status === 3001)
-            setAccountAttri({...accountAttri, 
-                            style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
-                            props: {...accountAttri.props, helperText: 'The account does not exist.'}});
-        else if (status === 2000) {
-            setAccountAttri({...accountAttri,
-                            style: {...accountAttri.style, borderColor: '#149E9A'},
+        setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, isLoading: false}});
+        if (status === 2000) {
+            setAccountAttri({style: {...accountAttri.style, borderColor: '#149E9A'},
                             props: {...accountAttri.props, helperText: 'Confirmed.'}});
             setAccount({...account, isConfirmed: true})
-        } else
+        } else if (status === 3001)
+            setAccountAttri({style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
+                            props: {...accountAttri.props, helperText: 'The account does not exist.'}});
+        else
             throw 'Unknown Error';
     };
 
     const onChangePasswordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
         if (value.match(/^[a-z\d]{8,}$/)) {
-            setPasswordAttri({...defaultPasswordAttributes, 
-                            props: {...defaultPasswordAttributes.props, value: value, helperText: 'Okay.'}});
-            setLoginButtonAttri({...defaultLogInButtonAttri,
-                                props: {...defaultLogInButtonAttri.props, disabled: false}});
+            setPasswordAttri({...defaultPasswordAttributes, props: {...passwordAttri.props, value, isRequired: false, helperText: 'Okay.'}});
+            setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, disabled: false}});
             setPassword({...defaultPassword, password: {password: value}});
         } else if (value === '') {
             setPasswordAttri({...defaultPasswordAttributes});
             setLoginButtonAttri({...defaultLogInButtonAttri});
             setPassword({...defaultPassword});
         } else {
-            setPasswordAttri({...defaultPasswordAttributes,
-                            style: {...defaultPasswordAttributes.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultPasswordAttributes.props, value: value, helperText: 'At least 8 characters. Do not enter illegal characters.'}});
+            setPasswordAttri({style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
+                            props: {...defaultPasswordAttributes.props, value, helperText: 'At least 8 characters. Do not enter illegal characters.'}});
             setLoginButtonAttri({...defaultLogInButtonAttri});
             setPassword({...defaultPassword});
         };
@@ -101,36 +89,28 @@ const Form: React.FC = () => {
 
     const onClickLogInHandler = async () => {
         // Confirm if the password is correct
-        setLoginButtonAttri({...logInButtonAttri,
-                            props: {...logInButtonAttri.props, isLoading: true}});
+        setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, isLoading: true}});
         let status: number = (await Middleware.getStatus(API.postPassword(password.password))).status;
-        setLoginButtonAttri({...logInButtonAttri,
-                            props: {...logInButtonAttri.props, isLoading: false}});
-        if (status === 3005)
-            setPasswordAttri({...passwordAttri,
-                            style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...passwordAttri.props, helperText: 'Please reenter your account above.'}});
-        else if (status === 3008)
-            setPasswordAttri({...passwordAttri,
-                            style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...passwordAttri.props, helperText: 'Argument interface failed to match.'}});
-        else if (status === 3000) 
-            setPasswordAttri({...passwordAttri,
-                            style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...passwordAttri.props, helperText: 'The password is incorrect.'}});
-        else if (status === 2000) {
+        setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, isLoading: false}});
+        if (status === 2000) {
             setPasswordAttri({...passwordAttri,
                             style: {...passwordAttri.style, borderColor: '#149E9A'},
                             props: {...passwordAttri.props, helperText: 'Confirmed.'}});
             setPassword({...password, isConfirmed: true});
-        } else
+        } else if (status === 3005)
+            setPasswordAttri({style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
+                            props: {...passwordAttri.props, helperText: 'Please re-enter your account above.'}});
+        else if (status === 3000) 
+            setPasswordAttri({style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
+                            props: {...passwordAttri.props, helperText: 'The password is incorrect.'}});
+        else
             throw 'Unknown Error';
     };
 
     useEffect(() => {
         if (password.isConfirmed)
             window.location.href = '/';
-    }, [password.isConfirmed])
+    }, [password.isConfirmed]);
 
     return (
         <>
