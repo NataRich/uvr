@@ -13,13 +13,16 @@ const Logo: React.FC<LogoAttributes> = ({
         position,
     },
 }) => {
+    const onClickHandler = () => window.location.href = '/';
+
     return (
         <GlobalStyled.Box.CenterBoxByRowNonSpaced>
             {
                 position === 'LHS' ? (
                     <StyledBox {...{position}}>
                         <div>
-                            <div>
+                            <div className='logo-container'
+                                onClick={onClickHandler}>
                                 <StyledImg src={logo} />
                             </div>
                             <div className='text1'>
@@ -66,7 +69,8 @@ const Logo: React.FC<LogoAttributes> = ({
                             </div>
                         </div>
                         <div>
-                            <div>
+                            <div className='logo-container'
+                                onClick={onClickHandler}>
                                 <StyledImg src={logo} />
                             </div>
                             <div className='text1'>
