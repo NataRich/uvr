@@ -15,13 +15,13 @@ const Middleware = new APIMiddlewares();
 
 const App: React.FC = () => {
   const [ user, setUser ]             = useState<UserClassType | null>(null);
-  const [ isFetching, setIsFetching ] = useState<boolean>(false);
+  const [ isFetching, setIsFetching ] = useState<boolean>(true);
 
   const fetchUser = async () =>  {
-    setIsFetching(true);
     setUser(await Middleware.getUser(API.getUser()));
     setIsFetching(false);
   };
+
   useEffect(() => {fetchUser()}, []);
 
   if (isFetching)

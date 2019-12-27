@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Logo from '../../../components/UVRLogo/Logo';
 import { LogoAttributes } from '../../../components/UVRLogo/interface';
 import { UserLoginRequiredAPI } from '../../../global/user/request';
 import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
-import styled from 'styled-components';
 
 const API           = new UserLoginRequiredAPI();
 const Middleware    = new APIMiddlewares();
