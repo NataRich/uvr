@@ -19,8 +19,7 @@ const Entry: React.FC = () => {
                 top: '0', 
                 right: '0'
                 }}>
-                <Logo {...{style: defaultLogoAttributes.style,
-                    props: defaultLogoAttributes.props}}/>
+                <Logo {...defaultLogoAttributes}/>
             </div>
             <StyledTextBox>
                 <p>You don't need an account to watch VR videos.</p>

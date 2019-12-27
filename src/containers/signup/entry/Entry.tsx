@@ -19,8 +19,7 @@ const Entry: React.FC = () => {
                 top: '0', 
                 left: '0'
                 }}>
-                <Logo {...{style: defaultLogoAttributes.style,
-                    props: defaultLogoAttributes.props}}/>
+                <Logo {...defaultLogoAttributes}/>
             </div>
             <StyledTextBox>
                 <p>Welcom Back!</p>
