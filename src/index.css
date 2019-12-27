@@ -8,7 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-div, input, p, button {
+textarea, div, input, p, button {
+  font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
