@@ -37,7 +37,7 @@ const Logo: React.FC<LogoAttributes> = ({
                             <div className='text2'>
                                 <GlobalStyled.Text.FullWidthAutoHeightNonMargin>
                                     <span style={{color: '#0165A3'}}>U</span>
-                                    WCCSC
+                                    WC (CSC)
                                 </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
                             </div>
                             <div className='text3'>
