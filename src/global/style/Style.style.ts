@@ -34,6 +34,15 @@ const CenterBoxByColSpaced = styled.div`
     align-items: center;
 `;
 
+const CenterBoxByColXSpaced = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 const CenterLeftBoxByRow = styled.div`
     width: 100%;
     height: 100%;
@@ -66,6 +75,7 @@ export const GlobalStyled = {
         CenterBoxByRowSpaced,
         CenterBoxByColNonSpaced,
         CenterBoxByColSpaced,
+        CenterBoxByColXSpaced,
         CenterLeftBoxByRow,
     },
     Text: {
