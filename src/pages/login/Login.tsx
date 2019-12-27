@@ -3,16 +3,18 @@ import React from 'react';
 import { GlobalStyled } from '../../global/style/Style.style';
 import Form from '../../containers/login/form/Form';
 import Entry from '../../containers/login/entry/Entry';
+import ERelogIn from './error/ERelogIn';
 
 const Login: React.FC = () => {
     return (
         <GlobalStyled.Box.CenterBoxByRowNonSpaced>
-            <GlobalStyled.Box.CenterBoxByColNonSpaced>
+            {/* <GlobalStyled.Box.CenterBoxByColNonSpaced>
                 <Form />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{backgroundColor: '#149E9A'}}>
                 <Entry />
-            </GlobalStyled.Box.CenterBoxByColNonSpaced>
+            </GlobalStyled.Box.CenterBoxByColNonSpaced> */}
+            <ERelogIn />
         </GlobalStyled.Box.CenterBoxByRowNonSpaced>
     );
 };
