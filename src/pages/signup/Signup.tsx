@@ -1,28 +1,18 @@
 import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
-import { UserClassType } from '../../global/user/class';
 import Entry from '../../containers/signup/entry/Entry';
 import Form from '../../containers/signup/form/Form';
-import ERelogIn from '../login/error/ERelogIn';
 
-const Signup: React.FC<{user: UserClassType | null}> = ({
-    user,
-}) => {
+const Signup: React.FC= () => {
     return (
         <GlobalStyled.Box.CenterBoxByRowNonSpaced>
-            {
-                user ? <ERelogIn />: (
-                    <>
-                        <GlobalStyled.Box.CenterBoxByColNonSpaced style={{backgroundColor: '#149E9A'}}>
-                            <Entry />
-                        </GlobalStyled.Box.CenterBoxByColNonSpaced>
-                        <GlobalStyled.Box.CenterBoxByColNonSpaced >
-                            <Form />
-                        </GlobalStyled.Box.CenterBoxByColNonSpaced>
-                    </>
-                )
-            }
+            <GlobalStyled.Box.CenterBoxByColNonSpaced style={{backgroundColor: '#149E9A'}}>
+                <Entry />
+            </GlobalStyled.Box.CenterBoxByColNonSpaced>
+            <GlobalStyled.Box.CenterBoxByColNonSpaced >
+                <Form />
+            </GlobalStyled.Box.CenterBoxByColNonSpaced>
         </GlobalStyled.Box.CenterBoxByRowNonSpaced>
     );
 };

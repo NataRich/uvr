@@ -36,7 +36,6 @@ const ERelogIn: React.FC = () => {
     const calcPos = () => {
         let X: number | undefined = document.getElementById('email')?.getBoundingClientRect().left;
         let Y: number | undefined = document.getElementById('email')?.getBoundingClientRect().top;
-        console.log(X, Y);
         if (X !== undefined && Y !== undefined) {
             setTextPosX(X + 102);
             setTextPosY(Y - 16);
