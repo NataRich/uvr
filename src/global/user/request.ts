@@ -1,7 +1,7 @@
 import { DOMAIN } from '../root/Root';
 import { User } from './class';
 import { APIUserParamInterface } from './interface';
-import { UserAPIComplexPromiseReturn } from './interface';
+import { UserClassType } from './class';
 import {
     CodeInterface,
     EmailInterface,
@@ -105,11 +105,11 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
         return await this.useGet(URL);
     };
-    public getUser = async (): Promise<UserAPIComplexPromiseReturn> => {
+    public getUser = async (): Promise<UserClassType | null> => {
         const URL: string = DOMAIN + this.USER_ENDPOINT;
         const response: UserInterface & StatusInterface = await this.useGetUser(URL);
         if(!response.user)
-            return { user: null, status: response.status};
+            return null;
         const user: APIUserParamInterface = {
             email:              response.user.email,
             identity:           response.user.identity,
@@ -121,7 +121,7 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
             thumbImageSource:   response.user.thumbImage,
             mediumImageSource:  response.user.mediumImage,
         };
-        return { user: new User(user), status: response.status };
+        return new User(user);
     };
 
     public postCode = async (payload: CodeInterface): Promise<StatusInterface> => {

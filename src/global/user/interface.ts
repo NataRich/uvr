@@ -99,7 +99,7 @@ export interface APIGeneralGetMethods {
      * 
      */
     getCode: () => Promise<StatusInterface>;
-    getUser: () => Promise<UserAPIComplexPromiseReturn>;
+    getUser: () => Promise<UserClassType | null>;
 };
 
 export interface APIGeneralPostMethods {
@@ -142,8 +142,3 @@ export interface APILoginRequiredPostMethods {
     postEmail: (payload: EmailInterface) => Promise<StatusInterface>;
     postImage: (payload: ImageInterface) => Promise<StatusInterface>;
 };
-
-export interface UserAPIComplexPromiseReturn {
-    user:   UserClassType | null,
-    status: number;
-}
