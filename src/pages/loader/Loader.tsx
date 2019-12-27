@@ -23,46 +23,6 @@ const dot1K = keyframes`
         transform: translateY(0)
     }
 
-    16.666666667% {
-        transform: translateY(-100%);
-    }
-
-    33.333333333% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-`;
-
-const dot2K = keyframes`
-    0% {
-        transform: translateY(0)
-    }
-
-    16.666666667% {
-        transform: translateY(0);
-    }
-
-    33.333333333% {
-        transform: translateY(-100%);
-    }
-
-    50% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-`;
-
-const dot3K = keyframes`
-    0% {
-        transform: translateY(0)
-    }
-
     33.333333333% {
         transform: translateY(0);
     }
@@ -80,6 +40,46 @@ const dot3K = keyframes`
     }
 `;
 
+const dot2K = keyframes`
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    66.666666667% {
+        transform: translateY(-100%);
+    }
+
+    83.333333333% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+`;
+
+const dot3K = keyframes`
+    0% {
+        transform: translateY(0)
+    }
+
+    66.666666667% {
+        transform: translateY(0);
+    }
+
+    83.333333333% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+`;
+
 const StyledDots = styled.div`
     display: flex;
     div {
@@ -90,12 +90,12 @@ const StyledDots = styled.div`
         margin: 0 2px 0 5px;
     };
     .dot1 {
-        animation: ${dot1K} 3s ease-in-out;
+        animation: ${dot1K} 3s ease-in-out infinite;
     };
     .dot2 {
-        animation: ${dot2K} 3s ease-in-out;
+        animation: ${dot2K} 3s ease-in-out infinite;
     };
     .dot3 {
-        animation: ${dot3K} 3s ease-in-out;
+        animation: ${dot3K} 3s ease-in-out infinite;
     };
 `;
