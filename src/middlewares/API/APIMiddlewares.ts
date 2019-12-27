@@ -1,5 +1,5 @@
 import { StatusInterface } from '../../global/user/interface';
-import { UserAPIComplexPromiseReturn } from '../../global/user/interface';
+import { UserClassType } from '../../global/user/class';
 import { VideoAPIComplexPromiseReturn } from '../../global/videos/interface';
 
 export class APIMiddlewares {
@@ -11,13 +11,7 @@ export class APIMiddlewares {
             return { status }
     };
 
-    getUser = async (promise: Promise<UserAPIComplexPromiseReturn>): Promise<UserAPIComplexPromiseReturn> => {
-        let obj: UserAPIComplexPromiseReturn = await promise;
-        if (!obj.status || obj.status === 4444)
-            throw 'Server Error';
-        else
-            return { user: obj.user, status: obj.status };
-    };
+    getUser = async (promise: Promise<UserClassType | null>): Promise<UserClassType | null> => await promise;
 
     getVideos = async (promise: Promise<VideoAPIComplexPromiseReturn>): Promise<VideoAPIComplexPromiseReturn> => {
         let obj: VideoAPIComplexPromiseReturn = await promise;
