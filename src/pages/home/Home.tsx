@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyledTallContainer } from './Home.style';
 import { GlobalStyled } from '../../global/style/Style.style';
 import Navigation from '../../containers/home/navigation/Navigation';
+import Search from '../../containers/home/search/Search';
 
 const Home: React.FC = () => {
     const [ isAboutClicked, setIsAboutClicked ] = useState<boolean>(false);
@@ -25,11 +26,10 @@ const Home: React.FC = () => {
             </div>
             <div className='p-home-about-card_fixed'
                 style={{ visibility: isAboutClicked ? 'visible': 'hidden' }}>
-                {/* about card to introduce team member */}
+                {/* about card to introduce the team */}
             </div>
             <div className='p-home-search'>
-                {/* selection plane */}
-                
+                <Search />
             </div>
             <div className='p-home-result'>
                 {/* video plaza */}
