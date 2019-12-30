@@ -26,6 +26,7 @@ const StyledInputContainer = styled.div<ContainerProps>`
     display: flex;
     justify-content: start;
     align-items: center;
+    background: #FFF;
     padding: 3px;
     border: ${props => props.hasBorder ? '1.5px solid': 'none'};
     border-color: ${props => props.hasBorder ? props.borderColor: ''};
@@ -52,6 +53,7 @@ const StyledInput = styled.input<InputProps>`
     outline: none;
     border: none;
     padding-left: 5%;
+    background: #FFF;
     border-bottom: ${props => props.hasBorder ? 'none':'1px solid'};
     border-color: ${props => props.borderColor};
     ::placeholder {
