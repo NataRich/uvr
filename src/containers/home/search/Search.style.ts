@@ -7,12 +7,20 @@ export const StyledFilterIconContainer = styled.div<{imgWidth: number}>`
     img {
         width: ${props => props.imgWidth}px;
         height: ${props => props.imgWidth}px;
-        margin-right: 10px;
     };
 `;
 
 export const StyledFilterOptionContainer = styled.div`
-    width: 80%;
+    width: auto;
     height: auto;
     position: absolute;
+    padding: 3px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    background-color: #FFF;
+    transform: translate(-180px, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
