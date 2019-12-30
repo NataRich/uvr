@@ -28,7 +28,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
                         props:          btnAttr.props,
                         onClickHandler,
                     };
-                    return <BaseButton {...props} />
+                    return <BaseButton key={btnAttr.props.defaultId} {...props} />
                 })
             }
         </GlobalStyled.Box.CenterLeftBoxByRow>
