@@ -107,7 +107,7 @@ const Form: React.FC = () => {
                     setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
                                     props: {...usernameAttri.props, helperText: 'Timeout. Please re-enter the username.'}});
                 } else
-                    throw 'Unknown Error.';
+                    throw new Error('Unknown Error.');
             } else if (accountStatus === 3002) {
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
                 setAccount({...account, account: defaultAccount.account});
@@ -128,7 +128,7 @@ const Form: React.FC = () => {
                             props: {...emailAttri.props, helperText: 'The email address has been bound to an existing account.'}});
                 setUsernameAttri({...usernameAttri, style: {...usernameAttri.style, borderColor: '#149E9A'}});
             } else
-                throw 'Unknown Error';
+                throw new Error('Unknown Error');
         } else {
             if (!username)
                 setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
