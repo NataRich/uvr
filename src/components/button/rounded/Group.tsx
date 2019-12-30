@@ -13,7 +13,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
     onClickHandler,
 }) => {
     return (
-        <GlobalStyled.Box.CenterLeftBoxByRow>
+        <GlobalStyled.Box.CenterStartBoxByRow>
             {
                 category === undefined ? null:(
                     <GlobalStyled.Text.AutoWidthFullHeightNonMargin>
@@ -46,7 +46,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
                     return <RoundedButton {...props} />
                 })
             }
-        </GlobalStyled.Box.CenterLeftBoxByRow>
+        </GlobalStyled.Box.CenterStartBoxByRow>
     );
 };
 
