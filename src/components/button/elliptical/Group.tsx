@@ -4,24 +4,14 @@ import BaseButton from './BaseButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
 import {
     ButtonAttributes,
-    Partial,
     GroupButtonAttributes
 } from './interface';
 
 const ButtonGroup: React.FC<GroupButtonAttributes> = ({
     category,
     attributes,
-    setAttributes,
+    onClickHandler,
 }) => {
-    const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-        let idOfElement: string = e.currentTarget.id;
-        setAttributes((prevState: Partial[]) => prevState.map(element => {
-            if (element.defaultId === idOfElement)
-                return {...element, isSelected: true};
-            return {...element, isSelected: false};
-        }));
-    };
-
     return (
         <GlobalStyled.Box.CenterLeftBoxByRow>
             {
@@ -34,11 +24,8 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
             {
                 attributes.map(btnAttr => {
                     const props: ButtonAttributes = {
-                        backgroundColor: btnAttr.backgroundColor,
-                        defaultId: btnAttr.defaultId,
-                        defaultValue: btnAttr.defaultValue,
-                        fontColor: btnAttr.fontColor,
-                        isSelected: btnAttr.isSelected,
+                        style:          btnAttr.style,
+                        props:          btnAttr.props,
                         onClickHandler,
                     };
                     return <BaseButton {...props} />

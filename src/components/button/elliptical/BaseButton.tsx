@@ -4,12 +4,16 @@ import { StyledBaseButton } from './BaseButton.style';
 import { ButtonAttributes } from './interface';
  
 const BaseButton: React.FC<ButtonAttributes> = ({
-    backgroundColor,
-    defaultId,
-    defaultValue,
-    fontColor,
-    isLoading,
-    isSelected,
+    style: {
+        backgroundColor,
+        fontColor,
+    },
+    props: {
+        defaultId,
+        defaultValue,
+        isLoading,
+        isSelected,
+    },
     onClickHandler,
 }) => {
     const [ didMouseDown, setDidMouseDown ] = useState<boolean>(false);
