@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledTallContainer = styled.div`
     width: 100%;
-    height: 200%;
+    height: 150%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,22 +35,26 @@ export const StyledTallContainer = styled.div`
     };
     .p-home-search {
         width: 100%;
-        height: 45%;
-        background: linear-gradient(to top left, #1c3144 0%, #149e9a 100%);
+        height: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
     };
     .p-home-result {
         width: 100%;
         height: 55%;
-        background: linear-gradient(to bottom left, #1c3144 0%, #149e9a 100%);
+        display: flex;
+        flex-direction: column;
     };
     .p-home-footer {
         width: 100%;
-        color: #FFF;
+        color: #000;
         display: flex;
         justify-content: center;
         align-items: center;
         background: transparent;
         position: absolute;
-        bottom: -100%;
+        bottom: -150%;
     };
 `;
