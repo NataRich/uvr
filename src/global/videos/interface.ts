@@ -46,8 +46,8 @@ export interface VideoFilterArgInterface {
     order:      string;
     page:       number;
     sort_by:    string;
-    tags?:      string[];
-    title?:     string;
+    tags:       string[];
+    title:      string;
 };
 
 export interface VideoFilterSelfArgInterface {
