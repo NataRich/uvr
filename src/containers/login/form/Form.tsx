@@ -66,7 +66,7 @@ const Form: React.FC = () => {
             setAccountAttri({style: {...accountAttri.style, helperColor: 'red', borderColor: 'red'},
                             props: {...accountAttri.props, helperText: 'The account does not exist.'}});
         else
-            throw 'Unknown Error';
+            throw new Error('Unknown Error');
     };
 
     const onChangePasswordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +104,7 @@ const Form: React.FC = () => {
             setPasswordAttri({style: {...passwordAttri.style, borderColor: 'red', helperColor: 'red'},
                             props: {...passwordAttri.props, helperText: 'The password is incorrect.'}});
         else
-            throw 'Unknown Error';
+            throw new Error('Unknown Error');
     };
 
     useEffect(() => {
