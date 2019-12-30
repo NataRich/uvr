@@ -7,16 +7,31 @@ import {
     EllipticalButtonProps,
     EllipticalButtonStyle,
 } from '../../../components/button/elliptical/interface';
+import {
+    RoundedButtonProps,
+    RoundedButtonStyle,
+} from '../../../components/button/rounded/interface';
+import { VideoClassType } from '../../../global/videos/class';
+
+export type SearchProps = {
+    page:       number;
+    setVideos:  React.Dispatch<React.SetStateAction<VideoClassType | VideoClassType[] | null>>;
+};
 
 export type LocalInputAttributes = {
     style: IconInFrontInputStyle,
     props: IconInFrontInputProps,
 };
 
-export type LocalButtonAttributes = {
+export type LocalEButtonAttributes = {
     style: EllipticalButtonStyle,
     props: EllipticalButtonProps,
-}
+};
+
+export type LocalRButtonAttributes = {
+    style: RoundedButtonStyle,
+    props: RoundedButtonProps,
+};
 
 const defaultInputAttributes: LocalInputAttributes = {
     style: {
@@ -24,7 +39,7 @@ const defaultInputAttributes: LocalInputAttributes = {
         borderRadius: 5,
         fontSize: 16,
         hasBorder: true,
-        inputWidth: 300,
+        inputWidth: 310,
         imgWidth: 35,
     },
     props: {
@@ -40,7 +55,7 @@ const defaultGroupButtonStyle: EllipticalButtonStyle = {
     fontColor: '#149E9A',
 };
 
-const defaultSortGroupButtonAttributes: LocalButtonAttributes[] = [
+const defaultSortGroupButtonAttributes: LocalEButtonAttributes[] = [
     {
         style: defaultGroupButtonStyle,
         props: {
@@ -51,7 +66,7 @@ const defaultSortGroupButtonAttributes: LocalButtonAttributes[] = [
     },
 ];
 
-const defaultOrderGroupButtonAttributes: LocalButtonAttributes[] = [
+const defaultOrderGroupButtonAttributes: LocalEButtonAttributes[] = [
     {
         style: defaultGroupButtonStyle,
         props: {
@@ -70,8 +85,29 @@ const defaultOrderGroupButtonAttributes: LocalButtonAttributes[] = [
     },
 ];
 
+const defaultFindButtonAttributes: LocalRButtonAttributes = {
+    style: {
+        width: 70,
+        height: 44,
+        borderColor: 'transparent',
+        borderRadius: 5,
+        borderWidth: 5,
+        backgroundColor: '#149E9A',
+        fontColor: '#FFF',
+        fontSize: 18,
+        invertColorH: false,
+        loadingBorderColor: '#18626B',
+    },
+    props: {
+        defaultValue: 'Find',
+        disabled: false,
+        isLoading: false,
+    },
+};
+
 export {
     defaultInputAttributes,
     defaultSortGroupButtonAttributes,
     defaultOrderGroupButtonAttributes,
+    defaultFindButtonAttributes,
 };
