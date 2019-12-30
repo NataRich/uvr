@@ -51,7 +51,7 @@ const StyledInput = styled.input<InputProps>`
     font-size: ${props => props.fontSize}px;
     outline: none;
     border: none;
-    padding-bottom: 5%;
+    padding-left: 5%;
     border-bottom: ${props => props.hasBorder ? 'none':'1px solid'};
     border-color: ${props => props.borderColor};
     ::placeholder {
