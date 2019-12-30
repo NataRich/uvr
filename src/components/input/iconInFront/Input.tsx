@@ -26,7 +26,7 @@ const Input: React.FC<InputAttributes> = ({
     onChangeHandler,
 }) => {
     return (
-        <StyledInputContainer {...{hasBorder, borderColor, borderRadius, inputWidth, imgWidth}}>
+        <StyledInputContainer {...{borderColor, borderRadius, fontSize, hasBorder, inputWidth, imgWidth}}>
             <StyledBox>
                 <StyledImg {...{imgWidth}} src={image} />
             </StyledBox >

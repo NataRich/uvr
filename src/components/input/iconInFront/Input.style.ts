@@ -1,27 +1,11 @@
 import styled from 'styled-components';
 
-type ContainerProps = {
-    hasBorder:      boolean;
-    borderColor:    string;
-    borderRadius:   number | undefined;
-    inputWidth:     number;
-    imgWidth:       number;
-}
+import { IconInFrontInputStyle } from './interface';
 
-type ImgProps = {
-    imgWidth:       number;
-};
+const StyledInputPaddingLeft: number = 15;
 
-type InputProps = {
-    borderColor:    string;
-    inputWidth:     number;
-    imgWidth:       number;
-    fontSize:       number;
-    hasBorder:      boolean;
-};
-
-const StyledInputContainer = styled.div<ContainerProps>`
-    width: ${props => props.inputWidth + props.imgWidth}px;
+const StyledInputContainer = styled.div<IconInFrontInputStyle>`
+    width: ${props => props.inputWidth + props.imgWidth + StyledInputPaddingLeft}px;
     height: ${props => props.imgWidth}px;
     display: flex;
     justify-content: start;
@@ -41,18 +25,18 @@ const StyledBox = styled.div`
     align-items: center;
 `;
 
-const StyledImg = styled.img<ImgProps>`
+const StyledImg = styled.img<{imgWidth: number;}>`
     width: ${props => props.imgWidth}px;
     height: ${props => props.imgWidth}px;
 `;
 
-const StyledInput = styled.input<InputProps>`
+const StyledInput = styled.input<IconInFrontInputStyle>`
     width: ${props => props.inputWidth}px;
     height: 90%;
     font-size: ${props => props.fontSize}px;
     outline: none;
     border: none;
-    padding-left: 5%;
+    padding-left: ${StyledInputPaddingLeft}px;
     background: #FFF;
     border-bottom: ${props => props.hasBorder ? 'none':'1px solid'};
     border-color: ${props => props.borderColor};

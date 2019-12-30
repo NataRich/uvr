@@ -5,9 +5,9 @@ export const StyledBaseButton = styled.button`
     height: 30px;
     border-radius: 50px;
     border: 1px solid;
-    margin: 0 5px 0 5px;
+    margin-left: 5px;
     font-size: 14px;
     outline: none;
     cursor: pointer;
-    transition: all 150ms ease-in-out;
+    transition: color 150ms ease-in-out, background 150ms ease-in-out;
 `;
