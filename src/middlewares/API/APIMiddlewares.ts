@@ -5,8 +5,8 @@ import { VideoAPIComplexPromiseReturn } from '../../global/videos/interface';
 export class APIMiddlewares {
     getStatus = async (promise: Promise<StatusInterface>): Promise<StatusInterface> => {
         const status: number = (await promise).status;
-        if (!status || status === 4444)
-            throw 'Server Error';
+        if (!status || status === 4444 || status === 3008)
+            throw 'Server Error or Interaction Error';
         else
             return { status }
     };
@@ -15,8 +15,8 @@ export class APIMiddlewares {
 
     getVideos = async (promise: Promise<VideoAPIComplexPromiseReturn>): Promise<VideoAPIComplexPromiseReturn> => {
         let obj: VideoAPIComplexPromiseReturn = await promise;
-        if (!obj.status || obj.status === 4444)
-            throw 'Server Error';
+        if (!obj.status || obj.status === 4444 || obj.status === 3008)
+            throw 'Server Error or Interaction Error';
         else
             return { videos: obj.videos, status: obj.status };
     };
