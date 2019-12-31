@@ -191,6 +191,6 @@ export interface APILoginRequiredPostMethods {
 };
 
 export interface VideoAPIComplexPromiseReturn {
-    videos: VideoClassType | VideoClassType[] | null;
+    videos: VideoClassType[] | null;
     status: number;
 };
