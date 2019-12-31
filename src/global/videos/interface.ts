@@ -43,7 +43,7 @@ export interface VideoIdInterface {
 };
 
 export interface VideoFilterArgInterface {
-    order:      string;
+    order:      boolean;
     page:       number;
     sort_by:    string;
     tags:       string[];
@@ -51,7 +51,7 @@ export interface VideoFilterArgInterface {
 };
 
 export interface VideoFilterSelfArgInterface {
-    order:      string;
+    order:      boolean;
     page:       number;
     sort_by:    string;
 };
