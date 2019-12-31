@@ -43,16 +43,18 @@ const Search: React.FC<SearchProps> = ({
     const onChangeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => setInputAttri({...inputAttri, props: {...inputAttri.props, value: e.currentTarget.value}});
 
     const onClickSortBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const id: string = e.currentTarget.id;          // prevent segmentFault
         setSortBtnGroupAttri(prevProps => prevProps.map(prevProp => {
-            if (prevProp.props.defaultId === e.currentTarget.id)
+            if (prevProp.props.defaultId === id)
                 return {...prevProp, props: {...prevProp.props, isSelected: true}};
             return {...prevProp, props: {...prevProp.props, isSelected: false}};
         }));
     };
 
     const onClickOrderBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const id: string = e.currentTarget.id;          // prevent segmentFault
         setOrderBtnGroupAttri(prevProps => prevProps.map(prevProp => {
-            if (prevProp.props.defaultId === e.currentTarget.id)
+            if (prevProp.props.defaultId === id)
                 return {...prevProp, props: {...prevProp.props, isSelected: true}};
             return {...prevProp, props: {...prevProp.props, isSelected: false}};
         }));
@@ -61,7 +63,7 @@ const Search: React.FC<SearchProps> = ({
     const onClickFindBtnHandler = async () => {
         setIsFetchingVideos(true);
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: true}});
-        const order: string     = orderBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
+        const order: boolean    = orderBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0] === 'ASC' ? true:false;
         const sort_by: string   = sortBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
         const title: string     = inputAttri.props.value;
         const tags: string[]    = [];       // currently unusable hence empty
