@@ -13,6 +13,7 @@ export const StyledTallContainer = styled.div`
         position: fixed;
         bottom: 10px;
         right: 10px;
+        z-index: 1000;
         button {
             width: inherit;
             height: inherit;
@@ -32,29 +33,5 @@ export const StyledTallContainer = styled.div`
         left: 10%;
         position: fixed;
         border-radius: 10px;
-    };
-    .p-home-search {
-        width: 100%;
-        height: 15%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-    };
-    .p-home-result {
-        width: 100%;
-        height: 55%;
-        display: flex;
-        flex-direction: column;
-    };
-    .p-home-footer {
-        width: 100%;
-        color: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        position: absolute;
-        bottom: -150%;
     };
 `;
