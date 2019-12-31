@@ -86,6 +86,15 @@ const FullWidthAutoHeightNonMargin = styled.p`
     align-items: center;
 `;
 
+const AutoWidthAutoHeightNonMargin = styled.p`
+    width: auto;
+    height: auto;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const GlobalStyled = {
     Box: {
         CenterBoxByRowNonSpaced,
@@ -99,6 +108,7 @@ export const GlobalStyled = {
     },
     Text: {
         AutoWidthFullHeightNonMargin,
+        AutoWidthAutoHeightNonMargin,
         FullWidthAutoHeightNonMargin,
     }
 };
