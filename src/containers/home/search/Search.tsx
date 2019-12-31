@@ -5,7 +5,7 @@ import { VideoGeneralAPI } from '../../../global/videos/request';
 import { VideoFilterArgInterface } from '../../../global/videos/interface';
 import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
 import Input from '../../../components/input/iconInFront/Input';
-import GroupButton from '../../../components/button/elliptical/Group';
+import ButtonGroup from '../../../components/button/elliptical/Group';
 import Button from '../../../components/button/rounded/RoundedButton';
 import Filter from '../../../assets/icons/filter.svg';
 import {
@@ -16,8 +16,8 @@ import {
 } from './Logistics';
 import {
     defaultInputAttributes,
-    defaultSortGroupButtonAttributes,
-    defaultOrderGroupButtonAttributes,
+    defaultSortButtonGroupAttributes,
+    defaultOrderButtonGroupAttributes,
     defaultFindButtonAttributes,
 } from './Logistics';
 import {
@@ -33,8 +33,8 @@ const Search: React.FC<SearchProps> = ({
     page,
 }) => {
     const [ inputAttri, setInputAttri ]                 = useState<LocalInputAttributes>(defaultInputAttributes);
-    const [ sortGroupBtnAttri, setSortGroupBtnAttri ]   = useState<LocalEButtonAttributes[]>(defaultSortGroupButtonAttributes);
-    const [ orderGroupBtnAttri, setOrderGroupBtnAttri ] = useState<LocalEButtonAttributes[]>(defaultOrderGroupButtonAttributes);
+    const [ sortBtnGroupAttri, setSortBtnGroupAttri ]   = useState<LocalEButtonAttributes[]>(defaultSortButtonGroupAttributes);
+    const [ orderBtnGroupAttri, setOrderBtnGroupAttri ] = useState<LocalEButtonAttributes[]>(defaultOrderButtonGroupAttributes);
     const [ openFilter, setOpenFilter ]                 = useState<boolean>(false);
     const [ findBtnAttri, setFindBtnAtri ]              = useState<LocalRButtonAttributes>(defaultFindButtonAttributes);
 
@@ -42,7 +42,7 @@ const Search: React.FC<SearchProps> = ({
     const onChangeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => setInputAttri({...inputAttri, props: {...inputAttri.props, value: e.currentTarget.value}});
 
     const onClickSortBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setSortGroupBtnAttri(prevProps => prevProps.map(prevProp => {
+        setSortBtnGroupAttri(prevProps => prevProps.map(prevProp => {
             if (prevProp.props.defaultId === e.currentTarget.id)
                 return {...prevProp, props: {...prevProp.props, isSelected: true}};
             return {...prevProp, props: {...prevProp.props, isSelected: false}};
@@ -50,7 +50,7 @@ const Search: React.FC<SearchProps> = ({
     };
 
     const onClickOrderBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setOrderGroupBtnAttri(prevProps => prevProps.map(prevProp => {
+        setOrderBtnGroupAttri(prevProps => prevProps.map(prevProp => {
             if (prevProp.props.defaultId === e.currentTarget.id)
                 return {...prevProp, props: {...prevProp.props, isSelected: true}};
             return {...prevProp, props: {...prevProp.props, isSelected: false}};
@@ -59,8 +59,8 @@ const Search: React.FC<SearchProps> = ({
 
     const onClickFindBtnHandler = async () => {
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: true}});
-        const order: string     = orderGroupBtnAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
-        const sort_by: string   = sortGroupBtnAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
+        const order: string     = orderBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
+        const sort_by: string   = sortBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
         const title: string     = inputAttri.props.value;
         const tags: string[]    = [];       // currently unusable hence empty
         const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
@@ -76,12 +76,12 @@ const Search: React.FC<SearchProps> = ({
             </StyledFilterIconContainer>
             &nbsp;
             <StyledFilterOptionContainer style={{ visibility: openFilter ? 'visible':'hidden' }}>
-                <GroupButton {...{category: 'Sort',
-                                attributes: sortGroupBtnAttri,
+                <ButtonGroup {...{category: 'Sort',
+                                attributes: sortBtnGroupAttri,
                                 onClickHandler: onClickSortBtnHandler}} />
                 <hr style={{ margin: '3px 0 3px 0', width: '95%' }} />
-                <GroupButton {...{category: 'Order',
-                                attributes: orderGroupBtnAttri,
+                <ButtonGroup {...{category: 'Order',
+                                attributes: orderBtnGroupAttri,
                                 onClickHandler: onClickOrderBtnHandler}} />
             </StyledFilterOptionContainer>
             <Input {...{style: inputAttri.style,

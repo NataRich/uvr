@@ -50,14 +50,14 @@ const defaultInputAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultGroupButtonStyle: EllipticalButtonStyle = {
+const defaultButtonGroupStyle: EllipticalButtonStyle = {
     backgroundColor: '#FFF',
     fontColor: '#149E9A',
 };
 
-const defaultSortGroupButtonAttributes: LocalEButtonAttributes[] = [
+const defaultSortButtonGroupAttributes: LocalEButtonAttributes[] = [
     {
-        style: defaultGroupButtonStyle,
+        style: defaultButtonGroupStyle,
         props: {
             defaultId: '1',
             defaultValue: 'Date',
@@ -66,9 +66,9 @@ const defaultSortGroupButtonAttributes: LocalEButtonAttributes[] = [
     },
 ];
 
-const defaultOrderGroupButtonAttributes: LocalEButtonAttributes[] = [
+const defaultOrderButtonGroupAttributes: LocalEButtonAttributes[] = [
     {
-        style: defaultGroupButtonStyle,
+        style: defaultButtonGroupStyle,
         props: {
             defaultId: '1',
             defaultValue: 'ASC',
@@ -76,7 +76,7 @@ const defaultOrderGroupButtonAttributes: LocalEButtonAttributes[] = [
         },
     },
     {
-        style: defaultGroupButtonStyle,
+        style: defaultButtonGroupStyle,
         props: {
             defaultId: '2',
             defaultValue: 'DESC',
@@ -107,7 +107,7 @@ const defaultFindButtonAttributes: LocalRButtonAttributes = {
 
 export {
     defaultInputAttributes,
-    defaultSortGroupButtonAttributes,
-    defaultOrderGroupButtonAttributes,
+    defaultSortButtonGroupAttributes,
+    defaultOrderButtonGroupAttributes,
     defaultFindButtonAttributes,
 };
