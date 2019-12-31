@@ -55,7 +55,7 @@ const Home: React.FC = () => {
                 {/* about card to introduce the team */}
             </div>
             <GlobalStyled.Box.CenterEndBoxByCol style={{ height: '15%' }}>
-                <Search {...{page, setVideos}} />
+                <Search {...{page, setVideos, setIsFetchingVideos}} />
             </GlobalStyled.Box.CenterEndBoxByCol>
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{ height: '80%', overflowY: 'scroll' }}>
                 <Plaza {...{isFetchingVideos, page, setPage, videos}} />
