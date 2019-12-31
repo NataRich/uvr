@@ -166,7 +166,7 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
 
 
 export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods {
-    public get = async (abortSignal: AbortSignal): Promise<StatusInterface> => {
+    public get = async (): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_FILE_ENDPOINT;
         return await this.useGet(URL);
     };
