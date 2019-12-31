@@ -19,7 +19,6 @@ const Home: React.FC = () => {
     const [ videos, setVideos ]                     = useState<VideoClassType[] | null>(null);
     const [ page, setPage ]                         = useState<number>(1);
     
-
     const onClickAbout = () => setIsAboutClicked(prev => !prev);
 
     const fetchVideos = async () => {
@@ -35,9 +34,7 @@ const Home: React.FC = () => {
         setIsFetchingVideos(false);
     }; 
 
-    useEffect(() => { 
-        // fetchVideos();
-    }, [])
+    useEffect(() => { fetchVideos() }, []);
 
     return (
         <StyledTallContainer>
