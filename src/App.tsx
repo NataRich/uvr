@@ -22,7 +22,7 @@ const App: React.FC = () => {
     setIsFetching(false);
   };
 
-  useEffect(() => {fetchUser()}, []);
+  useEffect(() => { fetchUser() }, []);
 
   if (isFetching)
     return (
