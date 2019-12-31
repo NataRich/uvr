@@ -24,7 +24,7 @@ const Home: React.FC = () => {
     const fetchVideos = async () => {
         setIsFetchingVideos(true);
         const payload: VideoFilterArgInterface = {
-            order: 'ASC',
+            order: true,
             page: 1,
             sort_by: 'Date',
             tags: [],
