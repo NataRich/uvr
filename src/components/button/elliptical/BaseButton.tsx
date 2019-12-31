@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { StyledBaseButton } from './BaseButton.style';
 import { ButtonAttributes } from './interface';
