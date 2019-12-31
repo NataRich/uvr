@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Button from '../../../components/button/rounded/RoundedButton';
-import VCard from './videoCard/Card';
-import VCardLoader from './videoCard/loader/CardLoader';
-import NullVideo from './videoCard/null/NullVideo';
+import VCard from '../videoCard/Card';
+import VCardLoader from '../videoCard/CardLoader';
+import NullVideo from '../videoCard/NullVideo';
 import {
     PlazaProps,
     LocalButtonAttributes,
