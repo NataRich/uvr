@@ -41,7 +41,7 @@ const Plaza: React.FC<PlazaProps> = ({
     };
 
     const onClickNextPageHandler = () => {
-        setPage(prevState => {
+        setPage(prevState => {          // need upper boundary
             if (!videos) {
                 setNextBtnAttri({...nextBtnAttri, props: {...nextBtnAttri.props, disabled: true}});
                 return prevState;
@@ -53,7 +53,7 @@ const Plaza: React.FC<PlazaProps> = ({
     };
 
     const onChangeSetPageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let value: string   = e.currentTarget.value;
+        let value: string   = e.currentTarget.value;        // need upper boundary
         let number: number  = parseInt(value, 10);
         if (!isNaN(number))
             setPage(number);
