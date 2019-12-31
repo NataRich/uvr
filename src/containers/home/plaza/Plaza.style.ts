@@ -11,12 +11,15 @@ export const StyledDiv = styled.div`
         width: 25px;
         height: 25px;
         outline: none;
+        border: none;
+        text-align: center;
+    };
+    input:nth-of-type(2) {
         border: 1.5px solid;
         border-color: #D3D3D3;
-        text-align: center;
         transition: border-color 150ms ease-in-out;
         :focus {
             border-color: #1C3144;
         };
-    };
+    }
 `;
