@@ -14,8 +14,9 @@ import {
 import { VideoClassType } from '../../../global/videos/class';
 
 export type SearchProps = {
-    page:       number;
-    setVideos:  React.Dispatch<React.SetStateAction<VideoClassType[] | null>>;
+    page:                number;
+    setVideos:           React.Dispatch<React.SetStateAction<VideoClassType[] | null>>;
+    setIsFetchingVideos: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type LocalInputAttributes = {

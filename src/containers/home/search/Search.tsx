@@ -29,6 +29,7 @@ const API           = new VideoGeneralAPI();
 const Middleware    = new APIMiddlewares();
 
 const Search: React.FC<SearchProps> = ({
+    setIsFetchingVideos,
     setVideos,
     page,
 }) => {
@@ -58,6 +59,7 @@ const Search: React.FC<SearchProps> = ({
     };
 
     const onClickFindBtnHandler = async () => {
+        setIsFetchingVideos(true);
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: true}});
         const order: string     = orderBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
         const sort_by: string   = sortBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
@@ -66,6 +68,7 @@ const Search: React.FC<SearchProps> = ({
         const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
         setVideos((await Middleware.getVideos(API.postFilterArgs(payload))).videos);
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: false}});
+        setIsFetchingVideos(false);
     };
 
     return (
