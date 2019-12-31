@@ -36,11 +36,14 @@ const VideoCard: React.FC<VideoCardAttributes> = ({
                 <div className='slide'>
                     <div className='con-home-plaza-vcard-vimg'>
                         {/* video image */}
+                        <GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
+                            {video.getDuration()}
+                        </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
                     </div>
                     <div className='con-home-plaza-vcard-title'>
-                        <GlobalStyled.Text.FullWidthAutoHeightNonMargin>
+                        <GlobalStyled.Text.AutoWidthFullHeightNonMargin>
                             {cutString(video.getTitle(), 38)}       {/* 38 is the maximum number of characters that it can contain inline */}
-                        </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
+                        </GlobalStyled.Text.AutoWidthFullHeightNonMargin>
                     </div>
                     <div className='con-home-plaza-vcard-btn-group'>
                         <Button {...{style: defaultWatchButtonAttributes.style,

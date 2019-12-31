@@ -42,6 +42,17 @@ export const StyledVideoCardContainer = styled.div`
             .con-home-plaza-vcard-vimg {
                 width: 100%;
                 height: 70%;
+                position: relative
+                p {
+                    position: absolute;
+                    bottom: 0;
+                    right: 5%;
+                    border-radius: 5px;
+                    padding: 2px;
+                    color: #FFF;
+                    font-size: 12px;
+                    background-color: #CCC;
+                }
             };
             .con-home-plaza-vcard-btn-group {
                 width: 100%;
@@ -61,14 +72,14 @@ export const StyledVideoCardContainer = styled.div`
                 };
             };
             .con-home-plaza-vcard-others {
-                width: 100%;
+                width: 95%;
                 height: 18px;
                 float: left;
                 margin-left: 5px;
                 P {
                     color: #B3B3B3;
                     font-size: 14px;
-                    justify-content: flex-start;
+                    justify-content: flex-end;
                 }
             }
         };
