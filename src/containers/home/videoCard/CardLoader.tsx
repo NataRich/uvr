@@ -39,8 +39,8 @@ const movingK = keyframes`
 `;
 
 const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
-    width: 300px;
-    height: 256px;
+    width: 260px;
+    height: 206px;
     border-radius: 10px;
     margin-top: 10px;
     margin-left: ${props => (props.innerWidth - 900)/6}px;
@@ -64,7 +64,7 @@ const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
     };
     .title {
         width: 100%;
-        height: 16%;
+        height: 13%;
         position: relative;
     };
     .whitespace {
@@ -74,13 +74,13 @@ const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
     }
     .btn-group {
         width: 100%;
-        height: 10%;
+        height: 13%;
         display: flex;
         justify-content: space-around;
         align-items: center;
         .btn {
             width: 100px;
-            height: 30px;
+            height: 90%;
             border-radius: 50px;
             margin-left: 5px;
             position: relative;

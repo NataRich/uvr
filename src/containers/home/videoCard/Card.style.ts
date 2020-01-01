@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledVideoCardContainer = styled.div`
-    width: 300px;
+    width: 260px;
     height: 206px;
     overflow: hidden;
     box-shadow: 0 5px 15px 0 #D3D3D3;
@@ -23,7 +23,7 @@ export const StyledVideoCardContainer = styled.div`
                 width: 95%;
                 height: 17px;
                 p { 
-                    font-size: 14px;
+                    font-size: 12px;
                     font-family: 'Lato', sans-serif;
                     font-weight: bold;
                     justify-content: center;
