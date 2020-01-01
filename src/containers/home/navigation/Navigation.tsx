@@ -28,27 +28,48 @@ const Navigation: React.FC<NavProps> = ({
             </div>
         </>
         );
-    return (
-        <>
-            <div>
-                <Logo {...defaultLogoAttributes} />
-            </div>
-            <div>
-                {
-                    user ? (
-                        <img src={user.getThumbImage()} alt='profile' />
-                    ):(
-                        <Button {...{style: defaultButtonAttributes.style,
-                                    props: defaultButtonAttributes.props,
-                                    onClickHandler}} />
-                    )
-                }
-            </div>
-        </>
+    else if (!user)
+        return (
+            <>
+                <div>
+                    <Logo {...defaultLogoAttributes} />
+                </div>
+                <div>
+                    <Button {...{style: defaultButtonAttributes.style,
+                                props: defaultButtonAttributes.props,
+                                onClickHandler}} />
+                </div>
+            </>
     );
+    else
+        return (
+            <>
+                <div>
+                    <Logo {...defaultLogoAttributes} />
+                </div>
+                <div style={{
+                    borderColor: getBorderColor(user.getIdentity()),
+                }}>
+                    <img src={user.getThumbImage()} alt='profile' />
+                </div>
+            </>
+        );
 };
 
 export default Navigation;
+
+const getBorderColor = (identity: number): string => {
+    switch (identity) {
+        case 1111:
+            return '#0165A3';
+        case 8888:
+            return '#8A2BE2';
+        case 9999:
+            return '#FFFF00';
+        default:
+            return '#4169E1';
+    };
+};
 
 const movingK = keyframes`
     from {
@@ -65,6 +86,7 @@ const StyledBtnLoader = styled.div`
     height: 40px;
     border-radius: 5px;
     background-color: #EEE;
+    overflow: hidden;
     .highlight {
         width: 5px;
         height: 40px;
