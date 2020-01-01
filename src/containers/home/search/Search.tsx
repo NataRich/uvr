@@ -63,12 +63,13 @@ const Search: React.FC<SearchProps> = ({
     const onClickFindBtnHandler = async () => {
         setIsFetchingVideos(true);
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: true}});
+        const videoAbortController: AbortController = new AbortController();
         const order: boolean    = orderBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0] === 'ASC' ? true:false;
         const sort_by: string   = sortBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
         const title: string     = inputAttri.props.value;
         const tags: string[]    = [];       // currently unusable hence empty
         const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
-        setVideos((await Middleware.getVideos(API.postFilterArgs(payload))).videos);
+        setVideos((await Middleware.getVideos(API.postFilterArgs(payload, videoAbortController.signal))).videos);
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: false}});
         setIsFetchingVideos(false);
     };
