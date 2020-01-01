@@ -28,10 +28,10 @@ const Track: React.FC<TrackProps> = ({
     const MAX_PAGE: number = user ? Math.trunc(user.getNumOfVideos()/3 + 1):1;
     const MIN_PAGE: number = 1;
 
-    const [ payload, setPayload ] = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
     const didMount = useRef<boolean>(false);
+    const [ payload, setPayload ] = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
 
-    const onClickPrevPageHandler = async () => {
+    const onClickPrevPageHandler = () => {
         setIsFetchingVideos(true);
         setPayload(prevState => {
             if (prevState.page > 1)
@@ -40,7 +40,7 @@ const Track: React.FC<TrackProps> = ({
         });
     };
 
-    const onClickNextPageHandler = async () => {
+    const onClickNextPageHandler = () => {
         setIsFetchingVideos(true);
         setPayload(prevState => {
             if (prevState.page < MAX_PAGE)
