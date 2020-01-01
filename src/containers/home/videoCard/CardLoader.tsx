@@ -7,11 +7,9 @@ const PlazaLoader: React.FC = () => {
             <div className='img loader'>
                 <div className='highlight' />
             </div>
-            <div className='whitespace' />
             <div className='title loader'>
                 <div className='highlight' /> 
             </div>
-            <div className='whitespace' />
             <div className='btn-group'>
                 <div className='btn loader'>
                     <div className='highlight' />
@@ -45,6 +43,8 @@ const StyledLoadingCardContainer = styled.div`
     margin-right: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     overflow: hidden;
     .highlight {
         width: 5px;
@@ -58,18 +58,11 @@ const StyledLoadingCardContainer = styled.div`
     .img {
         width: 100%;
         height: 70%;
-        position: relative;
     };
     .title {
         width: 100%;
         height: 13%;
-        position: relative;
     };
-    .whitespace {
-        width: 100%;
-        height: 2%;
-        background-color: #FFF;
-    }
     .btn-group {
         width: 100%;
         height: 13%;
@@ -81,11 +74,11 @@ const StyledLoadingCardContainer = styled.div`
             height: 90%;
             border-radius: 50px;
             margin-left: 5px;
-            position: relative;
-            overflow: hidden;
         };
     };
     .loader {
         background-color: #EEE;
+        position: relative;
+        overflow: hidden;
     };
 `;
