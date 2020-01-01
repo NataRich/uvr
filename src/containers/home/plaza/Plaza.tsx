@@ -24,9 +24,6 @@ const Plaza: React.FC<PlazaProps> = ({
 }) => {
     const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
     const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
-    const [ innerWidth, setInnerWidth ]     = useState<number>(window.innerWidth);
-
-    window.onresize = () => setInnerWidth(window.innerWidth);
 
     const onClickPrevPageHandler = () => {
         setPage(prevState => {
@@ -85,14 +82,14 @@ const Plaza: React.FC<PlazaProps> = ({
                             props: nextBtnAttri.props,
                             onClickHandler: onClickNextPageHandler}} />
             </StyledDiv>
-            <GlobalStyled.Box.CenterBoxByRowSpaced style={{ flexWrap: 'wrap', alignItems: 'flex-start' }}>
+            <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ flexWrap: 'wrap' }}>
                 {
                     isFetchingVideos ? 
                     defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
                     videos ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
                     <NullVideo />
                 }
-            </GlobalStyled.Box.CenterBoxByRowSpaced>
+            </GlobalStyled.Box.CenterBoxByRowNonSpaced>
         </>
     );
 };
