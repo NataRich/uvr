@@ -36,7 +36,7 @@ const movingK = keyframes`
     to {
         transform: translateX(370px);
     }
-`
+`;
 
 const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
     width: 300px;
@@ -56,7 +56,7 @@ const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
         filter: brightness(97%);
         box-shadow: 0px 0px 30px 25px #EEE;
         animation: ${movingK} 3s ease-in-out infinite;
-    }
+    };
     .img {
         width: 100%;
         height: 70%;
