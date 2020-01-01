@@ -24,7 +24,7 @@ const Plaza: React.FC<PlazaProps> = ({
 }) => {
     const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
     const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
-    const [ innerWidth, setInnerWidth ] = useState<number>(window.innerWidth);
+    const [ innerWidth, setInnerWidth ]     = useState<number>(window.innerWidth);
 
     window.onresize = () => setInnerWidth(window.innerWidth);
 
@@ -89,7 +89,7 @@ const Plaza: React.FC<PlazaProps> = ({
                 {
                     isFetchingVideos ? 
                     defaultCardLoaderArray.map(e => <VCardLoader key={e.id} {...{innerWidth}} />):
-                    videos ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
+                    videos ? videos.map(video => <VCard key={video.getId()} {...{style: {innerWidth}, props: {video}}} />):
                     <NullVideo />
                 }
             </GlobalStyled.Box.CenterBoxByRowSpaced>
