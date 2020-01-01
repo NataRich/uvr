@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
-export const StyledVideoCardContainer = styled.div`
+export const StyledVideoCardContainer = styled.div<{innerWidth: number}>`
     width: 260px;
     height: 206px;
     overflow: hidden;
     box-shadow: 0 5px 15px 0 #D3D3D3;
     border-radius: 10px;
     margin-top: 15px;
+    margin-left: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
+    margin-right: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
     .track {
         width: 200%;
         height: 100%;

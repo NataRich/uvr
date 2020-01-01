@@ -43,8 +43,8 @@ const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
     height: 206px;
     border-radius: 10px;
     margin-top: 10px;
-    margin-left: ${props => (props.innerWidth - 900)/6}px;
-    margin-right: ${props => (props.innerWidth - 900)/6}px;
+    margin-left: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
+    margin-right: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
     display: flex;
     flex-direction: column;
     overflow: hidden;

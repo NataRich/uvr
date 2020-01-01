@@ -11,6 +11,9 @@ import {
 } from './Logistics';
 
 const VideoCard: React.FC<VideoCardAttributes> = ({
+    style: {
+        innerWidth,
+    },
     props: {
         video,
     },
@@ -28,7 +31,7 @@ const VideoCard: React.FC<VideoCardAttributes> = ({
     };
 
     return (
-        <StyledVideoCardContainer>
+        <StyledVideoCardContainer {...{innerWidth}}>
             <div className='track'
                 style={{
                     transform: openDescription ? 'translateX(-50%)':'translateX(0)',
