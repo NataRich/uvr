@@ -1,11 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const PlazaLoader: React.FC<{innerWidth: number}> = ({
-    innerWidth
-}) => {
+const PlazaLoader: React.FC = () => {
     return (
-        <StyledLoadingCardContainer {...{innerWidth}}>
+        <StyledLoadingCardContainer>
             <div className='img loader'>
                 <div className='highlight' />
             </div>
@@ -38,13 +36,13 @@ const movingK = keyframes`
     }
 `;
 
-const StyledLoadingCardContainer = styled.div<{innerWidth: number}>`
+const StyledLoadingCardContainer = styled.div`
     width: 260px;
     height: 206px;
     border-radius: 10px;
     margin-top: 10px;
-    margin-left: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
-    margin-right: ${props => (props.innerWidth - 780)/6 > 0 ? (props.innerWidth - 780)/6:15}px;
+    margin-left: 30px;
+    margin-right: 30px;
     display: flex;
     flex-direction: column;
     overflow: hidden;

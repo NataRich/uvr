@@ -88,8 +88,8 @@ const Plaza: React.FC<PlazaProps> = ({
             <GlobalStyled.Box.CenterBoxByRowSpaced style={{ flexWrap: 'wrap', alignItems: 'flex-start' }}>
                 {
                     isFetchingVideos ? 
-                    defaultCardLoaderArray.map(e => <VCardLoader key={e.id} {...{innerWidth}} />):
-                    videos ? videos.map(video => <VCard key={video.getId()} {...{style: {innerWidth}, props: {video}}} />):
+                    defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
+                    videos ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
                     <NullVideo />
                 }
             </GlobalStyled.Box.CenterBoxByRowSpaced>
