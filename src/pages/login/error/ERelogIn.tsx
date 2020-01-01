@@ -88,6 +88,8 @@ const ERelogIn: React.FC = () => {
     );
 };
 
+export default ERelogIn;
+
 const defaultLogoAttributes: LogoAttributes = {
     style: {
         position: 'LHS',
@@ -130,5 +132,3 @@ const StyledTextArea = styled.textarea`
         background-color: #E0FFFE;
     };
 `;
-
-export default ERelogIn;
