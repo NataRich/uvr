@@ -136,14 +136,14 @@ export const StyledBox = styled.div<{position: 'LHS' | 'RHS'}>`
     align-items: inherit;
     overflow: hidden;
     p {
-        color: #E0FFFE;
-    }
+        color: #000;
+    };
     div {
         overflow: hidden;
-    }
+    };
     .logo-container {
         cursor: pointer;
-    }
+    };
     .text1 {
         ${props => props.position === 'LHS' ? text1GoRightA:text1GoLeftA};
     };
