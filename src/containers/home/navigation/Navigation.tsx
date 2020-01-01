@@ -11,6 +11,7 @@ import {
     StyledBtnLoader,
     StyledProfileContainer,
 } from './Navigation.style';
+import { GlobalStyled } from '../../../global/style/Style.style';
 
 const Navigation: React.FC<NavProps> = ({
     user,
@@ -51,10 +52,19 @@ const Navigation: React.FC<NavProps> = ({
                 <div>
                     <Logo {...defaultLogoAttributes} />
                 </div>
-                <StyledProfileContainer {...{identity: user.getIdentity()}}
-                    onClick={onClickProfileHandler}>
-                    <img src={user.getThumbImage()} alt='profile' />
-                </StyledProfileContainer>
+                <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ width: 'auto' }}>
+                    <GlobalStyled.Text.AutoWidthAutoHeightNonMargin style={{
+                            fontSize: '24px',
+                            marginRight: '30px',
+                            fontWeight: 'bold',
+                        }}>
+                        Welcom back, {user.getName()}!
+                    </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
+                    <StyledProfileContainer {...{identity: user.getIdentity()}}
+                        onClick={onClickProfileHandler}>
+                        <img src={user.getThumbImage()} alt='profile' />
+                    </StyledProfileContainer>
+                </GlobalStyled.Box.CenterBoxByRowNonSpaced>
             </>
         );
 };
