@@ -51,21 +51,29 @@ const Home: React.FC = () => {
                 </button>
             </div>
             <div className='p-home-about-card_fixed'
-                style={{ visibility: isAboutClicked ? 'visible': 'hidden' }}>
+                style={{
+                    visibility: isAboutClicked ? 'visible': 'hidden',
+                }}>
                 {/* about card to introduce the team */}
             </div>
             <GlobalStyled.Box.CenterEndBoxByCol style={{ height: '15%' }}>
                 <Search {...{page, setVideos, setIsFetchingVideos}} />
             </GlobalStyled.Box.CenterEndBoxByCol>
-            <GlobalStyled.Box.CenterBoxByColNonSpaced style={{ height: '80%', overflowY: 'scroll' }}>
+            <GlobalStyled.Box.CenterBoxByColNonSpaced 
+                style={{
+                    height: '80%',
+                    overflowY: 'scroll',
+                }}>
                 <Plaza {...{isFetchingVideos, page, setPage, videos}} />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{
                 backgroundColor: 'transparent',
                 color: '#000',
                 height: '5%',
-            }}>
-                <p>®2019 UWC (CSC) Virtual Reality</p>
+                }}>
+                <GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
+                    ®2019 UWC (CSC) Virtual Reality
+                </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>
         </StyledTallContainer>
     );
