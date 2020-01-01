@@ -85,8 +85,9 @@ class VideoAPI {
         return await response.json();
     };
 
-    protected usePostMulti = async (url: string, payload: any): Promise<MultiVideoInterface & StatusInterface> => {
+    protected usePostMulti = async (url: string, payload: any, abortSignal: AbortSignal): Promise<MultiVideoInterface & StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal: abortSignal,
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -128,9 +129,9 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
         return new Video(video);
     };
 
-    public postFilterArgs = async (payload: VideoFilterArgInterface): Promise<VideoAPIComplexPromiseReturn> => {
+    public postFilterArgs = async (payload: VideoFilterArgInterface, abortSignal: AbortSignal): Promise<VideoAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.VIDEOS_ENDPOINT;
-        const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload);
+        const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload, abortSignal);
         if (!response.videos)
             return { videos: null, status: response.status };
         const videoClasses: VideoClassType[] = [];
@@ -187,9 +188,9 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_INFO_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postFilterSelfArgs = async (payload: VideoFilterSelfArgInterface): Promise<VideoAPIComplexPromiseReturn> => {
+    public postFilterSelfArgs = async (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal): Promise<VideoAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.VIDEOS_SELF_ALL_ENDPOINT;
-        const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload);
+        const response: MultiVideoInterface & StatusInterface = await this.usePostMulti(URL, payload, abortSignal);
         if (!response.videos)
             return { videos: null, status: response.status };
         const videoClasses: VideoClassType[] = [];

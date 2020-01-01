@@ -99,7 +99,7 @@ export interface APIGeneralGetMethods {
      * 
      */
     getCode: () => Promise<StatusInterface>;
-    getUser: () => Promise<UserClassType | null>;
+    getUser: (abortSignal: AbortSignal) => Promise<UserClassType | null>;
 };
 
 export interface APIGeneralPostMethods {

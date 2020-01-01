@@ -59,8 +59,9 @@ class UserAPI {
         return await response.json();
     };
 
-    protected useGetUser = async (url: string): Promise<UserInterface & StatusInterface> => {
+    protected useGetUser = async (url: string, abortSignal: AbortSignal): Promise<UserInterface & StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal: abortSignal,
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -105,9 +106,9 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
         return await this.useGet(URL);
     };
-    public getUser = async (): Promise<UserClassType | null> => {
+    public getUser = async (abortSignal: AbortSignal): Promise<UserClassType | null> => {
         const URL: string = DOMAIN + this.USER_ENDPOINT;
-        const response: UserInterface & StatusInterface = await this.useGetUser(URL);
+        const response: UserInterface & StatusInterface = await this.useGetUser(URL, abortSignal);
         if(!response.user)
             return null;
         const user: APIUserParamInterface = {

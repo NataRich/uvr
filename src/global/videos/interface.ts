@@ -160,7 +160,7 @@ export interface APIGeneralPostMethods {
      * @public @function postVideoStats return status, to update some statistics of the video on a regular basis, as in 'likes', 'views'
      * 
      */
-    postFilterArgs: (payload: VideoFilterArgInterface)   => Promise<VideoAPIComplexPromiseReturn>;
+    postFilterArgs: (payload: VideoFilterArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
     postVideoStats: (payload: VideoStatsArgInterface)    => Promise<StatusInterface>;
 };
 
@@ -187,7 +187,7 @@ export interface APILoginRequiredPostMethods {
     postVideoId:        (payload: VideoIdInterface)              => Promise<StatusInterface>;
     postVideoFile:      (payload: VideoInterface)                => Promise<StatusInterface>;
     postVideoArgs:      (payload: VideoInfoArgInterface)         => Promise<StatusInterface>;
-    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface)   => Promise<VideoAPIComplexPromiseReturn>;
+    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
 };
 
 export interface VideoAPIComplexPromiseReturn {
