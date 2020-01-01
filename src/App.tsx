@@ -38,7 +38,7 @@ const App: React.FC = () => {
           <Route exact path='/' component={() => <Home />} />
           <Route path='/login' component={() => user ? <ERelogIn />:<Login />} />
           <Route path='/signup' component={() => user ? <ERelogIn />:<Signup />} />
-          <Route path='/profile' component={() => <Profile />} />     {/* to do: user ? </>:</> */}
+          <Route path='/profile' component={() => user ? <Profile {...{user}} />:null} />     {/* to do: user ? </>:</> */}
         </Router>
       </div>
     );
