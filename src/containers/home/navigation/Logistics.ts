@@ -1,5 +1,14 @@
+import { UserClassType } from '../../../global/user/class';
 import { LogoAttributes } from '../../../components/UVRLogo/interface';
-import { RoundedButtonProps, RoundedButtonStyle } from '../../../components/button/rounded/interface';
+import {
+    RoundedButtonProps,
+    RoundedButtonStyle,
+} from '../../../components/button/rounded/interface';
+
+export type NavProps = {
+    user:           UserClassType | null;
+    isFetchingUser: boolean;
+};
 
 const defaultLogoAttributes: LogoAttributes = {
     style: {
