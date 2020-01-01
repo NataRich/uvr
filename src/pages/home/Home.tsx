@@ -46,15 +46,18 @@ const Home: React.FC = () => {
             setVideos((await Middleware.getVideos(VAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
             setIsFetchingVideos(false);
         };
+        const sequentialFetch = async () => {
+            await fetchUser();
+            await fetchVideos();
+        };
 
-        fetchUser();
-        fetchVideos();
+        sequentialFetch();
         return () => {
             userAbortController.abort();
             videoAbortController.abort();
         };
     }, []);
-    
+
     return (
         <StyledTallContainer>
             <GlobalStyled.Box.CenterBoxByRowXSpaced style={{ width: '95%', height: 'auto', position: 'absolute', top: '0' }}>
