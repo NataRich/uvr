@@ -10,6 +10,8 @@ import { APIMiddlewares } from '../../middlewares/API/APIMiddlewares';
 import Account from '../../containers/profile/account/Account';
 import AccountLoader from '../../containers/profile/account/AccountLoader';
 import Track from '../../containers/profile/track/Track';
+import ActionSpace from '../../containers/profile/actionSpace/ActionSpace';
+import ActionSpaceLoader from '../../containers/profile/actionSpace/ActionSpaceLoader';
 
 const UAPI          = new UserGeneralAPI();
 const VAPI          = new VideoLoginRequiredAPI();
@@ -54,26 +56,31 @@ const Profile: React.FC = () => {
     }, []);
 
     return (
-        <GlobalStyled.Box.CenterBoxByRowNonSpaced>
+        <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ minWidth: '1265px', overflow: 'scroll' }}>
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{
                 width: '315px',
                 boxShadow: '5px 0 20px 10px #EEE',
                 }}>
                 {
                     isFetchingUser ? <AccountLoader />:
-                    user ? <Account {...{user}} />:<AccountLoader />
+                    user ? <Account {...{user}} />:
+                    <AccountLoader />
                 }
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{ width: 'calc(100% - 315px)' }}>
                 <GlobalStyled.Box.CenterBoxByColNonSpaced style={{
-                    width: '90%',
+                    width: '95%',
                     height: '270px',
                     }}>
                     <Track {...{isFetchingUser, isFetchingVideos, setIsFetchingVideos, user, videos, setVideos}} />
                 </GlobalStyled.Box.CenterBoxByColNonSpaced>
-                <GlobalStyled.Box.CenterBoxByRowSpaced style={{ height: 'calc(100% -400px)' }}>
-                    {/* to upload videos */}
-                </GlobalStyled.Box.CenterBoxByRowSpaced>
+                <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ height: 'calc(100% -400px)' }}>
+                    {
+                        isFetchingUser ? <ActionSpaceLoader />:
+                        user ? <ActionSpace {...{isEmailAuthed: user.getIsEmailAuthed()}} />:
+                        <ActionSpaceLoader />
+                    }
+                </GlobalStyled.Box.CenterBoxByRowNonSpaced>
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
         </GlobalStyled.Box.CenterBoxByRowNonSpaced>
     );
