@@ -161,7 +161,7 @@ export interface APIGeneralPostMethods {
      * 
      */
     postFilterArgs: (payload: VideoFilterArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
-    postVideoStats: (payload: VideoStatsArgInterface)    => Promise<StatusInterface>;
+    postVideoStats: (payload: VideoStatsArgInterface, abortSignal: AbortSignal)    => Promise<StatusInterface>;
 };
 
 export interface APILoginRequiredGetMethods {
@@ -183,10 +183,10 @@ export interface APILoginRequiredPostMethods {
      * @public @function postFilterSelfArgs return an object, to fetch all the videos uploaded by that specific user as well as the status
      * 
      */
-    postTrackId:        (payload: TrackIdInterface)              => Promise<StatusInterface>;
-    postVideoId:        (payload: VideoIdInterface)              => Promise<StatusInterface>;
+    postTrackId:        (payload: TrackIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
+    postVideoId:        (payload: VideoIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
     postVideoFile:      (payload: VideoInterface)                => Promise<StatusInterface>;
-    postVideoArgs:      (payload: VideoInfoArgInterface)         => Promise<StatusInterface>;
+    postVideoArgs:      (payload: VideoInfoArgInterface, abortSignal: AbortSignal)         => Promise<StatusInterface>;
     postFilterSelfArgs: (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
 };
 

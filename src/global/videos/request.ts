@@ -59,8 +59,9 @@ class VideoAPI {
         return await response.json();
     };
 
-    protected usePost = async (url: string, payload: any): Promise<StatusInterface> => {
+    protected usePost = async (url: string, payload: any, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal: abortSignal,
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -157,9 +158,9 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
         });
         return {videos: videoClasses, status: response.status};
     };
-    public postVideoStats = async (payload: VideoStatsArgInterface): Promise<StatusInterface> => {
+    public postVideoStats = async (payload: VideoStatsArgInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPDATE_STATS_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
 };
 
@@ -172,21 +173,21 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
         return await this.useGet(URL);
     };
 
-    public postTrackId = async (payload: TrackIdInterface): Promise<StatusInterface> => {
+    public postTrackId = async (payload: TrackIdInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_TRACKID_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
-    public postVideoId = async (payload: VideoIdInterface): Promise<StatusInterface> => {
+    public postVideoId = async (payload: VideoIdInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_DELETE_FILE_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     }
     public postVideoFile = async (payload: VideoInterface): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_FILE_ENDPOINT;
         return await this.usePostFormData(URL, payload.video);
     };
-    public postVideoArgs = async (payload: VideoInfoArgInterface): Promise<StatusInterface> => {
+    public postVideoArgs = async (payload: VideoInfoArgInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_INFO_ENDPOINT;
-        return await this.usePost(URL, payload);
+        return await this.usePost(URL, payload, abortSignal);
     };
     public postFilterSelfArgs = async (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal): Promise<VideoAPIComplexPromiseReturn> => {
         const URL: string = DOMAIN + this.VIDEOS_SELF_ALL_ENDPOINT;
