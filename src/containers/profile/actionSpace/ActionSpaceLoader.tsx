@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-    StyledActionSpaceLoaderContainer,
-} from './ActionSpace.style';
+import { StyledActionSpaceLoaderContainer } from './ActionSpace.style';
 
 const ActionSpaceLoader: React.FC = () => {
     return (
