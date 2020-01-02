@@ -14,8 +14,6 @@ import {
 } from './Logistics';
 import { VAPI, Middleware } from './Logistics';
 
-
-
 const Step1: React.FC = () => {
     const [ acquireBtnAttri, setAcquireBtnAttri ]   = useState<LocalRButtonAttributes>(defaultAcquireTrackIdBtnAttributes);
     const [ trackIdAttri, setTrackIdAttri ]         = useState<LocalInputAttributes>(defaultTrackIdInputAttributes);
