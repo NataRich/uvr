@@ -80,7 +80,6 @@ class VideoAPI {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': url,
-                // 'Content-Type': 'multipart/form-data',
             },
             body: payload
         });
