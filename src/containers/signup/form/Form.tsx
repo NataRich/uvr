@@ -29,7 +29,7 @@ const Form: React.FC = () => {
 
     const onChangeUsernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
-        if (value.match(/^[a-zA-Z\d_]{5,12}$/)) {
+        if (value.match(/^[a-zA-Z\d\s_]{5,30}$/)) {
             setUsernameAttri({...defaultUsernameAttributes, props: {...usernameAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setAccount({...account, account: {...account.account, username: value}});
         } else if (value === '') {
@@ -37,7 +37,7 @@ const Form: React.FC = () => {
             setAccount({...account, account: {...account.account, username: defaultAccount.account.username}});
         } else {
             setUsernameAttri({style: {...usernameAttri.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultUsernameAttributes.props, value, helperText: '5-12 alphanumeric characters only. Do not use any illegal character.'}});
+                            props: {...defaultUsernameAttributes.props, value, helperText: '5-30 alphanumeric characters only. Do not use any illegal character.'}});
             setAccount({...account, account: {...account.account, username: defaultAccount.account.username}});
         };
     };

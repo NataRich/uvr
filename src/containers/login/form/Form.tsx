@@ -33,7 +33,7 @@ const Form: React.FC = () => {
 
     const onChangeAccountHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
-        if (value.match(/^[a-zA-Z\d_]{5,12}$/)) {
+        if (value.match(/^[a-zA-Z\d\s_]{5,30}$/)) {
             setAccountAttri({...defaultAccountAttributes, props: {...accountAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, disabled: false}});
             setAccount({...defaultAccount, account: {username: value}});
@@ -47,7 +47,7 @@ const Form: React.FC = () => {
             setAccount({...defaultAccount});
         } else {
             setAccountAttri({style: {...accountAttri.style, borderColor: 'red', helperColor: 'red'},
-                            props: {...defaultAccountAttributes.props, value, helperText: '5-12 character username only. Do not enter illegal characters or illegal forms of email address.'}});
+                            props: {...defaultAccountAttributes.props, value, helperText: '5-30 character username only. Do not enter illegal characters or illegal forms of email address.'}});
             setConfirmButtonAttri({...defaultConfirmButtonAttri});
             setAccount({...defaultAccount});
         };
