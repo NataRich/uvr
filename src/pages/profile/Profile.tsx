@@ -60,6 +60,7 @@ const Profile: React.FC = () => {
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{
                 width: '315px',
                 boxShadow: '5px 0 20px 10px #EEE',
+                position: 'relative',
                 }}>
                 {
                     isFetchingUser ? <AccountLoader />:

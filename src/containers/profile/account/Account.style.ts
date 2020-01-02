@@ -19,6 +19,12 @@ const StyledLogoContainer = styled.div`
     left: 5px;
 `;
 
+const StyledLogOutContainer = styled.div`
+    position: absolute;
+    top: 0;
+    right: 5px;
+`;
+
 const StyledProfileImageContainer = styled.div<{identity: number}>`
     width: 150px;
     height: 150px;
@@ -36,5 +42,6 @@ const StyledProfileImageContainer = styled.div<{identity: number}>`
 
 export {
     StyledLogoContainer,
+    StyledLogOutContainer,
     StyledProfileImageContainer,
 };

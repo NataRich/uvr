@@ -15,6 +15,7 @@ import {
 } from './Logistics';
 import {
     defaultLogoAttributes,
+    defaultLogOutBtnAttributes,
     defaultNewEmailAttributes,
     defaultNewUsernameAttributes,
     defaultCodeAttributes,
@@ -24,7 +25,8 @@ import {
 } from './Logistics';
 import {
     StyledLogoContainer,
-    StyledProfileImageContainer
+    StyledLogOutContainer,
+    StyledProfileImageContainer,
 } from './Account.style';
 import { AccountProps } from './interface';
 import { API, GAPI, Middleware} from './Logistics';
@@ -33,6 +35,7 @@ import { API, GAPI, Middleware} from './Logistics';
 const Account: React.FC<AccountProps> = ({
     user,
 }) => {
+    const [ logOutBtnAttri, setLogOutBtnAttri ]     = useState<LocalRButtonAttributes>(defaultLogOutBtnAttributes);
     const [ emailAttri, setEmailAttri ]             = useState<LocalInputAttributes>(defaultNewEmailAttributes);
     const [ usernameAttri, setUsernameAttri ]       = useState<LocalInputAttributes>(defaultNewUsernameAttributes);
     const [ codeAttri, setCodeAttri ]               = useState<LocalInputAttributes>(defaultCodeAttributes);
@@ -40,6 +43,14 @@ const Account: React.FC<AccountProps> = ({
     const [ updateUBtnAttri, setUpdateUBtnAttri ]   = useState<LocalRButtonAttributes>(defaultUpdateButtonAttributes);
     const [ authBtnAttri, setAuthBtnAttri ]         = useState<LocalRButtonAttributes>(defaultAuthButtonAttributes);
     const [ sendBtnAttri, setSendBtnAttri ]         = useState<LocalRButtonAttributes>(defaultSendButtonAttributes);
+
+    const onClickLogOutHandler = async () => {
+        setLogOutBtnAttri({...logOutBtnAttri, props: {...logOutBtnAttri.props, isLoading: true}});
+        let status: number = (await Middleware.getStatus(API.getClear())).status;
+        setLogOutBtnAttri({...logOutBtnAttri, props: {...logOutBtnAttri.props, isLoading: false}});
+        if (status === 2000)
+            window.location.href='/';
+    };
 
     const onChangeUsernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value: string = e.currentTarget.value;
@@ -141,6 +152,11 @@ const Account: React.FC<AccountProps> = ({
                 <Logo {...{style: defaultLogoAttributes.style,
                         props: defaultLogoAttributes.props}} />
             </StyledLogoContainer>
+            <StyledLogOutContainer>
+                <Button {...{style: logOutBtnAttri.style,
+                            props: logOutBtnAttri.props,
+                            onClickHandler: onClickLogOutHandler}} />
+            </StyledLogOutContainer>
             <GlobalStyled.Box.CenterBoxByColNonSpaced style={{ height: '50%' }}>
                 <StyledProfileImageContainer {...{identity: user.getIdentity()}}>
                     <img src={user.getMediumImage()} alt='profile' />
@@ -181,10 +197,7 @@ const Account: React.FC<AccountProps> = ({
                             props: updateEBtnAttri.props,
                             onClickHandler: onClickUpdateEmailHandler}} />
             </GlobalStyled.Box.CenterBoxByRowSpaced>
-            <GlobalStyled.Box.CenterBoxByColNonSpaced style={{
-                height: '25%',
-                // borderTop: user.getIsEmailAuthed() ? 'none':'1px solid #931621',
-                }}>
+            <GlobalStyled.Box.CenterBoxByColNonSpaced style={{ height: '25%' }}>
                 {
                     user.getIsEmailAuthed() ? null:(
                         <>

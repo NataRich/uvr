@@ -42,6 +42,26 @@ const defaultLogoAttributes: LogoAttributes = {
     props: {},
 };
 
+const defaultLogOutBtnAttributes: LocalRButtonAttributes = {
+    style: {
+        width: 70,
+        height: 40,
+        borderColor: 'transparent',
+        borderRadius: 5,
+        borderWidth: 5,
+        backgroundColor: '#931621',
+        fontColor: '#FFF',
+        fontSize: 14,
+        invertColorH: false,
+        loadingBorderColor: '',
+    },
+    props: {
+        defaultValue: 'Log Out',
+        disabled: false,
+        isLoading: false,
+    },
+};
+
 const defaultInputStyle: LabelEffectInputStyle = {
     borderColor: '#18626B',
     borderRadius: 5,
@@ -122,6 +142,7 @@ const defaultAuthButtonAttributes: LocalRButtonAttributes = {
 
 export {
     defaultLogoAttributes,
+    defaultLogOutBtnAttributes,
     defaultNewUsernameAttributes,
     defaultNewEmailAttributes,
     defaultCodeAttributes,
