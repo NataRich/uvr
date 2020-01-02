@@ -30,7 +30,7 @@ class VideoAPI {
     protected readonly VIDEOS_TRACKID_ENDPOINT          = 'videos/track_id';
     protected readonly VIDEOS_SELF_ALL_ENDPOINT         = 'videos/self_all';
     protected readonly VIDEOS_UPLOAD_FILE_ENDPOINT      = 'videos/upload_file';
-    protected readonly VIDEOS_UPLOAD_INFO_ENDPOINT      = 'video/upload_info';
+    protected readonly VIDEOS_UPLOAD_INFO_ENDPOINT      = 'videos/upload_info';
     protected readonly VIDEOS_DELETE_FILE_ENDPOINT      = 'videos/delete_file';
     protected readonly VIDEOS_UPDATE_STATS_ENDPOINT     = 'videos/update_stats';
 
