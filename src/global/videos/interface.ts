@@ -34,6 +34,12 @@ export interface TrackIdInterface {
     track_id: string;
 };
 
+export interface TagInterface {
+    vr:     0 | 1;
+    event:  0 | 1;
+    campus: 0 | 1;
+};
+
 export interface VideoInterface {
     video: FormData;
 };
@@ -59,7 +65,7 @@ export interface VideoFilterSelfArgInterface {
 export interface VideoInfoArgInterface {
     description:    string;
     title:          string;
-    tags:           string[];  
+    tags:           TagInterface;  
 };
 
 export interface VideoStatsArgInterface {
