@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import { 
+    VideoFilterSelfArgInterface,
+    VideoIdInterface,
+} from '../../../global/videos/interface';
 import VCardLoader from '../../home/videoCard/CardLoader';
 import VCard from '../../home/videoCard/Card';
 import NullVideo from '../../home/videoCard/NullVideo';
@@ -12,10 +16,10 @@ import {
 import {
     StyledDivLoader,
     StyledArrowContainer,
+    StyledContainer,
 } from './Track.style';
 import { TrackProps } from './interface';
 import { VAPI, Middleware } from './Logistics';
-import { VideoFilterSelfArgInterface } from '../../../global/videos/interface';
 
 const Track: React.FC<TrackProps> = ({
     isFetchingUser,
@@ -28,8 +32,9 @@ const Track: React.FC<TrackProps> = ({
     const MAX_PAGE: number = user ? Math.ceil(user.getNumOfVideos()/3):1;
     const MIN_PAGE: number = 1;
 
-    const didMount = useRef<boolean>(false);
-    const [ payload, setPayload ] = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
+    const didMount                          = useRef<boolean>(false);
+    const [ payload, setPayload ]           = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
+    const [ isDeleting,  setIsDeleting ]    = useState<boolean>(false);
 
     const onClickPrevPageHandler = () => {
         setIsFetchingVideos(true);
@@ -49,6 +54,17 @@ const Track: React.FC<TrackProps> = ({
         });
     };
 
+    const onClickDelHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        setIsDeleting(true);
+        const video_id: string = e.currentTarget.id;
+        const delAbortController: AbortController = new AbortController();
+        let payload: VideoIdInterface = { video_id };
+        let status: number = (await Middleware.getStatus(VAPI.postVideoId(payload, delAbortController.signal))).status;
+        setIsDeleting(false);
+        if (status === 2000)
+            window.location.href='/profile';
+    };
+
     useEffect(() => {
         if (!didMount.current)
             didMount.current = true;
@@ -64,7 +80,7 @@ const Track: React.FC<TrackProps> = ({
                 videoAbortController.abort();
             };
         };
-    }, [payload])
+    }, [payload]);
 
     return (
         <>
@@ -100,7 +116,22 @@ const Track: React.FC<TrackProps> = ({
                 <GlobalStyled.Box.CenterBoxByRowSpaced>
                     {
                         isFetchingVideos ? defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
-                        videos ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
+                        videos ? videos.map(video => {
+                            return (
+                                <StyledContainer>
+                                    <button key={video.getId()} 
+                                        id={video.getId()} 
+                                        className='del-btn' 
+                                        onClick={onClickDelHandler}
+                                        style={{
+                                            backgroundColor: isDeleting ? 'red':'#931621',
+                                        }}>
+                                        {isDeleting ? '...':'Del'}
+                                    </button>
+                                    <VCard key={video.getId()} {...{props: {video}}} />
+                                </StyledContainer>
+                        )
+                    }):
                         <NullVideo />
                     }
                 </GlobalStyled.Box.CenterBoxByRowSpaced>

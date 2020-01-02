@@ -40,7 +40,22 @@ const StyledArrowContainer = styled.div`
     };
 `;
 
+const StyledContainer = styled.div`
+    position: relative;
+    .del-btn {
+        outline: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        color: #FFF;
+        position: absolute;
+        top: 5px;
+        right: 15px;
+    };
+`;
+
 export {
     StyledDivLoader,
+    StyledContainer,
     StyledArrowContainer,
 };
