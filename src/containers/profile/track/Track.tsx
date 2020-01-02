@@ -25,7 +25,7 @@ const Track: React.FC<TrackProps> = ({
     videos,
     setVideos,
 }) => {
-    const MAX_PAGE: number = user ? Math.trunc(user.getNumOfVideos()/3 + 1):1;
+    const MAX_PAGE: number = user ? Math.ceil(user.getNumOfVideos()/3):1;
     const MIN_PAGE: number = 1;
 
     const didMount = useRef<boolean>(false);
