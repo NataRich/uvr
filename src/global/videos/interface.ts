@@ -185,7 +185,7 @@ export interface APILoginRequiredPostMethods {
      */
     postTrackId:        (payload: TrackIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
     postVideoId:        (payload: VideoIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
-    postVideoFile:      (payload: VideoInterface)                => Promise<StatusInterface>;
+    postVideoFile:      (payload: VideoInterface, abortSignal: AbortSignal)                => Promise<StatusInterface>;
     postVideoArgs:      (payload: VideoInfoArgInterface, abortSignal: AbortSignal)         => Promise<StatusInterface>;
     postFilterSelfArgs: (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
 };

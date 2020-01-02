@@ -73,8 +73,9 @@ class VideoAPI {
         return await response.json();
     };
 
-    protected usePostFormData = async (url: string, payload: FormData): Promise<StatusInterface> => {
+    protected usePostFormData = async (url: string, payload: FormData, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const response: Response = await fetch(url, {
+            signal: abortSignal,
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -181,9 +182,9 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
         const URL: string = DOMAIN + this.VIDEOS_DELETE_FILE_ENDPOINT;
         return await this.usePost(URL, payload, abortSignal);
     }
-    public postVideoFile = async (payload: VideoInterface): Promise<StatusInterface> => {
+    public postVideoFile = async (payload: VideoInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_FILE_ENDPOINT;
-        return await this.usePostFormData(URL, payload.video);
+        return await this.usePostFormData(URL, payload.video, abortSignal);
     };
     public postVideoArgs = async (payload: VideoInfoArgInterface, abortSignal: AbortSignal): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_INFO_ENDPOINT;
