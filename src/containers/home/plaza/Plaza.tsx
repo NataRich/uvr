@@ -24,7 +24,7 @@ const Plaza: React.FC<PlazaProps> = ({
 }) => {
     const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
     const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
-
+    console.log(videos)
     const onClickPrevPageHandler = () => {
         setPage(prevState => {
             if (prevState > 1) {
@@ -86,7 +86,7 @@ const Plaza: React.FC<PlazaProps> = ({
                 {
                     isFetchingVideos ? 
                     defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
-                    videos ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
+                    videos && videos.length !==0 ? videos.map(video => <VCard key={video.getId()} {...{props: {video}}} />):
                     <NullVideo />
                 }
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>

@@ -6,7 +6,7 @@ const NullVideo: React.FC = () => {
     return (
         <GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Text.FullWidthAutoHeightNonMargin>
-                This page does not have any videos.
+                Here has no videos.
             </GlobalStyled.Text.FullWidthAutoHeightNonMargin>
         </GlobalStyled.Box.CenterBoxByColNonSpaced>
     );

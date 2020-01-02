@@ -116,7 +116,7 @@ const Track: React.FC<TrackProps> = ({
                 <GlobalStyled.Box.CenterBoxByRowSpaced>
                     {
                         isFetchingVideos ? defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
-                        videos ? videos.map(video => {
+                        videos && videos.length !==0 ? videos.map(video => {
                             return (
                                 <StyledContainer>
                                     <button key={video.getId()} 
