@@ -35,7 +35,7 @@ const VideoCard: React.FC<VideoCardAttributes> = ({
                 }}>
                 <div className='slide'>
                     <div className='con-home-plaza-vcard-vimg'>
-                        {/* video image */}
+                        <img src={video.getDirectory() + 'cover.png'} alt='' />
                         <GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
                             {video.getDuration()}
                         </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>

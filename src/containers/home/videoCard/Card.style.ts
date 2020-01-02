@@ -45,6 +45,10 @@ export const StyledVideoCardContainer = styled.div`
                 width: 100%;
                 height: 70%;
                 position: relative
+                img {
+                    width: 100%;
+                    height: 100%;
+                };
                 p {
                     position: absolute;
                     bottom: 0;
@@ -54,7 +58,7 @@ export const StyledVideoCardContainer = styled.div`
                     color: #FFF;
                     font-size: 12px;
                     background-color: #CCC;
-                }
+                };
             };
             .con-home-plaza-vcard-btn-group {
                 width: 100%;
