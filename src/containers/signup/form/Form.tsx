@@ -29,7 +29,7 @@ const Form: React.FC = () => {
 
     const onChangeUsernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
-        if (value.match(/^[a-z\d]{5,12}$/)) {
+        if (value.match(/^[a-zA-Z\d_]{5,12}$/)) {
             setUsernameAttri({...defaultUsernameAttributes, props: {...usernameAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setAccount({...account, account: {...account.account, username: value}});
         } else if (value === '') {

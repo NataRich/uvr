@@ -33,7 +33,7 @@ const Form: React.FC = () => {
 
     const onChangeAccountHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;
-        if (value.match(/^[a-z\d]{5,12}$/)) {
+        if (value.match(/^[a-zA-Z\d_]{5,12}$/)) {
             setAccountAttri({...defaultAccountAttributes, props: {...accountAttri.props, value, isRequired: false, helperText: 'Okay.'}});
             setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, disabled: false}});
             setAccount({...defaultAccount, account: {username: value}});
