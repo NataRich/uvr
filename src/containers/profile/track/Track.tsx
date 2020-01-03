@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import { 
@@ -65,22 +65,22 @@ const Track: React.FC<TrackProps> = ({
             window.location.href='/profile';
     };
 
+    const fetchVideoCallBack = useCallback(async (videoAbortController: AbortController) => {
+        setVideos((await Middleware.getVideos(VAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
+        setIsFetchingVideos(false);
+    }, [payload, setVideos, setIsFetchingVideos]);
+
     useEffect(() => {
         if (!didMount.current)
             didMount.current = true;
         else {
             const videoAbortController: AbortController = new AbortController();
-            const fetchVideos = async () => {
-                setVideos((await Middleware.getVideos(VAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
-                setIsFetchingVideos(false);
-            };
-
-            fetchVideos();
+            fetchVideoCallBack(videoAbortController);
             return () => {
                 videoAbortController.abort();
             };
         };
-    }, [payload]);
+    }, [fetchVideoCallBack]);
 
     return (
         <>
