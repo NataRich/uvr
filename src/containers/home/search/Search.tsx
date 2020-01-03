@@ -70,6 +70,7 @@ const Search: React.FC<SearchProps> = ({
         const tags: string[]    = [];       // currently unusable hence empty
         const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
         setVideos((await Middleware.getVideos(API.postFilterArgs(payload, videoAbortController.signal))).videos);
+        videoAbortController.abort();
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: false}});
         setIsFetchingVideos(false);
     };
