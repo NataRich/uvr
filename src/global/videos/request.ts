@@ -4,6 +4,7 @@ import { APIVideoParamInterface } from './interface';
 import { VideoAPIComplexPromiseReturn } from './interface';
 import {
     MultiVideoInterface,
+    NumOfVideoInterface,
     OneVideoInterface,
     StatusInterface,
     TrackIdInterface,
@@ -26,6 +27,7 @@ import {
 
 class VideoAPI {
     protected readonly VIDEOS_ENDPOINT                  = 'videos';
+    protected readonly VIDEOS_NUM_ENDPIONT              = 'videos/info';
     protected readonly VIDEOS_FETCH_ENDPOINT            = 'videos/fetch';
     protected readonly VIDEOS_TRACKID_ENDPOINT          = 'videos/track_id';
     protected readonly VIDEOS_SELF_ALL_ENDPOINT         = 'videos/self_all';
@@ -40,6 +42,18 @@ class VideoAPI {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': url
+            },
+        });
+        return await response.json();
+    };
+
+    protected useGetNum = async (url: string, abortSignal: AbortSignal): Promise<NumOfVideoInterface & StatusInterface> => {
+        const response: Response = await fetch(url, {
+            signal: abortSignal,
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Access-Control-Allow-Origin': url,
             },
         });
         return await response.json();
@@ -128,6 +142,13 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
             width:          response.video.resW,
         };
         return new Video(video);
+    };
+    public getNumOfVideos = async (abortSignal: AbortSignal): Promise<NumOfVideoInterface & StatusInterface> => {
+        const URL: string = DOMAIN + this.VIDEOS_NUM_ENDPIONT;
+        const response: NumOfVideoInterface & StatusInterface = await this.useGetNum(URL, abortSignal);
+        if (response.num === undefined)
+            return {status: 4444, num: 0};
+        return {status: response.status, num: response.num};
     };
 
     public postFilterArgs = async (payload: VideoFilterArgInterface, abortSignal: AbortSignal): Promise<VideoAPIComplexPromiseReturn> => {

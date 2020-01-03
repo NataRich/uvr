@@ -22,6 +22,10 @@ export interface MultiVideoInterface {
     videos: BaseVideoInterface[];
 };
 
+export interface NumOfVideoInterface {
+    num: number;
+};
+
 export interface OneVideoInterface {
     video: BaseVideoInterface;
 };

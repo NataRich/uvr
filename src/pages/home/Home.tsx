@@ -23,19 +23,17 @@ const Home: React.FC = () => {
     const [ videos, setVideos ]                     = useState<VideoClassType[] | null>(null);
     const [ user, setUser ]                         = useState<UserClassType | null>(null);
     const [ page, setPage ]                         = useState<number>(1);
+    const [ maxPage, setMaxPage ]                   = useState<number>(1);
     
     const onClickAbout = () => setIsAboutClicked(prev => !prev);
 
     useEffect(() => {
-        const userAbortController: AbortController = new AbortController();
+        const userAbortController: AbortController  = new AbortController();
         const videoAbortController: AbortController = new AbortController();
-        const fetchUser = async () => {
-            setIsFetchingUser(true);
-            setUser(await Middleware.getUser(UAPI.getUser(userAbortController.signal)));
-            setIsFetchingUser(false);
-        };
+        const numAbortController: AbortController   = new AbortController();
+        const fetchNum = async () => setMaxPage(Math.ceil((await Middleware.getNumOfVideos(VAPI.getNumOfVideos(numAbortController.signal))).num / 8));
+        const fetchUser = async () => setUser(await Middleware.getUser(UAPI.getUser(userAbortController.signal)));
         const fetchVideos = async () => {
-            setIsFetchingVideos(true);
             const payload: VideoFilterArgInterface = {
                 order: true,
                 page: 1,
@@ -44,15 +42,20 @@ const Home: React.FC = () => {
                 title: ''
             };
             setVideos((await Middleware.getVideos(VAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
-            setIsFetchingVideos(false);
         };
         const sequentialFetch = async () => {
+            setIsFetchingUser(true);
+            setIsFetchingVideos(true);
+            await fetchNum();
             await fetchUser();
             await fetchVideos();
+            setIsFetchingUser(false);
+            setIsFetchingVideos(false);
         };
 
         sequentialFetch();
         return () => {
+            numAbortController.abort();
             userAbortController.abort();
             videoAbortController.abort();
         };
@@ -86,7 +89,7 @@ const Home: React.FC = () => {
                     height: '80%',
                     overflowY: 'scroll',
                 }}>
-                <Plaza {...{isFetchingVideos, page, setPage, videos}} />
+                <Plaza {...{isFetchingVideos, page, maxPage, setPage, videos}} />
             </GlobalStyled.Box.CenterBoxByColNonSpaced>
             <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{
                 backgroundColor: 'transparent',

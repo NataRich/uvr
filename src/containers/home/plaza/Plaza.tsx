@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Button from '../../../components/button/rounded/RoundedButton';
@@ -19,40 +19,30 @@ import { StyledDiv } from './Plaza.style';
 const Plaza: React.FC<PlazaProps> = ({
     isFetchingVideos,
     page,
+    maxPage,
     setPage,
     videos,
 }) => {
     const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
     const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
 
-    const onClickPrevPageHandler = () => {
-        setPage(prevState => {
-            if (prevState > 1) {
-                setPrevBtnAttri({...prevBtnAttri, props: {...prevBtnAttri.props, disabled: false}});
-                return prevState - 1;
-            } else {
-                setPrevBtnAttri({...prevBtnAttri, props: {...prevBtnAttri.props, disabled: true}});
-                return prevState;
-            };
-        });
-    };
+    useEffect(() => {
+        if (page > 1 && page < maxPage ) {
+            setPrevBtnAttri(prevState => { return {...prevState, props: {...prevState.props, disabled: false}} });
+            setNextBtnAttri(prevState => { return {...prevState, props: {...prevState.props, disabled: false}} });
+        } else {
+            setPrevBtnAttri(prevState => { return {...prevState, props: {...prevState.props, disabled: true}} });
+            setNextBtnAttri(prevState => { return {...prevState, props: {...prevState.props, disabled: true}} });
+        }
+    }, [page, maxPage])
 
-    const onClickNextPageHandler = () => {
-        setPage(prevState => {          // need upper boundary
-            if (!videos) {
-                setNextBtnAttri({...nextBtnAttri, props: {...nextBtnAttri.props, disabled: true}});
-                return prevState;
-            } else {
-                setNextBtnAttri({...nextBtnAttri, props: {...nextBtnAttri.props, disabled: false}});
-                return prevState + 1;
-            };
-        });
-    };
+    const onClickPrevPageHandler = () => setPage(prevState => prevState > 1 ? prevState - 1:prevState);
+    const onClickNextPageHandler = () => setPage(prevState => prevState < maxPage ? prevState + 1:prevState);
 
     const onChangeSetPageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let value: string   = e.currentTarget.value;        // need upper boundary
+        let value: string   = e.currentTarget.value;
         let number: number  = parseInt(value, 10);
-        if (!isNaN(number))
+        if (!isNaN(number) && number <= maxPage)
             setPage(number);
         setPage(page);
     };
@@ -68,7 +58,7 @@ const Plaza: React.FC<PlazaProps> = ({
                 &nbsp;
                 <input type='text'
                     disabled
-                    value={page} />
+                    value={`${page}/${maxPage}`} />
                 &nbsp;
                 &nbsp;
                 &nbsp;

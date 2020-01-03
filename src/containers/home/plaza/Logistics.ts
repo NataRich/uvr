@@ -7,6 +7,7 @@ import {
 export type PlazaProps = {
     isFetchingVideos:   boolean;
     page:               number;
+    maxPage:            number;
     setPage:            React.Dispatch<React.SetStateAction<number>>;
     videos:             VideoClassType[] | null;
 };
