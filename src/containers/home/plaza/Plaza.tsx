@@ -24,7 +24,7 @@ const Plaza: React.FC<PlazaProps> = ({
 }) => {
     const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
     const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
-    console.log(videos)
+
     const onClickPrevPageHandler = () => {
         setPage(prevState => {
             if (prevState > 1) {
