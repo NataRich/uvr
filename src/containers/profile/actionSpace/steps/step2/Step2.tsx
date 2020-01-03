@@ -18,7 +18,7 @@ const Step2: React.FC = () => {
     const [ vHelper, setVHelper ]               = useState<boolean>(false);
     const [ vHelperText, setVHelperText ]       = useState<string>('.MP4 file only');
     const [ iHelper, setIHelper ]               = useState<boolean>(false);
-    const [ iHelperText, setIHelperText ]       = useState<string>('.JPG/.PNG/.JPEG allowed.');
+    const [ iHelperText, setIHelperText ]       = useState<string>('.PNG allowed.');
 
     const onChangeVideoHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         let file: FileList | null = e.target.files;
@@ -42,12 +42,12 @@ const Step2: React.FC = () => {
         if (file) {
             let name: string = file[0].name;
             let ext: string = name.split('.')[name.split('.').length - 1].toLowerCase();
-            if (ext === 'jpg' || ext === 'png' || ext === 'jpeg') {
+            if (ext === 'png') {
                 setIHelperText('The file has been detected to be valid.');
                 setIHelper(true);
                 videoResource.video.append('image', file[0]);
             } else {
-                setIHelperText('.JPG/.PNG/.JPEG allowed. Current file not allowed.');
+                setIHelperText('.PNG allowed only. Current file not allowed.');
                 setIHelper(false);
                 videoResource.video.delete('image');
             };
