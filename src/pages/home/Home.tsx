@@ -56,7 +56,7 @@ const Home: React.FC = () => {
             userAbortController.abort();
             videoAbortController.abort();
         };
-    }, []);
+    }, [page]);
 
     return (
         <StyledTallContainer>
