@@ -39,37 +39,8 @@ const formatDate = (date: string, now?: string): string => {
     return `${Math.trunc(difference / (60*60*24*30*12))} years ago`;
 };
 
-const generateTrackId = (): string => {
-    const LENGTH: number = 24;
-    let str: string = '';
-    let arr: any[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-                    'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 
-                    'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 
-                    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    for (let i = 0; i < LENGTH; i++) {
-        let p: number = Math.round(Math.random() * (arr.length - 1));
-        str += arr[p];
-    }
-    return str;
-};
-
-const getBorderColor = (identity: number): string => {
-    switch (identity) {
-        case 1111:
-            return '#0165A3';
-        case 8888:
-            return '#8A2BE2';
-        case 9999:
-            return '#FFFF00';
-        default:
-            return '#4169E1';
-    };
-};
-
 export {
     parseDuration,
     formatDuration,
     formatDate,
-    generateTrackId,
-    getBorderColor,
 };

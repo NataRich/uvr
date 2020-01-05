@@ -1,6 +1,18 @@
 import styled, { keyframes } from 'styled-components';
 
-import { getBorderColor } from '../../../global/utils/utils';
+
+const getBorderColor = (identity: number): string => {
+    switch (identity) {
+        case 1111:
+            return '#0165A3';
+        case 8888:
+            return '#8A2BE2';
+        case 9999:
+            return '#FFFF00';
+        default:
+            return '#4169E1';
+    };
+};
 
 const movingK = keyframes`
     from {
