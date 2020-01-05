@@ -1,11 +1,45 @@
+import { VideoLoginRequiredAPI } from '../../../global/videos/request';
+import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
 import {
     EllipticalButtonProps,
     EllipticalButtonStyle,
 } from '../../../components/button/elliptical/interface';
+import {
+    RoundedButtonProps,
+    RoundedButtonStyle,
+} from '../../../components/button/rounded/interface';
 
 export type LocalEButtonAttributes = {
     style: EllipticalButtonStyle;
     props: EllipticalButtonProps;
+};
+
+export type LocalRButtonAttributes = {
+    style: RoundedButtonStyle;
+    props: RoundedButtonProps;
+};
+
+export const VAPI       = new VideoLoginRequiredAPI();
+export const Middleware = new APIMiddlewares();
+
+const defaultDelButtonAttributes: LocalRButtonAttributes = {
+    style: {
+        width: 50,
+        height: 25,
+        borderColor: '#931621',
+        borderRadius: 3,
+        borderWidth: 3,
+        backgroundColor: '#931621',
+        loadingBorderColor: '#931621',
+        fontColor: '#FFF',
+        fontSize: 12,
+        invertColorH: true,
+    },
+    props: {
+        defaultValue: 'Delete',
+        isLoading: false,
+        disabled: false,
+    },
 };
 
 const defaultWatchButtonAttributes: LocalEButtonAttributes = {
@@ -41,6 +75,7 @@ const defaultBackButtonAttributes: LocalEButtonAttributes = {
 };
 
 export {
+    defaultDelButtonAttributes,
     defaultWatchButtonAttributes,
     defaultMoreButtonAttributes,
     defaultBackButtonAttributes,

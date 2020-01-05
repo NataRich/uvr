@@ -5,5 +5,6 @@ export interface VideoCardAttributes {
 };
 
 export interface VideoCardProps {
-    video: VideoClassType;
+    video:      VideoClassType;
+    hasDel?:    boolean;
 };

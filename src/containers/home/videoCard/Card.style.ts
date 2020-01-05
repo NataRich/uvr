@@ -9,6 +9,14 @@ export const StyledVideoCardContainer = styled.div`
     margin-top: 15px;
     margin-left: 30px;
     margin-right: 30px;
+    position: relative;
+    .del-btn {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        z-index: 1000;
+    }
     .track {
         width: 200%;
         height: 100%;

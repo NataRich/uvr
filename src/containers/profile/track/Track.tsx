@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { 
-    VideoFilterSelfArgInterface,
-    VideoIdInterface,
-} from '../../../global/videos/interface';
+import { VideoFilterSelfArgInterface } from '../../../global/videos/interface';
 import VCardLoader from '../../home/videoCard/CardLoader';
 import VCard from '../../home/videoCard/Card';
 import NullVideo from '../../home/videoCard/NullVideo';
@@ -16,7 +13,6 @@ import {
 import {
     StyledDivLoader,
     StyledArrowContainer,
-    StyledContainer,
 } from './Track.style';
 import { TrackProps } from './interface';
 import { VAPI, Middleware } from './Logistics';
@@ -34,7 +30,6 @@ const Track: React.FC<TrackProps> = ({
 
     const didMount                          = useRef<boolean>(false);
     const [ payload, setPayload ]           = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
-    const [ isDeleting,  setIsDeleting ]    = useState<boolean>(false);
 
     const onClickPrevPageHandler = () => {
         setIsFetchingVideos(true);
@@ -52,17 +47,6 @@ const Track: React.FC<TrackProps> = ({
                 return {...prevState, page: prevState.page + 1};
             return {...prevState};
         });
-    };
-
-    const onClickDelHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        setIsDeleting(true);
-        const video_id: string = e.currentTarget.id;
-        const delAbortController: AbortController = new AbortController();
-        let payload: VideoIdInterface = { video_id };
-        let status: number = (await Middleware.getStatus(VAPI.postVideoId(payload, delAbortController.signal))).status;
-        setIsDeleting(false);
-        if (status === 2000)
-            window.location.href='/profile';
     };
 
     const fetchVideoCallBack = useCallback(async (videoAbortController: AbortController) => {
@@ -116,22 +100,7 @@ const Track: React.FC<TrackProps> = ({
                 <GlobalStyled.Box.CenterBoxByRowSpaced>
                     {
                         isFetchingVideos ? defaultCardLoaderArray.map(e => <VCardLoader key={e.id} />):
-                        videos && videos.length !==0 ? videos.map(video => {
-                            return (
-                                <StyledContainer>
-                                    <button key={video.getId()} 
-                                        id={video.getId()} 
-                                        className='del-btn' 
-                                        onClick={onClickDelHandler}
-                                        style={{
-                                            backgroundColor: isDeleting ? 'red':'#931621',
-                                        }}>
-                                        {isDeleting ? '...':'Del'}
-                                    </button>
-                                    <VCard key={video.getId()} {...{props: {video}}} />
-                                </StyledContainer>
-                        )
-                    }):
+                        videos && videos.length !==0 ? videos.map(video => <VCard key={video.getId()} {...{props: {video, hasDel: true}}} />):
                         <NullVideo />
                     }
                 </GlobalStyled.Box.CenterBoxByRowSpaced>
