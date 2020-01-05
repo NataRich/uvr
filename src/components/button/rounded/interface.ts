@@ -25,6 +25,9 @@ export interface RoundedButtonProps {
 
 export interface GroupButtonAttributes {
     category?:      string;
-    attributes:     Array<RoundedButtonStyle & RoundedButtonProps>;
+    attributes:     {
+        style: RoundedButtonStyle;
+        props: RoundedButtonProps;
+    }[];
     onClickHandler: React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
 };
