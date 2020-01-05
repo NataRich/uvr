@@ -1,6 +1,6 @@
-import { VideoFilterSelfArgInterface } from '../../../global/videos/interface';
+import { IVideoFilterSelfArg } from '../../../global/videos/interface';
 
-const defaultVideoArgPayload: VideoFilterSelfArgInterface = {
+const defaultVideoArgPayload: IVideoFilterSelfArg = {
     order: true,
     page: 1,
     sort_by: 'Date',

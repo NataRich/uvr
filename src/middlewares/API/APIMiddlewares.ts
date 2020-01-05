@@ -1,12 +1,12 @@
-import { StatusInterface } from '../../global/user/interface';
+import { IStatus } from '../../global/user/interface';
 import { UserClassType } from '../../global/user/class';
 import {
-    NumOfVideoInterface,
-    VideoAPIComplexPromiseReturn,
+    INumOfVideo,
+    IVideoAPIAggregateType,
 } from '../../global/videos/interface';
 
 class APIMiddlewares {
-    getStatus = async (promise: Promise<StatusInterface>): Promise<StatusInterface> => {
+    getStatus = async (promise: Promise<IStatus>): Promise<IStatus> => {
         const status: number = (await promise).status;
         if (!status || status === 4444)
             throw new Error('Server Error');
@@ -18,8 +18,8 @@ class APIMiddlewares {
 
     getUser = async (promise: Promise<UserClassType | null>): Promise<UserClassType | null> => await promise;
 
-    getVideos = async (promise: Promise<VideoAPIComplexPromiseReturn>): Promise<VideoAPIComplexPromiseReturn> => {
-        let obj: VideoAPIComplexPromiseReturn = await promise;
+    getVideos = async (promise: Promise<IVideoAPIAggregateType>): Promise<IVideoAPIAggregateType> => {
+        let obj: IVideoAPIAggregateType = await promise;
         if (!obj.status || obj.status === 4444)
             throw new Error('Server Error');
         else if (obj.status === 3008)
@@ -28,8 +28,8 @@ class APIMiddlewares {
             return { videos: obj.videos, status: obj.status };
     };
 
-    getNumOfVideos = async (promise: Promise<NumOfVideoInterface & StatusInterface>): Promise<NumOfVideoInterface> => {
-        let obj: NumOfVideoInterface & StatusInterface = await promise;
+    getNumOfVideos = async (promise: Promise<INumOfVideo & IStatus>): Promise<INumOfVideo> => {
+        let obj: INumOfVideo & IStatus = await promise;
         if (!obj.status || obj.status === 4444)
             throw new Error('Server Error');
         else

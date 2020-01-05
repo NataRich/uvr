@@ -5,7 +5,7 @@ import { UserClassType } from '../../global/user/class';
 import { UGAPI } from '../../global/user/request';
 import { VideoClassType } from '../../global/videos/class';
 import { VRAPI } from '../../global/videos/request';
-import { VideoFilterSelfArgInterface } from '../../global/videos/interface';
+import { IVideoFilterSelfArg } from '../../global/videos/interface';
 import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Account from '../../containers/profile/account/Account';
 import AccountLoader from '../../containers/profile/account/AccountLoader';
@@ -30,7 +30,7 @@ const Profile: React.FC = () => {
         };
         const fetchVideos = async () => {
             setIsFetchingVideos(true);
-            const payload: VideoFilterSelfArgInterface = {
+            const payload: IVideoFilterSelfArg = {
                 sort_by: 'Date',
                 order: true,
                 page: 1,

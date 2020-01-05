@@ -1,12 +1,12 @@
 import {
-    APIUserParamInterface,
-    UserGetterInterface,
+    IAPIUserParam,
+    IUserGetter,
 } from './interface';
 
-export class User implements UserGetterInterface {
+export class User implements IUserGetter {
     // represents a user
     
-    constructor(user: APIUserParamInterface) {
+    constructor(user: IAPIUserParam) {
         this.email              = this.setEmail(user.email);
         this.identity           = this.setIdentity(user.identity);
         this.id                 = this.setId(user.id);

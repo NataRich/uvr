@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import { VGAPI } from '../../../global/videos/request';
-import { VideoFilterArgInterface } from '../../../global/videos/interface';
+import { IVideoFilterArg } from '../../../global/videos/interface';
 import {
     IPreIconInFrontInputAttributes,
     IPreEllipticalButtonAttributes,
@@ -65,7 +65,7 @@ const Search: React.FC<ISearchProps> = ({
         const sort_by: string   = sortBtnGroupAttri.filter(object => object.props.isSelected === true).map(object => object.props.defaultValue)[0];
         const title: string     = inputAttri.props.value;
         const tags: string[]    = [];       // currently unusable hence empty
-        const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
+        const payload: IVideoFilterArg = { order, page, sort_by, tags, title };
         setVideos((await Middleware.getVideos(VGAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
         videoAbortController.abort();
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: false}});

@@ -6,7 +6,7 @@ import { UserClassType } from '../../global/user/class';
 import { UGAPI } from '../../global/user/request';
 import { VideoClassType } from '../../global/videos/class';
 import { VGAPI } from '../../global/videos/request';
-import { VideoFilterArgInterface } from '../../global/videos/interface';
+import { IVideoFilterArg } from '../../global/videos/interface';
 import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Navigation from '../../containers/home/navigation/Navigation';
 import Search from '../../containers/home/search/Search';
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         const fetchNum = async () => setMaxPage(Math.ceil((await Middleware.getNumOfVideos(VGAPI.getNumOfVideos(numAbortController.signal))).num / 8));
         const fetchUser = async () => setUser(await Middleware.getUser(UGAPI.getUser(userAbortController.signal)));
         const fetchVideos = async () => {
-            const payload: VideoFilterArgInterface = {
+            const payload: IVideoFilterArg = {
                 order: true,
                 page: 1,
                 sort_by: 'Date',

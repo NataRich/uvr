@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { TrackIdInterface } from '../../../../../global/videos/interface';
+import { ITrackId } from '../../../../../global/videos/interface';
 import { generateTrackId } from '../../../../../global/utils/utils';
 import {
     IPreLabelEffectInputAttributes,
@@ -25,7 +25,7 @@ const Step1: React.FC = () => {
         setAcquireBtnAttri({...acquireBtnAttri, props: {...acquireBtnAttri.props, isLoading: true}});
         const trackIdAbortController: AbortController = new AbortController();
         let temp: string = generateTrackId();
-        let payload: TrackIdInterface = { track_id: temp};
+        let payload: ITrackId = { track_id: temp};
         let status: number = (await Middleware.getStatus(VRAPI.postTrackId(payload, trackIdAbortController.signal))).status;
         while (status !== 2000) {
             temp = generateTrackId();

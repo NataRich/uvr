@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { VideoIdInterface } from '../../../global/videos/interface';
+import { IVideoId } from '../../../global/videos/interface';
 import { IVideoCardAttributes } from './interface';
 import { StyledVideoCardContainer } from './Card.style';
 import EButton from '../../../components/button/elliptical/BaseButton';
@@ -34,7 +34,7 @@ const VideoCard: React.FC<IVideoCardAttributes> = ({
     const onClickDelHandler = async (e: React.MouseEvent<HTMLDivElement>) => {
         setDelBtnAttri(prevState => { return {...prevState, props: {...prevState.props, isLoading: true}} });
         const vidAbortController: AbortController = new AbortController();
-        const payload: VideoIdInterface = {video_id: e.currentTarget.id};
+        const payload: IVideoId = {video_id: e.currentTarget.id};
         let status: number = (await Middleware.getStatus(VRAPI.postVideoId(payload, vidAbortController.signal))).status;
         if (status === 2000)
             window.location.href='/profile';

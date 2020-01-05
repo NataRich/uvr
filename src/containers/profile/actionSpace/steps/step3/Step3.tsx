@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
-import { VideoInfoArgInterface } from '../../../../../global/videos/interface';
+import { IVideoInfoArg } from '../../../../../global/videos/interface';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes,
@@ -67,7 +67,7 @@ const Step3: React.FC = () => {
     const onClickDoneHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
         setDoneBtnAttri({...doneBtnAttri, props: {...doneBtnAttri.props, isLoading: true}});
         const videoArgAbortController: AbortController = new AbortController();
-        let payload: VideoInfoArgInterface = {
+        let payload: IVideoInfoArg = {
             title: titleAttri.props.value,
             tags: {
                 vr: btnGroupAttri[0].props.isSelected ? 1:0,

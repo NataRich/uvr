@@ -1,23 +1,23 @@
 import { DOMAIN } from '../root/Root';
 import { User } from './class';
-import { APIUserParamInterface } from './interface';
+import { IAPIUserParam } from './interface';
 import { UserClassType } from './class';
 import {
-    CodeInterface,
-    EmailInterface,
-    PasswordInterface,
-    ImageInterface,
-    StatusInterface,
-    UsernameInterface,
-    UserInterface,
+    ICode,
+    IEmail,
+    IPassword,
+    IImage,
+    IStatus,
+    IUsername,
+    IUser,
 } from './interface';
 import {
-    APIGeneralGetMethods,
-    APIGeneralPostMethods,
+    IAPIGeneralGetMethods,
+    IAPIGeneralPostMethods,
 } from './interface';
 import {
-    APILoginRequiredGetMethods,
-    APILoginRequiredPostMethods,
+    IAPILoginRequiredGetMethods,
+    IAPILoginRequiredPostMethods,
 } from './interface';
 
 class UserAPI {
@@ -33,7 +33,7 @@ class UserAPI {
     protected readonly CREATE_PASSWORD_ENDPOINT   = 'create_password';
     protected readonly FORGET_PASSWORD_ENDPOINT   = 'forget_password';
 
-    protected useGet = async (url: string): Promise<StatusInterface> => {
+    protected useGet = async (url: string): Promise<IStatus> => {
         const response: Response = await fetch(url, {
             method: 'GET',
             credentials: 'include',
@@ -44,7 +44,7 @@ class UserAPI {
         return await response.json();
     };
 
-    protected useGetArg = async (url: string, payload: any): Promise<StatusInterface> => {
+    protected useGetArg = async (url: string, payload: any): Promise<IStatus> => {
         let argsArray: string[] = [];
         Object.keys(payload).forEach(key => argsArray.push(key + '=' + payload[key]));
         const URL: string = url + '?' + argsArray.join('&');
@@ -58,7 +58,7 @@ class UserAPI {
         return await response.json();
     };
 
-    protected useGetUser = async (url: string, abortSignal: AbortSignal): Promise<UserInterface & StatusInterface> => {
+    protected useGetUser = async (url: string, abortSignal: AbortSignal): Promise<IUser & IStatus> => {
         const response: Response = await fetch(url, {
             signal: abortSignal,
             method: 'GET',
@@ -70,7 +70,7 @@ class UserAPI {
         return await response.json();
     };
 
-    protected usePost = async (url: string, payload: any): Promise<StatusInterface> => {
+    protected usePost = async (url: string, payload: any): Promise<IStatus> => {
         const response: Response = await fetch(url, {
             method: 'POST',
             credentials: 'include',
@@ -83,7 +83,7 @@ class UserAPI {
         return await response.json();
     };
 
-    protected usePostFormData = async (url: string, payload: FormData): Promise<StatusInterface> => {
+    protected usePostFormData = async (url: string, payload: FormData): Promise<IStatus> => {
         const response: Response = await fetch(url, {
             method: 'POST',
             credentials: 'include',
@@ -97,17 +97,17 @@ class UserAPI {
     };
 };
 
-class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
-    public getCode = async (): Promise<StatusInterface> => {
+class UserGeneralAPI extends UserAPI implements IAPIGeneralGetMethods, IAPIGeneralPostMethods {
+    public getCode = async (): Promise<IStatus> => {
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
         return await this.useGet(URL);
     };
     public getUser = async (abortSignal: AbortSignal): Promise<UserClassType | null> => {
         const URL: string = DOMAIN + this.USER_ENDPOINT;
-        const response: UserInterface & StatusInterface = await this.useGetUser(URL, abortSignal);
+        const response: IUser & IStatus = await this.useGetUser(URL, abortSignal);
         if(!response.user)
             return null;
-        const user: APIUserParamInterface = {
+        const user: IAPIUserParam = {
             email:              response.user.email,
             identity:           response.user.identity,
             id:                 response.user.id,
@@ -121,47 +121,47 @@ class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, APIGeneral
         return new User(user);
     };
 
-    public postCode = async (payload: CodeInterface): Promise<StatusInterface> => {
+    public postCode = async (payload: ICode): Promise<IStatus> => {
         const URL: string = DOMAIN + this.AUTH_CODE_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
+    public postEmail = async (payload: IEmail): Promise<IStatus> => {
         const URL: string = DOMAIN + this.FORGET_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postNewPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
+    public postNewPassword = async (payload: IPassword): Promise<IStatus> => {
         const URL: string = DOMAIN + this.CREATE_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postPassword = async (payload: PasswordInterface): Promise<StatusInterface> => {
+    public postPassword = async (payload: IPassword): Promise<IStatus> => {
         const URL: string = DOMAIN + this.VERIFY_PASSWORD_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postUsernameAndEmail = async (payload: EmailInterface & UsernameInterface): Promise<StatusInterface> => {
+    public postUsernameAndEmail = async (payload: IEmail & IUsername): Promise<IStatus> => {
         const URL: string = DOMAIN + this.SIGNUP_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postUsernameOrEmail = async (payload: EmailInterface | UsernameInterface): Promise<StatusInterface> => {
+    public postUsernameOrEmail = async (payload: IEmail | IUsername): Promise<IStatus> => {
         const URL: string = DOMAIN + this.LOGIN_ENDPOINT;
         return await this.usePost(URL, payload);
     };
 };
 
-class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods  {
-    public getClear = async (): Promise<StatusInterface> => {
+class UserLoginRequiredAPI extends UserAPI implements IAPILoginRequiredGetMethods, IAPILoginRequiredPostMethods  {
+    public getClear = async (): Promise<IStatus> => {
         const URL: string = DOMAIN + this.LOGOUT_ENDPOINT;
         return await this.useGet(URL);
     };
-    public getUsername = async (payload: UsernameInterface): Promise<StatusInterface> => {
+    public getUsername = async (payload: IUsername): Promise<IStatus> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
         return await this.useGetArg(URL, payload);
     };
 
-    public postEmail = async (payload: EmailInterface): Promise<StatusInterface> => {
+    public postEmail = async (payload: IEmail): Promise<IStatus> => {
         const URL: string = DOMAIN + this.CHANGE_ACCOUNT_ENDPOINT;
         return await this.usePost(URL, payload);
     };
-    public postImage = async (payload: ImageInterface): Promise<StatusInterface> => {
+    public postImage = async (payload: IImage): Promise<IStatus> => {
         const URL: string = DOMAIN + this.CHANGE_IMAGE_ENDPOINT;
         return await this.usePostFormData(URL, payload.image);
     };

@@ -1,6 +1,6 @@
 import {
-    APIVideoParamInterface,
-    VideoGetterInterface,
+    IAPIVideoParam,
+    IVideoGetter,
 } from './interface';
 import {
     parseDuration,
@@ -8,10 +8,10 @@ import {
     formatDate,
 } from '../utils/utils';
 
-export class Video implements VideoGetterInterface {
+export class Video implements IVideoGetter {
     // represents a video
 
-    constructor(video: APIVideoParamInterface) {
+    constructor(video: IAPIVideoParam) {
         this.author         = this.setAuthor(video.author);
         this.authorId       = this.setAuthorId(video.authorId);
         this.description    = this.setDescription(video.description);

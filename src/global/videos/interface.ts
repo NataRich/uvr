@@ -1,6 +1,6 @@
 import { VideoClassType } from './class';
 
-interface BaseVideoInterface {
+interface IBaseVideo {
     author:         string;
     description:    string;
     date:           string;
@@ -18,41 +18,41 @@ interface BaseVideoInterface {
     views:          string;
 };
 
-export interface MultiVideoInterface {
-    videos: BaseVideoInterface[];
+export interface IMultiVideo {
+    videos: IBaseVideo[];
 };
 
-export interface NumOfVideoInterface {
+export interface INumOfVideo {
     num: number;
 };
 
-export interface OneVideoInterface {
-    video: BaseVideoInterface;
+export interface IOneVideo {
+    video: IBaseVideo;
 };
 
-export interface StatusInterface {
+export interface IStatus {
     status: number;
 };
 
-export interface TrackIdInterface {
+export interface ITrackId {
     track_id: string;
 };
 
-export interface TagInterface {
+export interface ITag {
     vr:     0 | 1;
     event:  0 | 1;
     campus: 0 | 1;
 };
 
-export interface VideoInterface {
+export interface IVideo {
     video: FormData;
 };
 
-export interface VideoIdInterface {
+export interface IVideoId {
     video_id: string;
 };
 
-export interface VideoFilterArgInterface {
+export interface IVideoFilterArg {
     order:      boolean;
     page:       number;
     sort_by:    string;
@@ -60,25 +60,25 @@ export interface VideoFilterArgInterface {
     title:      string;
 };
 
-export interface VideoFilterSelfArgInterface {
+export interface IVideoFilterSelfArg {
     order:      boolean;
     page:       number;
     sort_by:    string;
 };
 
-export interface VideoInfoArgInterface {
+export interface IVideoInfoArg {
     description:    string;
     title:          string;
-    tags:           TagInterface;  
+    tags:           ITag;  
 };
 
-export interface VideoStatsArgInterface {
+export interface IVideoStatsArg {
     video_id:   string;
     likes:      number;
     views:      number;
 };
 
-export interface APIVideoParamInterface {
+export interface IAPIVideoParam {
     /**
      * The parameters are all of string type as a result of having JSON format
      * <getType<originalType>> -> <targetType>
@@ -117,7 +117,7 @@ export interface APIVideoParamInterface {
     width:          string;
 };
 
-export interface VideoGetterInterface {
+export interface IVideoGetter {
     /**
      * getters
      *@public @function getAuthor         return the author of the video as a string
@@ -154,36 +154,36 @@ export interface VideoGetterInterface {
     getWidth:       (width: number)        => number;
 };
 
-export interface APIGeneralGetMethods {
+export interface IAPIGeneralGetMethods {
     /**
      * GET
      * @public @function getTrackId return the properties of the video of the track id, to fetch that specific video
      * 
      */
-    getTrackId: (payload: TrackIdInterface) => Promise<VideoClassType | null>;
+    getTrackId: (payload: ITrackId) => Promise<VideoClassType | null>;
 };
 
-export interface APIGeneralPostMethods {
+export interface IAPIGeneralPostMethods {
     /**
      * POST
      * @public @function postFilterArgs return an object, to fetch all videos that satisfy the arguments as well as the status
      * @public @function postVideoStats return status, to update some statistics of the video on a regular basis, as in 'likes', 'views'
      * 
      */
-    postFilterArgs: (payload: VideoFilterArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
-    postVideoStats: (payload: VideoStatsArgInterface, abortSignal: AbortSignal)    => Promise<StatusInterface>;
+    postFilterArgs: (payload: IVideoFilterArg, abortSignal: AbortSignal)   => Promise<IVideoAPIAggregateType>;
+    postVideoStats: (payload: IVideoStatsArg, abortSignal: AbortSignal)    => Promise<IStatus>;
 };
 
-export interface APILoginRequiredGetMethods {
+export interface IAPILoginRequiredGetMethods {
     /**
      * GET
      * @public @function get return status, to cancel the process of the uploading vidoe file
      * 
      */
-    get: (abortSignal: AbortSignal) => Promise<StatusInterface>;
+    get: (abortSignal: AbortSignal) => Promise<IStatus>;
 };
 
-export interface APILoginRequiredPostMethods {
+export interface IAPILoginRequiredPostMethods {
     /**
      * POST
      * @public @function postTrackId        return status, to check if the auto generated track id has been used or is valid
@@ -193,14 +193,14 @@ export interface APILoginRequiredPostMethods {
      * @public @function postFilterSelfArgs return an object, to fetch all the videos uploaded by that specific user as well as the status
      * 
      */
-    postTrackId:        (payload: TrackIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
-    postVideoId:        (payload: VideoIdInterface, abortSignal: AbortSignal)              => Promise<StatusInterface>;
-    postVideoFile:      (payload: VideoInterface, abortSignal: AbortSignal)                => Promise<StatusInterface>;
-    postVideoArgs:      (payload: VideoInfoArgInterface, abortSignal: AbortSignal)         => Promise<StatusInterface>;
-    postFilterSelfArgs: (payload: VideoFilterSelfArgInterface, abortSignal: AbortSignal)   => Promise<VideoAPIComplexPromiseReturn>;
+    postTrackId:        (payload: ITrackId, abortSignal: AbortSignal)              => Promise<IStatus>;
+    postVideoId:        (payload: IVideoId, abortSignal: AbortSignal)              => Promise<IStatus>;
+    postVideoFile:      (payload: IVideo, abortSignal: AbortSignal)                => Promise<IStatus>;
+    postVideoArgs:      (payload: IVideoInfoArg, abortSignal: AbortSignal)         => Promise<IStatus>;
+    postFilterSelfArgs: (payload: IVideoFilterSelfArg, abortSignal: AbortSignal)   => Promise<IVideoAPIAggregateType>;
 };
 
-export interface VideoAPIComplexPromiseReturn {
+export interface IVideoAPIAggregateType {
     videos: VideoClassType[] | null;
     status: number;
 };

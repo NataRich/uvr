@@ -1,11 +1,5 @@
-import { UserClassType } from '../../../global/user/class';
 import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
-
-export type NavProps = {
-    user:           UserClassType | null;
-    isFetchingUser: boolean;
-};
 
 const defaultLogoAttributes: ILogoAttributes = {
     style: {

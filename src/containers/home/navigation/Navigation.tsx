@@ -2,7 +2,7 @@ import React from 'react';
 
 import Logo from '../../../components/UVRLogo/Logo';
 import Button from '../../../components/button/rounded/RoundedButton';
-import { NavProps } from './Logistics';
+import { INavProps } from './interface';
 import {
     defaultLogoAttributes,
     defaultButtonAttributes,
@@ -13,7 +13,7 @@ import {
 } from './Navigation.style';
 import { GlobalStyled } from '../../../global/style/Style.style';
 
-const Navigation: React.FC<NavProps> = ({
+const Navigation: React.FC<INavProps> = ({
     user,
     isFetchingUser,
 }) => {

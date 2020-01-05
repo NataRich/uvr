@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
-import { VideoInterface } from '../../../../../global/videos/interface';
+import { IVideo } from '../../../../../global/videos/interface';
 import { IPreRoundedButtonAttributes } from '../../../../../global/utils/Style';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import { VRAPI } from '../../../../../global/videos/request';
@@ -65,7 +65,7 @@ const Step2: React.FC = () => {
     const onClickUploadHandler = async () => {
         setUploadBtnAttri({...uploadBtnAttri, props: {...uploadBtnAttri.props, isLoading: true}});
         const fileAbortController: AbortController = new AbortController();
-        let payload: VideoInterface = { video: videoResource.video };
+        let payload: IVideo = { video: videoResource.video };
         let status: number = (await Middleware.getStatus(VRAPI.postVideoFile(payload, fileAbortController.signal))).status;
         fileAbortController.abort();
         if (status === 2000)

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import {
-    UsernameInterface,
-    EmailInterface,
-    CodeInterface,
+    IEmail,
+    IUsername,
+    ICode,
 } from '../../../global/user/interface';
 import {
     IPreLabelEffectInputAttributes,
@@ -85,7 +85,7 @@ const Account: React.FC<AccountProps> = ({
 
     const onClickUpdateUsernameHandler = async () => {
         setUpdateUBtnAttri({...updateUBtnAttri, props: {...updateUBtnAttri.props, isLoading: true}});
-        let payload: UsernameInterface = { username: usernameAttri.props.value };
+        let payload: IUsername = { username: usernameAttri.props.value };
         let status: number = (await Middleware.getStatus(URAPI.getUsername(payload))).status;
         if (status === 2000)
             window.location.href='/profile';
@@ -99,7 +99,7 @@ const Account: React.FC<AccountProps> = ({
 
     const onClickUpdateEmailHandler = async () => {
         setUpdateEBtnAttri({...updateEBtnAttri, props: {...updateEBtnAttri.props, isLoading: true}});
-        let payload: EmailInterface = { email: emailAttri.props.value };
+        let payload: IEmail = { email: emailAttri.props.value };
         let status: number = (await Middleware.getStatus(URAPI.postEmail(payload))).status;
         if (status === 2000)
             window.location.href='/profile';
@@ -140,7 +140,7 @@ const Account: React.FC<AccountProps> = ({
 
     const onClickAuthHandler = async () => {
         setAuthBtnAttri({...authBtnAttri, props: {...authBtnAttri.props, isLoading: true}});
-        let payload: CodeInterface = { code: parseInt(codeAttri.props.value, 10) };
+        let payload: ICode = { code: parseInt(codeAttri.props.value, 10) };
         let status: number = (await Middleware.getStatus(UGAPI.postCode(payload))).status;
         setAuthBtnAttri({...authBtnAttri, props: {...authBtnAttri.props, isLoading: false}});
         if (status === 2000)

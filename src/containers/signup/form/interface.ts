@@ -1,7 +1,7 @@
 import {
-    EmailInterface,
-    UsernameInterface,
-    PasswordInterface,
+    IEmail,
+    IUsername,
+    IPassword,
 } from '../../../global/user/interface';
 
 interface IAggregateStatus {
@@ -10,7 +10,7 @@ interface IAggregateStatus {
 };
 
 export interface AccountCreation {
-    account:    EmailInterface & UsernameInterface;
-    password:   PasswordInterface;
+    account:    IEmail & IUsername;
+    password:   IPassword;
     isOkay:     IAggregateStatus;
 };

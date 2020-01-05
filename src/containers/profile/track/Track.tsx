@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { VideoFilterSelfArgInterface } from '../../../global/videos/interface';
+import { IVideoFilterSelfArg } from '../../../global/videos/interface';
 import VCardLoader from '../../home/videoCard/CardLoader';
 import VCard from '../../home/videoCard/Card';
 import NullVideo from '../../home/videoCard/NullVideo';
@@ -30,7 +30,7 @@ const Track: React.FC<TrackProps> = ({
     const MIN_PAGE: number = 1;
 
     const didMount                          = useRef<boolean>(false);
-    const [ payload, setPayload ]           = useState<VideoFilterSelfArgInterface>(defaultVideoArgPayload);
+    const [ payload, setPayload ]           = useState<IVideoFilterSelfArg>(defaultVideoArgPayload);
 
     const onClickPrevPageHandler = () => {
         setIsFetchingVideos(true);

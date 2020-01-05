@@ -1,30 +1,30 @@
 import { UserClassType } from './class';
 
-export interface CodeInterface {
+export interface ICode {
     code: number;
 };
 
-export interface EmailInterface {
+export interface IEmail {
     email: string;
 };
 
-export interface ImageInterface {
+export interface IImage {
     image: FormData;
 }
 
-export interface PasswordInterface {
+export interface IPassword {
     password: string;
 }
 
-export interface StatusInterface {
+export interface IStatus {
     status: number;
 };
 
-export interface UsernameInterface {
+export interface IUsername {
     username: string;
 };
 
-export interface UserInterface {
+export interface IUser {
     user: {
         authenticated:  string;
         date:           string;
@@ -39,7 +39,7 @@ export interface UserInterface {
 };
 
 
-export interface APIUserParamInterface {
+export interface IAPIUserParam {
     /**
      * The parameters are all of string type as a result of having JSON format
      * <getType<originalType>> -> <targetType>
@@ -66,7 +66,7 @@ export interface APIUserParamInterface {
     mediumImageSource:  string;
 };
 
-export interface UserGetterInterface {
+export interface IUserGetter {
     /**
      * getters
      * @public @function getEmail          return the email address of the user as a string
@@ -91,18 +91,18 @@ export interface UserGetterInterface {
     getMediumImage:     (mediumImageSource: string) => string;
 };
 
-export interface APIGeneralGetMethods {
+export interface IAPIGeneralGetMethods {
     /**
      * GET
      * @public @function getCode return status, to resend the authentication code to the email
      * @public @function getUser return an object, to fetch the properties of the user who has logged in as well as the status
      * 
      */
-    getCode: () => Promise<StatusInterface>;
+    getCode: () => Promise<IStatus>;
     getUser: (abortSignal: AbortSignal) => Promise<UserClassType | null>;
 };
 
-export interface APIGeneralPostMethods {
+export interface IAPIGeneralPostMethods {
     /**
      * POST
      * @public @function postCode               return status, to verify if the code matches in order to authenticate the email address
@@ -113,32 +113,32 @@ export interface APIGeneralPostMethods {
      * @public @function postUsernameAndEmail   return status, to sign up
      * 
      */
-    postCode:               (payload: CodeInterface)                        => Promise<StatusInterface>;
-    postEmail:              (payload: EmailInterface)                       => Promise<StatusInterface>;
-    postPassword:           (payload: PasswordInterface)                    => Promise<StatusInterface>;
-    postNewPassword:        (payload: PasswordInterface)                    => Promise<StatusInterface>;
-    postUsernameOrEmail:    (payload: EmailInterface | UsernameInterface)   => Promise<StatusInterface>;
-    postUsernameAndEmail:   (payload: EmailInterface & UsernameInterface)   => Promise<StatusInterface>;
+    postCode:               (payload: ICode)                => Promise<IStatus>;
+    postEmail:              (payload: IEmail)               => Promise<IStatus>;
+    postPassword:           (payload: IPassword)            => Promise<IStatus>;
+    postNewPassword:        (payload: IPassword)            => Promise<IStatus>;
+    postUsernameOrEmail:    (payload: IEmail | IUsername)   => Promise<IStatus>;
+    postUsernameAndEmail:   (payload: IEmail & IUsername)   => Promise<IStatus>;
 };
 
-export interface APILoginRequiredGetMethods {
+export interface IAPILoginRequiredGetMethods {
     /**
      * GET
      * @public @function getClear       return status, to log out
      * @public @function getUsername    return status, to change username
      * 
      */
-    getClear:    ()                           => Promise<StatusInterface>;
-    getUsername: (payload: UsernameInterface) => Promise<StatusInterface>;
+    getClear:    ()                   => Promise<IStatus>;
+    getUsername: (payload: IUsername) => Promise<IStatus>;
 };
 
-export interface APILoginRequiredPostMethods {
+export interface IAPILoginRequiredPostMethods {
     /**
      * POST
      * @public @function postEmail return status, to rebind email address
      * @public @function postImage return status, to change the profile image
      * 
      */
-    postEmail: (payload: EmailInterface) => Promise<StatusInterface>;
-    postImage: (payload: ImageInterface) => Promise<StatusInterface>;
+    postEmail: (payload: IEmail) => Promise<IStatus>;
+    postImage: (payload: IImage) => Promise<IStatus>;
 };
