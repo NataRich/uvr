@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
         <Route path='/profile' component={Profile} />
-        <Route path='#' component={Error404} />
+        <Route path='/#' component={Error404} />
       </Router>
     </div>
   );
