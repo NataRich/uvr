@@ -1,5 +1,3 @@
-import { VideoLoginRequiredAPI } from '../../../global/videos/request';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
 import {
     EllipticalButtonProps,
     EllipticalButtonStyle,
@@ -18,9 +16,6 @@ export type LocalRButtonAttributes = {
     style: RoundedButtonStyle;
     props: RoundedButtonProps;
 };
-
-export const VAPI       = new VideoLoginRequiredAPI();
-export const Middleware = new APIMiddlewares();
 
 const defaultDelButtonAttributes: LocalRButtonAttributes = {
     style: {

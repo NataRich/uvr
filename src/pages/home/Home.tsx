@@ -3,18 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { StyledTallContainer } from './Home.style';
 import { GlobalStyled } from '../../global/style/Style.style';
 import { UserClassType } from '../../global/user/class';
-import { UserGeneralAPI } from '../../global/user/request';
+import { UGAPI } from '../../global/user/request';
 import { VideoClassType } from '../../global/videos/class';
-import { VideoGeneralAPI } from '../../global/videos/request';
+import { VGAPI } from '../../global/videos/request';
 import { VideoFilterArgInterface } from '../../global/videos/interface';
-import { APIMiddlewares } from '../../middlewares/API/APIMiddlewares';
+import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Navigation from '../../containers/home/navigation/Navigation';
 import Search from '../../containers/home/search/Search';
 import Plaza from '../../containers/home/plaza/Plaza';
-
-const UAPI          = new UserGeneralAPI();
-const VAPI          = new VideoGeneralAPI();
-const Middleware    = new APIMiddlewares();
 
 const Home: React.FC = () => {
     const [ isAboutClicked, setIsAboutClicked ]     = useState<boolean>(false);
@@ -31,8 +27,8 @@ const Home: React.FC = () => {
         const userAbortController: AbortController  = new AbortController();
         const videoAbortController: AbortController = new AbortController();
         const numAbortController: AbortController   = new AbortController();
-        const fetchNum = async () => setMaxPage(Math.ceil((await Middleware.getNumOfVideos(VAPI.getNumOfVideos(numAbortController.signal))).num / 8));
-        const fetchUser = async () => setUser(await Middleware.getUser(UAPI.getUser(userAbortController.signal)));
+        const fetchNum = async () => setMaxPage(Math.ceil((await Middleware.getNumOfVideos(VGAPI.getNumOfVideos(numAbortController.signal))).num / 8));
+        const fetchUser = async () => setUser(await Middleware.getUser(UGAPI.getUser(userAbortController.signal)));
         const fetchVideos = async () => {
             const payload: VideoFilterArgInterface = {
                 order: true,
@@ -41,7 +37,7 @@ const Home: React.FC = () => {
                 tags: [],
                 title: ''
             };
-            setVideos((await Middleware.getVideos(VAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
+            setVideos((await Middleware.getVideos(VGAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
         };
         const sequentialFetch = async () => {
             setIsFetchingUser(true);

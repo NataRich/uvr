@@ -6,11 +6,6 @@ import {
     LabelEffectInputProps,
     LabelEffectInputStyle,
 } from '../../../../../components/input/labelEffect/interface';
-import { VideoLoginRequiredAPI } from '../../../../../global/videos/request';
-import { APIMiddlewares } from '../../../../../middlewares/API/APIMiddlewares';
-
-export const VAPI       = new VideoLoginRequiredAPI();
-export const Middleware = new APIMiddlewares();
 
 export type LocalRButtonAttributes = {
     style: RoundedButtonStyle;

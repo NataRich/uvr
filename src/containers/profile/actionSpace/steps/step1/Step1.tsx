@@ -12,7 +12,8 @@ import {
     defaultAcquireTrackIdBtnAttributes,
     generateTrackId,
 } from './Logistics';
-import { VAPI, Middleware } from './Logistics';
+import { VRAPI } from '../../../../../global/videos/request';
+import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step1: React.FC = () => {
     const [ acquireBtnAttri, setAcquireBtnAttri ]   = useState<LocalRButtonAttributes>(defaultAcquireTrackIdBtnAttributes);
@@ -25,11 +26,11 @@ const Step1: React.FC = () => {
         const trackIdAbortController: AbortController = new AbortController();
         let temp: string = generateTrackId();
         let payload: TrackIdInterface = { track_id: temp};
-        let status: number = (await Middleware.getStatus(VAPI.postTrackId(payload, trackIdAbortController.signal))).status;
+        let status: number = (await Middleware.getStatus(VRAPI.postTrackId(payload, trackIdAbortController.signal))).status;
         while (status !== 2000) {
             temp = generateTrackId();
             payload = { track_id: temp };
-            status = (await Middleware.getStatus(VAPI.postTrackId(payload, trackIdAbortController.signal))).status;
+            status = (await Middleware.getStatus(VRAPI.postTrackId(payload, trackIdAbortController.signal))).status;
         };
         setTrackIdAttri({...trackIdAttri, props: {...trackIdAttri.props, value: temp}});
         trackIdAbortController.abort();

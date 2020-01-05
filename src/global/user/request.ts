@@ -20,7 +20,6 @@ import {
     APILoginRequiredPostMethods,
 } from './interface';
 
-
 class UserAPI {
     protected readonly USER_ENDPOINT              = 'user';
     protected readonly LOGIN_ENDPOINT             = 'login';
@@ -98,10 +97,7 @@ class UserAPI {
     };
 };
 
-
-
-
-export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
+class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
     public getCode = async (): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.RESEND_CODE_ENDPOINT;
         return await this.useGet(URL);
@@ -151,10 +147,7 @@ export class UserGeneralAPI extends UserAPI implements APIGeneralGetMethods, API
     };
 };
 
-
-
-
-export class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods  {
+class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods  {
     public getClear = async (): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.LOGOUT_ENDPOINT;
         return await this.useGet(URL);
@@ -173,3 +166,6 @@ export class UserLoginRequiredAPI extends UserAPI implements APILoginRequiredGet
         return await this.usePostFormData(URL, payload.image);
     };
 };
+
+export const UGAPI = new UserGeneralAPI();
+export const URAPI = new UserLoginRequiredAPI();

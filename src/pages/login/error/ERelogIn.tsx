@@ -4,11 +4,8 @@ import styled from 'styled-components';
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Logo from '../../../components/UVRLogo/Logo';
 import { LogoAttributes } from '../../../components/UVRLogo/interface';
-import { UserLoginRequiredAPI } from '../../../global/user/request';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
-
-const API           = new UserLoginRequiredAPI();
-const Middleware    = new APIMiddlewares();
+import { URAPI } from '../../../global/user/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 
 const ERelogIn: React.FC = () => {
     const [ isCopied, setIsCopied ] = useState<boolean>(false);
@@ -17,7 +14,7 @@ const ERelogIn: React.FC = () => {
     const emailRef                  = useRef<HTMLTextAreaElement>(null);
 
     const logOut = async () => {
-        let status: number = (await Middleware.getStatus(API.getClear())).status;
+        let status: number = (await Middleware.getStatus(URAPI.getClear())).status;
         if (status === 2000)
             window.location.href='/login';
     };

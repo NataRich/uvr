@@ -1,9 +1,4 @@
 import {
-    UserGeneralAPI,
-    UserLoginRequiredAPI,
-} from '../../../global/user/request';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
-import {
     LogoProps,
     LogoStyle,
 } from '../../../components/UVRLogo/interface';
@@ -15,10 +10,6 @@ import {
     RoundedButtonProps,
     RoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
-
-export const GAPI       = new UserGeneralAPI();
-export const API        = new UserLoginRequiredAPI();
-export const Middleware = new APIMiddlewares();
 
 export type LogoAttributes = {
     style: LogoStyle;

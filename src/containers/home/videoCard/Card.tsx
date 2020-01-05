@@ -6,8 +6,9 @@ import { VideoCardAttributes } from './interface';
 import { StyledVideoCardContainer } from './Card.style';
 import EButton from '../../../components/button/elliptical/BaseButton';
 import RButton from '../../../components/button/rounded/RoundedButton';
+import { VRAPI } from '../../../global/videos/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import { LocalRButtonAttributes } from './Logistics';
-import { VAPI, Middleware } from './Logistics';
 import {
     defaultDelButtonAttributes,
     defaultBackButtonAttributes,
@@ -34,7 +35,7 @@ const VideoCard: React.FC<VideoCardAttributes> = ({
         setDelBtnAttri(prevState => { return {...prevState, props: {...prevState.props, isLoading: true}} });
         const vidAbortController: AbortController = new AbortController();
         const payload: VideoIdInterface = {video_id: e.currentTarget.id};
-        let status: number = (await Middleware.getStatus(VAPI.postVideoId(payload, vidAbortController.signal))).status;
+        let status: number = (await Middleware.getStatus(VRAPI.postVideoId(payload, vidAbortController.signal))).status;
         if (status === 2000)
             window.location.href='/profile';
         setDelBtnAttri(prevState => { return {...prevState, props: {...prevState.props, isLoading: false}} });

@@ -16,7 +16,8 @@ import {
     defaultPasswordTwoAttributes,
     defaultCreateBtnAttributes,
 } from './Logistics';
-import { API, Middleware } from './Logistics';
+import { UGAPI } from '../../../global/user/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import { StyledTextBox } from './Form.style';
 
 const Form: React.FC = () => {
@@ -89,12 +90,12 @@ const Form: React.FC = () => {
         let password: string = account.password.password;
         if (username && email && password) {
             setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: true}});
-            let accountStatus: number = (await Middleware.getStatus(API.postUsernameAndEmail(account.account))).status;
+            let accountStatus: number = (await Middleware.getStatus(UGAPI.postUsernameAndEmail(account.account))).status;
             if (accountStatus === 2000) {
                 setAccount({...account, isOkay: {...account.isOkay, account: true}});   // account.isOkay.account is currently useless.
                 setEmailAttri({...emailAttri, style: {...emailAttri.style, borderColor: '#149E9A'}});
                 setUsernameAttri({...usernameAttri, style: {...usernameAttri.style, borderColor: '#149E9A'}});
-                let passwordStatus: number = (await Middleware.getStatus(API.postNewPassword(account.password))).status;
+                let passwordStatus: number = (await Middleware.getStatus(UGAPI.postNewPassword(account.password))).status;
                 setCreateBtnAttri({...createBtnAttri, props: {...createBtnAttri.props, isLoading: false}});
                 if (passwordStatus === 2000) {
                     setAccount({...account, isOkay: {...account.isOkay, password: true}});

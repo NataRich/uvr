@@ -15,7 +15,8 @@ import {
     StyledArrowContainer,
 } from './Track.style';
 import { TrackProps } from './interface';
-import { VAPI, Middleware } from './Logistics';
+import { VRAPI } from '../../../global/videos/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 
 const Track: React.FC<TrackProps> = ({
     isFetchingUser,
@@ -50,7 +51,7 @@ const Track: React.FC<TrackProps> = ({
     };
 
     const fetchVideoCallBack = useCallback(async (videoAbortController: AbortController) => {
-        setVideos((await Middleware.getVideos(VAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
+        setVideos((await Middleware.getVideos(VRAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
         setIsFetchingVideos(false);
     }, [payload, setVideos, setIsFetchingVideos]);
 

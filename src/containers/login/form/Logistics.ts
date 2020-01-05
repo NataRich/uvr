@@ -1,5 +1,3 @@
-import { UserGeneralAPI } from '../../../global/user/request';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
 import { LabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import { RoundedButtonStyle } from '../../../components/button/rounded/interface';
 import {
@@ -8,9 +6,6 @@ import {
     LocalButtonAttributes,
     PasswordConfirmation,
 } from './interface';
-
-export const API        = new UserGeneralAPI();
-export const Middleware = new APIMiddlewares();
 
 const defaultInputStyle: LabelEffectInputStyle = {
     borderColor: '#18626B',
@@ -55,9 +50,6 @@ const defaultPassword: PasswordConfirmation = {
     isConfirmed: false,
 };
 
-
-
-
 const defaultButtonStyle: RoundedButtonStyle = {
     width: 200,
     height: 40,
@@ -88,9 +80,6 @@ const defaultLogInButtonAttri: LocalButtonAttributes = {
         isLoading: false,
     },
 };
-
-
-
 
 export {
     defaultAccount,

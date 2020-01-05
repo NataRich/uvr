@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
-import { UserGeneralAPI } from '../../global/user/request';
-import { APIMiddlewares } from '../../middlewares/API/APIMiddlewares';
+import { UGAPI } from '../../global/user/request';
+import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Entry from '../../containers/signup/entry/Entry';
 import Form from '../../containers/signup/form/Form';
 import Loader from '../loader/Loader';
 import ERelogIn from '../login/error/ERelogIn';
-
-const UAPI          = new UserGeneralAPI();
-const Middleware    = new APIMiddlewares();
 
 const Signup: React.FC= () => {
     const [ isFetchingUser, setIsFetchingUser ]     = useState<boolean>(true);
@@ -19,7 +16,7 @@ const Signup: React.FC= () => {
         const userAbortController: AbortController = new AbortController();
         const fetchUser = async () => {
             setIsFetchingUser(true);
-            let user = await Middleware.getUser(UAPI.getUser(userAbortController.signal));
+            let user = await Middleware.getUser(UGAPI.getUser(userAbortController.signal));
             setIsLoggedIn(user ? true: false);
             setIsFetchingUser(false);
         };

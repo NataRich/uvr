@@ -4,7 +4,8 @@ import { GlobalStyled } from '../../../../../global/style/Style.style';
 import { VideoInterface } from '../../../../../global/videos/interface';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import { LocalRButtonAttributes } from '../step1/Logistics';
-import { VAPI, Middleware } from '../step1/Logistics';
+import { VRAPI } from '../../../../../global/videos/request';
+import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 import {
     defaultCancelBtnAttributes,
     defaultUploadBtnAttributes,
@@ -65,7 +66,7 @@ const Step2: React.FC = () => {
         setUploadBtnAttri({...uploadBtnAttri, props: {...uploadBtnAttri.props, isLoading: true}});
         const fileAbortController: AbortController = new AbortController();
         let payload: VideoInterface = { video: videoResource.video };
-        let status: number = (await Middleware.getStatus(VAPI.postVideoFile(payload, fileAbortController.signal))).status;
+        let status: number = (await Middleware.getStatus(VRAPI.postVideoFile(payload, fileAbortController.signal))).status;
         fileAbortController.abort();
         if (status === 2000)
             setCancelBtnAttri({...cancelBtnAttri, props: {...cancelBtnAttri.props, disabled: false}});
@@ -77,7 +78,7 @@ const Step2: React.FC = () => {
     const onClickCancelHandler = async () => {
         setVideoResource({video: new FormData()});
         setCancelBtnAttri({...cancelBtnAttri, props: {...cancelBtnAttri.props, isLoading: true}});
-        let status: number = (await Middleware.getStatus(VAPI.get())).status;
+        let status: number = (await Middleware.getStatus(VRAPI.get())).status;
         setCancelBtnAttri({...cancelBtnAttri, props: {...cancelBtnAttri.props, isLoading: false}});
         if (status === 2000)
             setCancelBtnAttri({...cancelBtnAttri, props: {...cancelBtnAttri.props, disabled: true}});

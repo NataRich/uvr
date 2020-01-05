@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { VideoGeneralAPI } from '../../../global/videos/request';
+import { VGAPI } from '../../../global/videos/request';
 import { VideoFilterArgInterface } from '../../../global/videos/interface';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import Input from '../../../components/input/iconInFront/Input';
 import ButtonGroup from '../../../components/button/elliptical/Group';
 import Button from '../../../components/button/rounded/RoundedButton';
@@ -24,9 +24,6 @@ import {
     StyledFilterIconContainer,
     StyledFilterOptionContainer,
 } from './Search.style';
-
-const API           = new VideoGeneralAPI();
-const Middleware    = new APIMiddlewares();
 
 const Search: React.FC<SearchProps> = ({
     setIsFetchingVideos,
@@ -69,7 +66,7 @@ const Search: React.FC<SearchProps> = ({
         const title: string     = inputAttri.props.value;
         const tags: string[]    = [];       // currently unusable hence empty
         const payload: VideoFilterArgInterface = { order, page, sort_by, tags, title };
-        setVideos((await Middleware.getVideos(API.postFilterArgs(payload, videoAbortController.signal))).videos);
+        setVideos((await Middleware.getVideos(VGAPI.postFilterArgs(payload, videoAbortController.signal))).videos);
         videoAbortController.abort();
         setFindBtnAtri({...findBtnAttri, props: {...findBtnAttri.props, isLoading: false}});
         setIsFetchingVideos(false);

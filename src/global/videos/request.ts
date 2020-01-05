@@ -24,7 +24,6 @@ import {
     APILoginRequiredPostMethods,
 } from './interface';
 
-
 class VideoAPI {
     protected readonly VIDEOS_ENDPOINT                  = 'videos';
     protected readonly VIDEOS_NUM_ENDPIONT              = 'videos/info';
@@ -115,10 +114,7 @@ class VideoAPI {
     };
 };
 
-
-
-
-export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
+class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, APIGeneralPostMethods {
     public getTrackId = async (payload: TrackIdInterface): Promise<VideoClassType | null> => {
         const URL: string = DOMAIN + this.VIDEOS_FETCH_ENDPOINT;
         const response: OneVideoInterface = await this.useGetArg(URL, payload);
@@ -185,10 +181,7 @@ export class VideoGeneralAPI extends VideoAPI implements APIGeneralGetMethods, A
     };
 };
 
-
-
-
-export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods {
+class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredGetMethods, APILoginRequiredPostMethods {
     public get = async (): Promise<StatusInterface> => {
         const URL: string = DOMAIN + this.VIDEOS_UPLOAD_FILE_ENDPOINT;
         return await this.useGet(URL);
@@ -239,3 +232,6 @@ export class VideoLoginRequiredAPI extends VideoAPI implements APILoginRequiredG
         return { videos: videoClasses, status: response.status };
     };
 };
+
+export const VGAPI = new VideoGeneralAPI();
+export const VRAPI = new VideoLoginRequiredAPI();

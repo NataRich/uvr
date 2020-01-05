@@ -5,7 +5,7 @@ import {
     VideoAPIComplexPromiseReturn,
 } from '../../global/videos/interface';
 
-export class APIMiddlewares {
+class APIMiddlewares {
     getStatus = async (promise: Promise<StatusInterface>): Promise<StatusInterface> => {
         const status: number = (await promise).status;
         if (!status || status === 4444)
@@ -36,3 +36,5 @@ export class APIMiddlewares {
             return {num: obj.num};
     };
 };
+
+export const Middleware = new APIMiddlewares();

@@ -2,20 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
 import { UserClassType } from '../../global/user/class';
-import { UserGeneralAPI } from '../../global/user/request';
+import { UGAPI } from '../../global/user/request';
 import { VideoClassType } from '../../global/videos/class';
-import { VideoLoginRequiredAPI } from '../../global/videos/request';
+import { VRAPI } from '../../global/videos/request';
 import { VideoFilterSelfArgInterface } from '../../global/videos/interface';
-import { APIMiddlewares } from '../../middlewares/API/APIMiddlewares';
+import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Account from '../../containers/profile/account/Account';
 import AccountLoader from '../../containers/profile/account/AccountLoader';
 import Track from '../../containers/profile/track/Track';
 import ActionSpace from '../../containers/profile/actionSpace/ActionSpace';
 import ActionSpaceLoader from '../../containers/profile/actionSpace/ActionSpaceLoader';
-
-const UAPI          = new UserGeneralAPI();
-const VAPI          = new VideoLoginRequiredAPI();
-const Middleware    = new APIMiddlewares();
 
 const Profile: React.FC = () => {
     const [ isFetchingUser, setIsFetchingUser ]     = useState<boolean>(true);
@@ -29,7 +25,7 @@ const Profile: React.FC = () => {
 
         const fetchUser = async () => {
             setIsFetchingUser(true);
-            setUser(await Middleware.getUser(UAPI.getUser(userAbortController.signal)));
+            setUser(await Middleware.getUser(UGAPI.getUser(userAbortController.signal)));
             setIsFetchingUser(false);
         };
         const fetchVideos = async () => {
@@ -39,7 +35,7 @@ const Profile: React.FC = () => {
                 order: true,
                 page: 1,
             };
-            setVideos((await Middleware.getVideos(VAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
+            setVideos((await Middleware.getVideos(VRAPI.postFilterSelfArgs(payload, videoAbortController.signal))).videos);
             setIsFetchingVideos(false);
         };
 

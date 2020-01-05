@@ -29,7 +29,8 @@ import {
     StyledProfileImageContainer,
 } from './Account.style';
 import { AccountProps } from './interface';
-import { API, GAPI, Middleware} from './Logistics';
+import { UGAPI, URAPI } from '../../../global/user/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 
 
 const Account: React.FC<AccountProps> = ({
@@ -46,7 +47,7 @@ const Account: React.FC<AccountProps> = ({
 
     const onClickLogOutHandler = async () => {
         setLogOutBtnAttri({...logOutBtnAttri, props: {...logOutBtnAttri.props, isLoading: true}});
-        let status: number = (await Middleware.getStatus(API.getClear())).status;
+        let status: number = (await Middleware.getStatus(URAPI.getClear())).status;
         setLogOutBtnAttri({...logOutBtnAttri, props: {...logOutBtnAttri.props, isLoading: false}});
         if (status === 2000)
             window.location.href='/';
@@ -85,7 +86,7 @@ const Account: React.FC<AccountProps> = ({
     const onClickUpdateUsernameHandler = async () => {
         setUpdateUBtnAttri({...updateUBtnAttri, props: {...updateUBtnAttri.props, isLoading: true}});
         let payload: UsernameInterface = { username: usernameAttri.props.value };
-        let status: number = (await Middleware.getStatus(API.getUsername(payload))).status;
+        let status: number = (await Middleware.getStatus(URAPI.getUsername(payload))).status;
         if (status === 2000)
             window.location.href='/profile';
         else if (status === 3003)
@@ -99,7 +100,7 @@ const Account: React.FC<AccountProps> = ({
     const onClickUpdateEmailHandler = async () => {
         setUpdateEBtnAttri({...updateEBtnAttri, props: {...updateEBtnAttri.props, isLoading: true}});
         let payload: EmailInterface = { email: emailAttri.props.value };
-        let status: number = (await Middleware.getStatus(API.postEmail(payload))).status;
+        let status: number = (await Middleware.getStatus(URAPI.postEmail(payload))).status;
         if (status === 2000)
             window.location.href='/profile';
         else if (status === 3004)
@@ -128,7 +129,7 @@ const Account: React.FC<AccountProps> = ({
     const onClickSendHandler = async () => {
         try {
             setSendBtnAttri({...sendBtnAttri, props: {...sendBtnAttri.props, disabled: true}});
-            let status: number = (await Middleware.getStatus(GAPI.getCode())).status;
+            let status: number = (await Middleware.getStatus(UGAPI.getCode())).status;
             if (status === 2000)
                 setCodeAttri({...codeAttri, props: {...codeAttri.props, helperText: 'The code has been sent to your email address.'}});
         } catch (e) {
@@ -140,7 +141,7 @@ const Account: React.FC<AccountProps> = ({
     const onClickAuthHandler = async () => {
         setAuthBtnAttri({...authBtnAttri, props: {...authBtnAttri.props, isLoading: true}});
         let payload: CodeInterface = { code: parseInt(codeAttri.props.value, 10) };
-        let status: number = (await Middleware.getStatus(GAPI.postCode(payload))).status;
+        let status: number = (await Middleware.getStatus(UGAPI.postCode(payload))).status;
         setAuthBtnAttri({...authBtnAttri, props: {...authBtnAttri.props, isLoading: false}});
         if (status === 2000)
             window.location.href='/profile';

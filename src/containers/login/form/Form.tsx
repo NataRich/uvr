@@ -17,7 +17,8 @@ import {
     defaultConfirmButtonAttri,
     defaultLogInButtonAttri,
 } from './Logistics';
-import { API, Middleware } from './Logistics';
+import { UGAPI } from '../../../global/user/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import {
     StyledBox,
     StyledTextBox,
@@ -56,7 +57,7 @@ const Form: React.FC = () => {
     const onClickConfirmHandler = async () => {
         // Confirm if the account exists
         setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, isLoading: true}});
-        let status: number = (await Middleware.getStatus(API.postUsernameOrEmail(account.account))).status;
+        let status: number = (await Middleware.getStatus(UGAPI.postUsernameOrEmail(account.account))).status;
         setConfirmButtonAttri({...confirmButtonAttri, props: {...confirmButtonAttri.props, isLoading: false}});
         if (status === 2000) {
             setAccountAttri({style: {...accountAttri.style, borderColor: '#149E9A'},
@@ -90,7 +91,7 @@ const Form: React.FC = () => {
     const onClickLogInHandler = async () => {
         // Confirm if the password is correct
         setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, isLoading: true}});
-        let status: number = (await Middleware.getStatus(API.postPassword(password.password))).status;
+        let status: number = (await Middleware.getStatus(UGAPI.postPassword(password.password))).status;
         setLoginButtonAttri({...logInButtonAttri, props: {...logInButtonAttri.props, isLoading: false}});
         if (status === 2000) {
             setPasswordAttri({...passwordAttri,

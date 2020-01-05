@@ -16,9 +16,8 @@ import {
     defaultTitleAttributes,
     defaultDoneButtonAttributes,
 } from './Logistics';
-import { VAPI, Middleware } from '../step1/Logistics';
-
-
+import { VRAPI } from '../../../../../global/videos/request';
+import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step3: React.FC = () => {
     const [ titleAttri, setTitleAttri ]         = useState<LocalInputAttributes>(defaultTitleAttributes);
@@ -77,7 +76,7 @@ const Step3: React.FC = () => {
             },
             description,
         };
-        let status: number = (await Middleware.getStatus(VAPI.postVideoArgs(payload, videoArgAbortController.signal))).status;
+        let status: number = (await Middleware.getStatus(VRAPI.postVideoArgs(payload, videoArgAbortController.signal))).status;
         videoArgAbortController.abort();
         setDoneBtnAttri({...doneBtnAttri, props: {...doneBtnAttri.props, isLoading: false}});
         if (status === 2000)

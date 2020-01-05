@@ -1,14 +1,9 @@
-import { UserGeneralAPI } from '../../../global/user/request';
-import { APIMiddlewares } from '../../../middlewares/API/APIMiddlewares';
 import { LabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import {
     LocalButtonAttributes,
     LocalInputAttributes,
     AccountCreation,
 } from './interface';
-
-export const API        = new UserGeneralAPI();
-export const Middleware = new APIMiddlewares();
 
 const defaultAccount: AccountCreation = {
     account: {
@@ -23,9 +18,6 @@ const defaultAccount: AccountCreation = {
         password: false,
     },
 };
-
-
-
 
 const defaultInputStyle: LabelEffectInputStyle = {
     borderColor: '#18626B',
@@ -75,9 +67,6 @@ const defaultPasswordTwoAttributes: LocalInputAttributes = {
     },
 };
 
-
-
-
 const defaultCreateBtnAttributes: LocalButtonAttributes = {
     style: {
         width: 200,
@@ -97,9 +86,6 @@ const defaultCreateBtnAttributes: LocalButtonAttributes = {
         isLoading: false,
     },
 };
-
-
-
 
 export {
     defaultAccount,
