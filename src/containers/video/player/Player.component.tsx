@@ -1,6 +1,6 @@
 import React from 'react';
-import marz from '../../marz';
-import EventEmitter from '../../marz/eventEmitter';
+import marz from '../marz';
+import EventEmitter from '../marz/eventEmitter';
 import { StyledPlayerContainer } from './Player.styles';
 
 function formatTime(d: number) {
