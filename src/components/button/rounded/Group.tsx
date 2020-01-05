@@ -3,11 +3,11 @@ import React from 'react';
 import RoundedButton from './RoundedButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
 import {
-    GroupButtonAttributes,
-    RoundedButtonAttributes,
+    IGroupButtonAttributes,
+    IRoundedButtonAttributes,
 } from './interface';
 
-const ButtonGroup: React.FC<GroupButtonAttributes> = ({
+const ButtonGroup: React.FC<IGroupButtonAttributes> = ({
     category,
     attributes,
     onClickHandler,
@@ -23,7 +23,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
             }
             {
                 attributes.map(attr => {
-                    const props: RoundedButtonAttributes = {
+                    const props: IRoundedButtonAttributes = {
                         style: {
                             width:              attr.style.width,
                             height:             attr.style.height,

@@ -1,7 +1,7 @@
 import { VideoClassType } from '../../../global/videos/class';
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 
 export type PlazaProps = {
@@ -13,11 +13,11 @@ export type PlazaProps = {
 };
 
 export type LocalButtonAttributes = {
-    style: RoundedButtonStyle,
-    props: RoundedButtonProps,
+    style: IRoundedButtonStyle,
+    props: IRoundedButtonProps,
 };
 
-const defaultButtonStyle: RoundedButtonStyle = {
+const defaultButtonStyle: IRoundedButtonStyle = {
     width: 200,
     height: 40,
     borderColor: 'transparent',

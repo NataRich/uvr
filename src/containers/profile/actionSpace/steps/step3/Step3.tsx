@@ -6,7 +6,7 @@ import { VideoInfoArgInterface } from '../../../../../global/videos/interface';
 import Input from '../../../../../components/input/labelEffect/Input';
 import Group from '../../../../../components/button/elliptical/Group';
 import Button from '../../../../../components/button/rounded/RoundedButton';
-import { GroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
+import { IGroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
 import {
     LocalInputAttributes,
     LocalRButtonAttributes,
@@ -22,7 +22,7 @@ import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 const Step3: React.FC = () => {
     const [ titleAttri, setTitleAttri ]         = useState<LocalInputAttributes>(defaultTitleAttributes);
     const [ isTitleOkay, setIsTitleOkay ]       = useState<boolean>(false);
-    const [ btnGroupAttri, setBtnGroupAttri ]   = useState<GroupButtonAttributes['attributes']>(defaultTagBtnGroupAttributes);
+    const [ btnGroupAttri, setBtnGroupAttri ]   = useState<IGroupButtonAttributes['attributes']>(defaultTagBtnGroupAttributes);
     const [ description, setDescription ]       = useState<string>('');
     const [ isDOkay, setIsDOkay ]               = useState<boolean>(false);
     const [ doneBtnAttri, setDoneBtnAttri ]     = useState<LocalRButtonAttributes>(defaultDoneButtonAttributes);

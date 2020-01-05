@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { IconInFrontInputStyle } from './interface';
+import { IIconInFrontInputStyle } from './interface';
 
 const StyledInputPaddingLeft: number = 15;
 
-const StyledInputContainer = styled.div<IconInFrontInputStyle>`
+const StyledInputContainer = styled.div<IIconInFrontInputStyle>`
     width: ${props => props.inputWidth + props.imgWidth + StyledInputPaddingLeft}px;
     height: ${props => props.imgWidth}px;
     display: flex;
@@ -30,7 +30,7 @@ const StyledImg = styled.img<{imgWidth: number;}>`
     height: ${props => props.imgWidth}px;
 `;
 
-const StyledInput = styled.input<IconInFrontInputStyle>`
+const StyledInput = styled.input<IIconInFrontInputStyle>`
     width: ${props => props.inputWidth}px;
     height: 90%;
     font-size: ${props => props.fontSize}px;

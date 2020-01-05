@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { LogoAttributes } from '../../../components/UVRLogo/interface';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import Logo from '../../../components/UVRLogo/Logo';
 
 const EUnLogIn: React.FC = () => {
@@ -49,7 +49,7 @@ const EUnLogIn: React.FC = () => {
 
 export default EUnLogIn;
 
-const defaultLogoAttributes: LogoAttributes = {
+const defaultLogoAttributes: ILogoAttributes = {
     style: {
         position: 'LHS',
     },

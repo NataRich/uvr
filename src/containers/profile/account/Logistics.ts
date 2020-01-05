@@ -1,32 +1,24 @@
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import {
-    LogoProps,
-    LogoStyle,
-} from '../../../components/UVRLogo/interface';
-import {
-    LabelEffectInputProps,
-    LabelEffectInputStyle,
+    ILabelEffectInputProps,
+    ILabelEffectInputStyle,
 } from '../../../components/input/labelEffect/interface';
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 
-export type LogoAttributes = {
-    style: LogoStyle;
-    props: LogoProps;
-};
-
 export type LocalInputAttributes = {
-    style: LabelEffectInputStyle;
-    props: LabelEffectInputProps;
+    style: ILabelEffectInputStyle;
+    props: ILabelEffectInputProps;
 };
 
 export type LocalRButtonAttributes = {
-    style: RoundedButtonStyle;
-    props: RoundedButtonProps;
+    style: IRoundedButtonStyle;
+    props: IRoundedButtonProps;
 };
 
-const defaultLogoAttributes: LogoAttributes = {
+const defaultLogoAttributes: ILogoAttributes = {
     style: {
         position: 'LHS',
     },
@@ -53,7 +45,7 @@ const defaultLogOutBtnAttributes: LocalRButtonAttributes = {
     },
 };
 
-const defaultInputStyle: LabelEffectInputStyle = {
+const defaultInputStyle: ILabelEffectInputStyle = {
     borderColor: '#18626B',
     borderRadius: 5,
     fontSize: 14,
@@ -91,7 +83,7 @@ const defaultCodeAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultButtonStyle: RoundedButtonStyle = {
+const defaultButtonStyle: IRoundedButtonStyle = {
     width: 70,
     height: 40,
     borderColor: 'transparent',

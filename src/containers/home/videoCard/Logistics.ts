@@ -1,20 +1,20 @@
 import {
-    EllipticalButtonProps,
-    EllipticalButtonStyle,
+    IEllipticalButtonProps,
+    IEllipticalButtonStyle,
 } from '../../../components/button/elliptical/interface';
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 
 export type LocalEButtonAttributes = {
-    style: EllipticalButtonStyle;
-    props: EllipticalButtonProps;
+    style: IEllipticalButtonStyle;
+    props: IEllipticalButtonProps;
 };
 
 export type LocalRButtonAttributes = {
-    style: RoundedButtonStyle;
-    props: RoundedButtonProps;
+    style: IRoundedButtonStyle;
+    props: IRoundedButtonProps;
 };
 
 const defaultDelButtonAttributes: LocalRButtonAttributes = {

@@ -1,7 +1,7 @@
 import { LocalButtonAttributes } from './interface';
-import { LogoAttributes } from '../../../components/UVRLogo/interface';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 
-const defaultLogoAttributes: LogoAttributes = {
+const defaultLogoAttributes: ILogoAttributes = {
     style: {
         position: 'LHS',
     },

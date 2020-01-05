@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { StyledBaseButton } from './BaseButton.style';
-import { ButtonAttributes } from './interface';
+import { IEllipticalButtonAttributes } from './interface';
  
-const BaseButton: React.FC<ButtonAttributes> = ({
+const BaseButton: React.FC<IEllipticalButtonAttributes> = ({
     style: {
         backgroundColor,
         fontColor,

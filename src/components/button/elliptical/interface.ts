@@ -1,26 +1,26 @@
-export interface ButtonAttributes {
-    style:          EllipticalButtonStyle;
-    props:          EllipticalButtonProps;
+export interface IEllipticalButtonAttributes {
+    style:          IEllipticalButtonStyle;
+    props:          IEllipticalButtonProps;
     onClickHandler: React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
 };
 
-export interface EllipticalButtonStyle {
+export interface IEllipticalButtonStyle {
     backgroundColor:        string;
     fontColor:              string;
 };
 
-export interface EllipticalButtonProps {
+export interface IEllipticalButtonProps {
     defaultId?:             string;
     defaultValue:           string;
     isLoading?:             boolean;
     isSelected?:            boolean;
 }
 
-export interface GroupButtonAttributes {
+export interface IGroupButtonAttributes {
     category?:      string;
     attributes:     {
-        style: EllipticalButtonStyle,
-        props: EllipticalButtonProps,
+        style: IEllipticalButtonStyle,
+        props: IEllipticalButtonProps,
     }[];
     onClickHandler: React.EventHandler<React.MouseEvent<HTMLButtonElement>>;
 };

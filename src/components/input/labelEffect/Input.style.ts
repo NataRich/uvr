@@ -1,23 +1,10 @@
 import styled from 'styled-components';
 
-type BoxStyleProps = {
-    borderColor:    string;
-    borderRadius:   number;
-    fontSize:       number;
-    isFocused:      boolean;
-    placeholder:    string;
-    width:          number;
-};
-
-type InputStyleProps = {
-    fontSize: number;
-};
-
-type HelperBoxStyleProps = {
-    fontSize:       number;
-    width:          number;
-    helperColor:    string | undefined;
-};
+import {
+    IStyledBoxProps,
+    IStyledHelperBoxProps,
+    IStyledInputProps,
+} from './interface';
 
 const StyledInputContainer = styled.div`
     width: auto;
@@ -30,7 +17,7 @@ const StyledInputContainer = styled.div`
     align-items: center;
 `;
 
-const StyledInputBox = styled.div<BoxStyleProps>`
+const StyledInputBox = styled.div<IStyledBoxProps>`
     border: 2px solid #D3D3D3;
     border-color: ${props => props.isFocused ? props.borderColor:'D3D3D3'};
     border-radius: ${props => props.borderRadius}px;
@@ -52,7 +39,7 @@ const StyledInputBox = styled.div<BoxStyleProps>`
     };
 `;
 
-const StyledInput = styled.input<InputStyleProps>`
+const StyledInput = styled.input<IStyledInputProps>`
     width: 95%;
     font-size: ${props => props.fontSize}px;
     background-color: transparent;
@@ -61,7 +48,7 @@ const StyledInput = styled.input<InputStyleProps>`
     padding: 10px 0 10px 0;
 `;
 
-const StyledHelperBox = styled.div<HelperBoxStyleProps>`
+const StyledHelperBox = styled.div<IStyledHelperBoxProps>`
     width: ${props => props.width}px;
     height: auto;
     p {

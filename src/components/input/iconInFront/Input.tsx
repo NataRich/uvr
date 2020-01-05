@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputAttributes } from './interface';
+import { IIconInFrontInputAttributes } from './interface';
 import {
     StyledInputContainer,
     StyledBox,
@@ -8,7 +8,7 @@ import {
     StyledImg,
 } from './Input.style';
 
-const Input: React.FC<InputAttributes> = ({
+const Input: React.FC<IIconInFrontInputAttributes> = ({
     style: {
         borderColor,
         borderRadius,
@@ -35,8 +35,8 @@ const Input: React.FC<InputAttributes> = ({
                     placeholder={placeholder}
                     type={type}
                     onChange={onChangeHandler}
-                    onFocus={e => e.currentTarget.placeholder=''}
-                    onBlur={e => e.currentTarget.placeholder=placeholder}
+                    onFocus={(e: { currentTarget: { placeholder: string; }; }) => e.currentTarget.placeholder=''}
+                    onBlur={(e: { currentTarget: { placeholder: string; }; }) => e.currentTarget.placeholder=placeholder}
                     value={value} />
             </StyledBox>
         </StyledInputContainer>

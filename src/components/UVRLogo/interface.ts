@@ -1,12 +1,12 @@
-export interface LogoAttributes {
-    style: LogoStyle;
-    props: LogoProps;
+export interface ILogoAttributes {
+    style: ILogoStyle;
+    props: ILogoProps;
 };
 
-export interface LogoStyle {
+export interface ILogoStyle {
     position: 'LHS' | 'RHS';
 };
 
-export interface LogoProps {
+export interface ILogoProps {
 
 };

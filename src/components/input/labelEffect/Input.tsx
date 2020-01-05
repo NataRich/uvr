@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { InputAttributes } from './interface';
+import { ILabelEffectInputAttributes } from './interface';
 import {
     StyledInputContainer,
     StyledInputBox,
@@ -8,7 +8,7 @@ import {
     StyledHelperBox,
 } from './Input.style';
 
-const Input: React.FC<InputAttributes> = ({
+const Input: React.FC<ILabelEffectInputAttributes> = ({
     style: {
         borderColor,
         borderRadius,

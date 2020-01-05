@@ -4,22 +4,22 @@ import {
     PasswordInterface,
 } from '../../../global/user/interface';
 import {
-    LabelEffectInputProps,
-    LabelEffectInputStyle,
+    ILabelEffectInputProps,
+    ILabelEffectInputStyle,
 } from '../../../components/input/labelEffect/interface';
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 
 export interface LocalInputAttributes {
-    style: LabelEffectInputStyle,
-    props: LabelEffectInputProps,
+    style: ILabelEffectInputStyle,
+    props: ILabelEffectInputProps,
 };
 
 export interface LocalButtonAttributes {
-    style: RoundedButtonStyle;
-    props: RoundedButtonProps;
+    style: IRoundedButtonStyle;
+    props: IRoundedButtonProps;
 };
 
 interface AggregateStatusInterface {

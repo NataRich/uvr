@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { StyledRoundedButton } from './RoundedButton.style';
-import { RoundedButtonAttributes } from './interface';
+import { IRoundedButtonAttributes } from './interface';
 
-const RoundedButton: React.FC<RoundedButtonAttributes> = ({
+const RoundedButton: React.FC<IRoundedButtonAttributes> = ({
     style: {
         width,
         height,

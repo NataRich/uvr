@@ -1,10 +1,10 @@
-export interface InputAttributes {
-    style: LabelEffectInputStyle;
-    props: LabelEffectInputProps;
+export interface ILabelEffectInputAttributes {
+    style: ILabelEffectInputStyle;
+    props: ILabelEffectInputProps;
     onChangeHandler: React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
 };
 
-export interface LabelEffectInputStyle {
+export interface ILabelEffectInputStyle {
     borderColor:        string;
     borderRadius:       number;
     fontSize:           number;
@@ -12,10 +12,29 @@ export interface LabelEffectInputStyle {
     width:              number;
 };
 
-export interface LabelEffectInputProps {
+export interface ILabelEffectInputProps {
     helperText?:        string;
     isRequired:         boolean;
     placeholder:        string;
     type:               'password' | 'text';
     value:              string;
+};
+
+export interface IStyledBoxProps {
+    borderColor:    string;
+    borderRadius:   number;
+    fontSize:       number;
+    isFocused:      boolean;
+    placeholder:    string;
+    width:          number;
+};
+
+export interface IStyledInputProps {
+    fontSize: number;
+};
+
+export interface IStyledHelperBoxProps {
+    fontSize:       number;
+    width:          number;
+    helperColor:    string | undefined;
 };

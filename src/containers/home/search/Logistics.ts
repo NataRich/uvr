@@ -1,15 +1,15 @@
 import {
-    IconInFrontInputProps,
-    IconInFrontInputStyle,
+    IIconInFrontInputProps,
+    IIconInFrontInputStyle,
 } from '../../../components/input/iconInFront/interface';
 import Magnifier from '../../../assets/icons/magnifier.svg';
 import {
-    EllipticalButtonProps,
-    EllipticalButtonStyle,
+    IEllipticalButtonProps,
+    IEllipticalButtonStyle,
 } from '../../../components/button/elliptical/interface';
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 import { VideoClassType } from '../../../global/videos/class';
 
@@ -20,18 +20,18 @@ export type SearchProps = {
 };
 
 export type LocalInputAttributes = {
-    style: IconInFrontInputStyle,
-    props: IconInFrontInputProps,
+    style: IIconInFrontInputStyle,
+    props: IIconInFrontInputProps,
 };
 
 export type LocalEButtonAttributes = {
-    style: EllipticalButtonStyle,
-    props: EllipticalButtonProps,
+    style: IEllipticalButtonStyle,
+    props: IEllipticalButtonProps,
 };
 
 export type LocalRButtonAttributes = {
-    style: RoundedButtonStyle,
-    props: RoundedButtonProps,
+    style: IRoundedButtonStyle,
+    props: IRoundedButtonProps,
 };
 
 const defaultInputAttributes: LocalInputAttributes = {
@@ -51,7 +51,7 @@ const defaultInputAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultButtonGroupStyle: EllipticalButtonStyle = {
+const defaultButtonGroupStyle: IEllipticalButtonStyle = {
     backgroundColor: '#FFF',
     fontColor: '#149E9A',
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
-import { LogoAttributes } from './interface';
+import { ILogoAttributes } from './interface';
 import logo from '../../assets/resources/logo.png';
 import {
     StyledImg,
     StyledBox,
 } from './Logo.style';
 
-const Logo: React.FC<LogoAttributes> = ({
+const Logo: React.FC<ILogoAttributes> = ({
     style: {
         position,
     },

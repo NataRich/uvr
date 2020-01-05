@@ -1,5 +1,5 @@
-import { LabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
-import { RoundedButtonStyle } from '../../../components/button/rounded/interface';
+import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
+import { IRoundedButtonStyle } from '../../../components/button/rounded/interface';
 import {
     AccountConfirmation,
     LocalInputAttributes,
@@ -7,7 +7,7 @@ import {
     PasswordConfirmation,
 } from './interface';
 
-const defaultInputStyle: LabelEffectInputStyle = {
+const defaultInputStyle: ILabelEffectInputStyle = {
     borderColor: '#18626B',
     borderRadius: 5,
     fontSize: 18,
@@ -50,7 +50,7 @@ const defaultPassword: PasswordConfirmation = {
     isConfirmed: false,
 };
 
-const defaultButtonStyle: RoundedButtonStyle = {
+const defaultButtonStyle: IRoundedButtonStyle = {
     width: 200,
     height: 40,
     borderColor: 'transparent',

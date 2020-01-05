@@ -3,11 +3,11 @@ import React from 'react';
 import BaseButton from './BaseButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
 import {
-    ButtonAttributes,
-    GroupButtonAttributes
+    IEllipticalButtonAttributes,
+    IGroupButtonAttributes
 } from './interface';
 
-const ButtonGroup: React.FC<GroupButtonAttributes> = ({
+const ButtonGroup: React.FC<IGroupButtonAttributes> = ({
     category,
     attributes,
     onClickHandler,
@@ -23,7 +23,7 @@ const ButtonGroup: React.FC<GroupButtonAttributes> = ({
             }
             {
                 attributes.map(btnAttr => {
-                    const props: ButtonAttributes = {
+                    const props: IEllipticalButtonAttributes = {
                         style:          btnAttr.style,
                         props:          btnAttr.props,
                         onClickHandler,

@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 
-import { RoundedButtonStyle } from './interface';
+import { IRoundedButtonStyle } from './interface';
 
 const rotate = keyframes`
     from {
@@ -16,7 +16,7 @@ const animationMixin = css`
     animation: ${rotate} 2s 300ms linear infinite;
 `;
 
-export const StyledRoundedButton = styled.button<RoundedButtonStyle & {isLoading: boolean, disabled: boolean}>`
+export const StyledRoundedButton = styled.button<IRoundedButtonStyle & {isLoading: boolean, disabled: boolean}>`
     width: ${props => props.isLoading ? props.height:props.width}px;
     height: ${props => props.height}px;
     border-radius: ${props => props.isLoading ? props.height:props.borderRadius}px;

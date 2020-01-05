@@ -1,4 +1,4 @@
-import { GroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
+import { IGroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
 import {
     LocalInputAttributes,
     LocalRButtonAttributes,
@@ -19,7 +19,7 @@ const defaultTitleAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultTagBtnGroupAttributes: GroupButtonAttributes['attributes'] = [
+const defaultTagBtnGroupAttributes: IGroupButtonAttributes['attributes'] = [
     {
         style: {
             backgroundColor: '#FFF',

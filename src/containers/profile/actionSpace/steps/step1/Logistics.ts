@@ -1,20 +1,20 @@
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../../../components/button/rounded/interface';
 import {
-    LabelEffectInputProps,
-    LabelEffectInputStyle,
+    ILabelEffectInputProps,
+    ILabelEffectInputStyle,
 } from '../../../../../components/input/labelEffect/interface';
 
 export type LocalRButtonAttributes = {
-    style: RoundedButtonStyle;
-    props: RoundedButtonProps;
+    style: IRoundedButtonStyle;
+    props: IRoundedButtonProps;
 };
 
 export type LocalInputAttributes = {
-    style: LabelEffectInputStyle;
-    props: LabelEffectInputProps;
+    style: ILabelEffectInputStyle;
+    props: ILabelEffectInputProps;
 };
 
 const defaultTrackIdInputAttributes: LocalInputAttributes = {

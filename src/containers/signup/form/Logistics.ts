@@ -1,4 +1,4 @@
-import { LabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
+import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import {
     LocalButtonAttributes,
     LocalInputAttributes,
@@ -19,7 +19,7 @@ const defaultAccount: AccountCreation = {
     },
 };
 
-const defaultInputStyle: LabelEffectInputStyle = {
+const defaultInputStyle: ILabelEffectInputStyle = {
     borderColor: '#18626B',
     borderRadius: 5,
     fontSize: 18,

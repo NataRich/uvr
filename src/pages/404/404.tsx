@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GlobalStyled } from '../../global/style/Style.style';
 import Logo from '../../components/UVRLogo/Logo';
-import { LogoAttributes } from '../../components/UVRLogo/interface';
+import { ILogoAttributes } from '../../components/UVRLogo/interface';
 
 const Error404: React.FC = () => {
     return (
@@ -33,7 +33,7 @@ const Error404: React.FC = () => {
 
 export default Error404;
 
-const defaultLogoAttributes: LogoAttributes = {
+const defaultLogoAttributes: ILogoAttributes = {
     style: {
         position: 'LHS',
     },

@@ -8,5 +8,5 @@ export const StyledTextBox = styled.div`
     p {
         font-size: 24px;
         color: #FFF;
-    }
+    };
 `;

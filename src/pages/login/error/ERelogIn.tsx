@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Logo from '../../../components/UVRLogo/Logo';
-import { LogoAttributes } from '../../../components/UVRLogo/interface';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import { URAPI } from '../../../global/user/request';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 
@@ -87,7 +87,7 @@ const ERelogIn: React.FC = () => {
 
 export default ERelogIn;
 
-const defaultLogoAttributes: LogoAttributes = {
+const defaultLogoAttributes: ILogoAttributes = {
     style: {
         position: 'LHS',
     },

@@ -1,9 +1,9 @@
 import {
-    RoundedButtonProps,
-    RoundedButtonStyle,
+    IRoundedButtonProps,
+    IRoundedButtonStyle,
 } from '../../../components/button/rounded/interface';
 
 export interface LocalButtonAttributes {
-    style: RoundedButtonStyle;
-    props: RoundedButtonProps;
+    style: IRoundedButtonStyle;
+    props: IRoundedButtonProps;
 };

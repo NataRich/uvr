@@ -1,10 +1,10 @@
-export interface InputAttributes {
-    style: IconInFrontInputStyle;
-    props: IconInFrontInputProps;
+export interface IIconInFrontInputAttributes {
+    style: IIconInFrontInputStyle;
+    props: IIconInFrontInputProps;
     onChangeHandler:    React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
 };
 
-export interface IconInFrontInputStyle {
+export interface IIconInFrontInputStyle {
     borderColor:    string;
     borderRadius?:  number;
     fontSize:       number;
@@ -13,7 +13,7 @@ export interface IconInFrontInputStyle {
     imgWidth:       number;
 };
 
-export interface IconInFrontInputProps {
+export interface IIconInFrontInputProps {
     image:              string;
     placeholder:        string;
     type:               'password' | 'text';
