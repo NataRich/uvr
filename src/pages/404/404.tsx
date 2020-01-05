@@ -16,14 +16,14 @@ const Error404: React.FC = () => {
                         props: defaultLogoAttributes.props,}} />
             </div>
             <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ backgroundColor: '#149E9A' }}>
-                    <GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
+                    <GlobalStyled.Text.AutoWidthAutoHeightNonMargin style={{ color: '#FFF', fontSize: '30px' }}>
                         404 Page
                     </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>
             <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ backgroundColor: '#FFF' }}>
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>
             <GlobalStyled.Box.CenterBoxByRowNonSpaced style={{ backgroundColor: '#149E9A' }}>
-                <GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
+                <GlobalStyled.Text.AutoWidthAutoHeightNonMargin style={{ color: '#FFF' }}>
                     ®2019 UWC (CSC) Virtual Reality
                 </GlobalStyled.Text.AutoWidthAutoHeightNonMargin>
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>
