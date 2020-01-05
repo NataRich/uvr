@@ -1,10 +1,10 @@
 import { IGroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
 import {
-    LocalInputAttributes,
-    LocalRButtonAttributes,
-} from '../step1/Logistics';
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../../../global/utils/Style';
 
-const defaultTitleAttributes: LocalInputAttributes = {
+const defaultTitleAttributes: IPreLabelEffectInputAttributes = {
     style: {
         width: 200,
         borderColor: '#1C3144',
@@ -55,7 +55,7 @@ const defaultTagBtnGroupAttributes: IGroupButtonAttributes['attributes'] = [
     },
 ];
 
-const defaultDoneButtonAttributes: LocalRButtonAttributes = {
+const defaultDoneButtonAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 150,
         height: 40,

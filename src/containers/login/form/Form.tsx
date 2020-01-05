@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 import Input from '../../../components/input/labelEffect/Input';
 import Button from '../../../components/button/rounded/RoundedButton';
 import {
-    AccountConfirmation,
-    LocalInputAttributes,
-    LocalButtonAttributes,
-    PasswordConfirmation,
+    IAccountConfirmation,
+    IPasswordConfirmation,
 } from './interface';
 import {
     defaultAccount,
@@ -25,12 +27,12 @@ import {
 } from './Form.style';
 
 const Form: React.FC = () => {
-    const [ accountAttri, setAccountAttri ]             = useState<LocalInputAttributes>(defaultAccountAttributes);
-    const [ passwordAttri, setPasswordAttri ]           = useState<LocalInputAttributes>(defaultPasswordAttributes);
-    const [ confirmButtonAttri, setConfirmButtonAttri ] = useState<LocalButtonAttributes>(defaultConfirmButtonAttri);
-    const [ logInButtonAttri, setLoginButtonAttri ]     = useState<LocalButtonAttributes>(defaultLogInButtonAttri);
-    const [ account, setAccount ]                       = useState<AccountConfirmation>(defaultAccount);
-    const [ password, setPassword ]                     = useState<PasswordConfirmation>(defaultPassword);
+    const [ accountAttri, setAccountAttri ]             = useState<IPreLabelEffectInputAttributes>(defaultAccountAttributes);
+    const [ passwordAttri, setPasswordAttri ]           = useState<IPreLabelEffectInputAttributes>(defaultPasswordAttributes);
+    const [ confirmButtonAttri, setConfirmButtonAttri ] = useState<IPreRoundedButtonAttributes>(defaultConfirmButtonAttri);
+    const [ logInButtonAttri, setLoginButtonAttri ]     = useState<IPreRoundedButtonAttributes>(defaultLogInButtonAttri);
+    const [ account, setAccount ]                       = useState<IAccountConfirmation>(defaultAccount);
+    const [ password, setPassword ]                     = useState<IPasswordConfirmation>(defaultPassword);
 
     const onChangeAccountHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;

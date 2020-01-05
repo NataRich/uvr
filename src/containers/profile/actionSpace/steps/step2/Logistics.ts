@@ -1,6 +1,6 @@
-import { LocalRButtonAttributes } from '../step1/Logistics';
+import { IPreRoundedButtonAttributes } from '../../../../../global/utils/Style';
 
-const defaultUploadBtnAttributes: LocalRButtonAttributes = {
+const defaultUploadBtnAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 120,
         height: 40,
@@ -20,7 +20,7 @@ const defaultUploadBtnAttributes: LocalRButtonAttributes = {
     },
 };
 
-const defaultCancelBtnAttributes: LocalRButtonAttributes = {
+const defaultCancelBtnAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 120,
         height: 40,

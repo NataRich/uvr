@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 import Input from '../../../components/input/labelEffect/Input';
 import Button from '../../../components/button/rounded/RoundedButton';
-import {
-    LocalButtonAttributes,
-    LocalInputAttributes,
-    AccountCreation,
-} from './interface';
+import { AccountCreation } from './interface';
 import {
     defaultAccount,
     defaultUsernameAttributes,
@@ -21,11 +21,11 @@ import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import { StyledTextBox } from './Form.style';
 
 const Form: React.FC = () => {
-    const [ usernameAttri, setUsernameAttri ]       = useState<LocalInputAttributes>(defaultUsernameAttributes);
-    const [ emailAttri, setEmailAttri ]             = useState<LocalInputAttributes>(defaultEmailAttributes);
-    const [ passwordOneAttri, setPasswordOneAttri ] = useState<LocalInputAttributes>(defaultPasswordOneAttributes);
-    const [ passwordTwoAttri, setPasswordTwoAttri ] = useState<LocalInputAttributes>(defaultPasswordTwoAttributes);
-    const [ createBtnAttri, setCreateBtnAttri ]     = useState<LocalButtonAttributes>(defaultCreateBtnAttributes);
+    const [ usernameAttri, setUsernameAttri ]       = useState<IPreLabelEffectInputAttributes>(defaultUsernameAttributes);
+    const [ emailAttri, setEmailAttri ]             = useState<IPreLabelEffectInputAttributes>(defaultEmailAttributes);
+    const [ passwordOneAttri, setPasswordOneAttri ] = useState<IPreLabelEffectInputAttributes>(defaultPasswordOneAttributes);
+    const [ passwordTwoAttri, setPasswordTwoAttri ] = useState<IPreLabelEffectInputAttributes>(defaultPasswordTwoAttributes);
+    const [ createBtnAttri, setCreateBtnAttri ]     = useState<IPreRoundedButtonAttributes>(defaultCreateBtnAttributes);
     const [ account, setAccount ]                   = useState<AccountCreation>(defaultAccount);
 
     const onChangeUsernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

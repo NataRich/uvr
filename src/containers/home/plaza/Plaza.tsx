@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
 import Button from '../../../components/button/rounded/RoundedButton';
 import VCard from '../videoCard/Card';
 import VCardLoader from '../videoCard/CardLoader';
 import NullVideo from '../videoCard/NullVideo';
-import {
-    PlazaProps,
-    LocalButtonAttributes,
-} from './Logistics';
+import { IPlazaProps } from './interface';
 import {
     defaultNextPageButtonAttributes,
     defaultPrevPageButtonAttributes,
@@ -16,15 +14,15 @@ import {
 } from './Logistics';
 import { StyledDiv } from './Plaza.style';
 
-const Plaza: React.FC<PlazaProps> = ({
+const Plaza: React.FC<IPlazaProps> = ({
     isFetchingVideos,
     page,
     maxPage,
     setPage,
     videos,
 }) => {
-    const [ nextBtnAttri, setNextBtnAttri ] = useState<LocalButtonAttributes>(defaultNextPageButtonAttributes);
-    const [ prevBtnAttri, setPrevBtnAttri ] = useState<LocalButtonAttributes>(defaultPrevPageButtonAttributes);
+    const [ nextBtnAttri, setNextBtnAttri ] = useState<IPreRoundedButtonAttributes>(defaultNextPageButtonAttributes);
+    const [ prevBtnAttri, setPrevBtnAttri ] = useState<IPreRoundedButtonAttributes>(defaultPrevPageButtonAttributes);
 
     useEffect(() => {
         if (page > 1 && page < maxPage ) {

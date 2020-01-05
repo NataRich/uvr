@@ -1,22 +1,10 @@
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 import { ILogoAttributes } from '../../../components/UVRLogo/interface';
-import {
-    ILabelEffectInputProps,
-    ILabelEffectInputStyle,
-} from '../../../components/input/labelEffect/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
-
-export type LocalInputAttributes = {
-    style: ILabelEffectInputStyle;
-    props: ILabelEffectInputProps;
-};
-
-export type LocalRButtonAttributes = {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
-};
+import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
+import { IRoundedButtonStyle } from '../../../components/button/rounded/interface';
 
 const defaultLogoAttributes: ILogoAttributes = {
     style: {
@@ -25,7 +13,7 @@ const defaultLogoAttributes: ILogoAttributes = {
     props: {},
 };
 
-const defaultLogOutBtnAttributes: LocalRButtonAttributes = {
+const defaultLogOutBtnAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 70,
         height: 40,
@@ -53,7 +41,7 @@ const defaultInputStyle: ILabelEffectInputStyle = {
     width: 190,
 };
 
-const defaultNewUsernameAttributes: LocalInputAttributes = {
+const defaultNewUsernameAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: false,
@@ -63,7 +51,7 @@ const defaultNewUsernameAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultNewEmailAttributes: LocalInputAttributes = {
+const defaultNewEmailAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: false,
@@ -73,7 +61,7 @@ const defaultNewEmailAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultCodeAttributes: LocalInputAttributes = {
+const defaultCodeAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -96,7 +84,7 @@ const defaultButtonStyle: IRoundedButtonStyle = {
     loadingBorderColor: '#18626B',
 };
 
-const defaultUpdateButtonAttributes: LocalRButtonAttributes = {
+const defaultUpdateButtonAttributes: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Update',
@@ -105,7 +93,7 @@ const defaultUpdateButtonAttributes: LocalRButtonAttributes = {
     },
 };
 
-const defaultSendButtonAttributes: LocalRButtonAttributes = {
+const defaultSendButtonAttributes: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Send',
@@ -114,7 +102,7 @@ const defaultSendButtonAttributes: LocalRButtonAttributes = {
     },
 };
 
-const defaultAuthButtonAttributes: LocalRButtonAttributes = {
+const defaultAuthButtonAttributes: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Auth',

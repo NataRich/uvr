@@ -1,10 +1,12 @@
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import { IRoundedButtonStyle } from '../../../components/button/rounded/interface';
 import {
-    AccountConfirmation,
-    LocalInputAttributes,
-    LocalButtonAttributes,
-    PasswordConfirmation,
+    IAccountConfirmation,
+    IPasswordConfirmation,
 } from './interface';
 
 const defaultInputStyle: ILabelEffectInputStyle = {
@@ -15,7 +17,7 @@ const defaultInputStyle: ILabelEffectInputStyle = {
     width: 250,
 };
 
-const defaultAccountAttributes: LocalInputAttributes = {
+const defaultAccountAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         helperText: 'Enter maximum 12-character username or your email address.',
@@ -26,7 +28,7 @@ const defaultAccountAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultPasswordAttributes: LocalInputAttributes = {
+const defaultPasswordAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -36,14 +38,14 @@ const defaultPasswordAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultAccount: AccountConfirmation = {
+const defaultAccount: IAccountConfirmation = {
     account: {
         username: '',
     },
     isConfirmed: false,
 };
 
-const defaultPassword: PasswordConfirmation = {
+const defaultPassword: IPasswordConfirmation = {
     password: {
         password: '',
     },
@@ -63,7 +65,7 @@ const defaultButtonStyle: IRoundedButtonStyle = {
     loadingBorderColor: '#18626B',
 };
 
-const defaultConfirmButtonAttri: LocalButtonAttributes = {
+const defaultConfirmButtonAttri: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Confirm',
@@ -72,7 +74,7 @@ const defaultConfirmButtonAttri: LocalButtonAttributes = {
     },
 };
 
-const defaultLogInButtonAttri: LocalButtonAttributes = {
+const defaultLogInButtonAttri: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Log In',

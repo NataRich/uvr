@@ -3,26 +3,8 @@ import {
     UsernameInterface,
     PasswordInterface,
 } from '../../../global/user/interface';
-import {
-    ILabelEffectInputProps,
-    ILabelEffectInputStyle,
-} from '../../../components/input/labelEffect/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
 
-export interface LocalInputAttributes {
-    style: ILabelEffectInputStyle,
-    props: ILabelEffectInputProps,
-};
-
-export interface LocalButtonAttributes {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
-};
-
-interface AggregateStatusInterface {
+interface IAggregateStatus {
     account:    boolean;
     password:   boolean;
 };
@@ -30,5 +12,5 @@ interface AggregateStatusInterface {
 export interface AccountCreation {
     account:    EmailInterface & UsernameInterface;
     password:   PasswordInterface;
-    isOkay:     AggregateStatusInterface;
+    isOkay:     IAggregateStatus;
 };

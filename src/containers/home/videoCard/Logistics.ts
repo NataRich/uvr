@@ -1,23 +1,9 @@
 import {
-    IEllipticalButtonProps,
-    IEllipticalButtonStyle,
-} from '../../../components/button/elliptical/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
+    IPreEllipticalButtonAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 
-export type LocalEButtonAttributes = {
-    style: IEllipticalButtonStyle;
-    props: IEllipticalButtonProps;
-};
-
-export type LocalRButtonAttributes = {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
-};
-
-const defaultDelButtonAttributes: LocalRButtonAttributes = {
+const defaultDelButtonAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 50,
         height: 25,
@@ -37,7 +23,7 @@ const defaultDelButtonAttributes: LocalRButtonAttributes = {
     },
 };
 
-const defaultWatchButtonAttributes: LocalEButtonAttributes = {
+const defaultWatchButtonAttributes: IPreEllipticalButtonAttributes = {
     style: {
         backgroundColor: '#0165A3',
         fontColor: '#FFF',
@@ -48,7 +34,7 @@ const defaultWatchButtonAttributes: LocalEButtonAttributes = {
     },
 };
 
-const defaultMoreButtonAttributes: LocalEButtonAttributes = {
+const defaultMoreButtonAttributes: IPreEllipticalButtonAttributes = {
     style: {
         backgroundColor: '#931621',
         fontColor: '#FFF',
@@ -59,7 +45,7 @@ const defaultMoreButtonAttributes: LocalEButtonAttributes = {
     },
 };
 
-const defaultBackButtonAttributes: LocalEButtonAttributes = {
+const defaultBackButtonAttributes: IPreEllipticalButtonAttributes = {
     style: {
         backgroundColor: '#149E9A',
         fontColor: '#FFF',

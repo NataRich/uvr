@@ -1,18 +1,10 @@
 import { UserClassType } from '../../../global/user/class';
 import { ILogoAttributes } from '../../../components/UVRLogo/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
 
 export type NavProps = {
     user:           UserClassType | null;
     isFetchingUser: boolean;
-};
-
-export type LocalRbuttonAttributes = {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
 };
 
 const defaultLogoAttributes: ILogoAttributes = {
@@ -22,7 +14,7 @@ const defaultLogoAttributes: ILogoAttributes = {
     props: {},
 };
 
-const defaultButtonAttributes: LocalRbuttonAttributes = {
+const defaultButtonAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 100,
         height: 40,

@@ -6,13 +6,13 @@ import {
     EmailInterface,
     CodeInterface,
 } from '../../../global/user/interface';
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes
+} from '../../../global/utils/Style';
 import Logo from '../../../components/UVRLogo/Logo';
 import Input from '../../../components/input/labelEffect/Input';
 import Button from '../../../components/button/rounded/RoundedButton';
-import {
-    LocalInputAttributes,
-    LocalRButtonAttributes,
-} from './Logistics';
 import {
     defaultLogoAttributes,
     defaultLogOutBtnAttributes,
@@ -36,14 +36,14 @@ import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 const Account: React.FC<AccountProps> = ({
     user,
 }) => {
-    const [ logOutBtnAttri, setLogOutBtnAttri ]     = useState<LocalRButtonAttributes>(defaultLogOutBtnAttributes);
-    const [ emailAttri, setEmailAttri ]             = useState<LocalInputAttributes>(defaultNewEmailAttributes);
-    const [ usernameAttri, setUsernameAttri ]       = useState<LocalInputAttributes>(defaultNewUsernameAttributes);
-    const [ codeAttri, setCodeAttri ]               = useState<LocalInputAttributes>(defaultCodeAttributes);
-    const [ updateEBtnAttri, setUpdateEBtnAttri ]   = useState<LocalRButtonAttributes>(defaultUpdateButtonAttributes);
-    const [ updateUBtnAttri, setUpdateUBtnAttri ]   = useState<LocalRButtonAttributes>(defaultUpdateButtonAttributes);
-    const [ authBtnAttri, setAuthBtnAttri ]         = useState<LocalRButtonAttributes>(defaultAuthButtonAttributes);
-    const [ sendBtnAttri, setSendBtnAttri ]         = useState<LocalRButtonAttributes>(defaultSendButtonAttributes);
+    const [ logOutBtnAttri, setLogOutBtnAttri ]     = useState<IPreRoundedButtonAttributes>(defaultLogOutBtnAttributes);
+    const [ emailAttri, setEmailAttri ]             = useState<IPreLabelEffectInputAttributes>(defaultNewEmailAttributes);
+    const [ usernameAttri, setUsernameAttri ]       = useState<IPreLabelEffectInputAttributes>(defaultNewUsernameAttributes);
+    const [ codeAttri, setCodeAttri ]               = useState<IPreLabelEffectInputAttributes>(defaultCodeAttributes);
+    const [ updateEBtnAttri, setUpdateEBtnAttri ]   = useState<IPreRoundedButtonAttributes>(defaultUpdateButtonAttributes);
+    const [ updateUBtnAttri, setUpdateUBtnAttri ]   = useState<IPreRoundedButtonAttributes>(defaultUpdateButtonAttributes);
+    const [ authBtnAttri, setAuthBtnAttri ]         = useState<IPreRoundedButtonAttributes>(defaultAuthButtonAttributes);
+    const [ sendBtnAttri, setSendBtnAttri ]         = useState<IPreRoundedButtonAttributes>(defaultSendButtonAttributes);
 
     const onClickLogOutHandler = async () => {
         setLogOutBtnAttri({...logOutBtnAttri, props: {...logOutBtnAttri.props, isLoading: true}});

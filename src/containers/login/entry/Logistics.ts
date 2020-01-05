@@ -1,4 +1,4 @@
-import { LocalButtonAttributes } from './interface';
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
 import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 
 const defaultLogoAttributes: ILogoAttributes = {
@@ -10,7 +10,7 @@ const defaultLogoAttributes: ILogoAttributes = {
     },
 };
 
-const defaultButtonAttributes: LocalButtonAttributes = {
+const defaultButtonAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 300,
         height: 50,

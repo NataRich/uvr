@@ -1,40 +1,12 @@
 import {
-    IIconInFrontInputProps,
-    IIconInFrontInputStyle,
-} from '../../../components/input/iconInFront/interface';
+    IPreIconInFrontInputAttributes,
+    IPreEllipticalButtonAttributes,
+    IPreRoundedButtonAttributes
+} from '../../../global/utils/Style';
+import { IEllipticalButtonStyle } from '../../../components/button/elliptical/interface';
 import Magnifier from '../../../assets/icons/magnifier.svg';
-import {
-    IEllipticalButtonProps,
-    IEllipticalButtonStyle,
-} from '../../../components/button/elliptical/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
-import { VideoClassType } from '../../../global/videos/class';
 
-export type SearchProps = {
-    page:                number;
-    setVideos:           React.Dispatch<React.SetStateAction<VideoClassType[] | null>>;
-    setIsFetchingVideos: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export type LocalInputAttributes = {
-    style: IIconInFrontInputStyle,
-    props: IIconInFrontInputProps,
-};
-
-export type LocalEButtonAttributes = {
-    style: IEllipticalButtonStyle,
-    props: IEllipticalButtonProps,
-};
-
-export type LocalRButtonAttributes = {
-    style: IRoundedButtonStyle,
-    props: IRoundedButtonProps,
-};
-
-const defaultInputAttributes: LocalInputAttributes = {
+const defaultInputAttributes: IPreIconInFrontInputAttributes = {
     style: {
         borderColor: '#149E9A',
         borderRadius: 5,
@@ -56,7 +28,7 @@ const defaultButtonGroupStyle: IEllipticalButtonStyle = {
     fontColor: '#149E9A',
 };
 
-const defaultSortButtonGroupAttributes: LocalEButtonAttributes[] = [
+const defaultSortButtonGroupAttributes: IPreEllipticalButtonAttributes[] = [
     {
         style: defaultButtonGroupStyle,
         props: {
@@ -67,7 +39,7 @@ const defaultSortButtonGroupAttributes: LocalEButtonAttributes[] = [
     },
 ];
 
-const defaultOrderButtonGroupAttributes: LocalEButtonAttributes[] = [
+const defaultOrderButtonGroupAttributes: IPreEllipticalButtonAttributes[] = [
     {
         style: defaultButtonGroupStyle,
         props: {
@@ -86,7 +58,7 @@ const defaultOrderButtonGroupAttributes: LocalEButtonAttributes[] = [
     },
 ];
 
-const defaultFindButtonAttributes: LocalRButtonAttributes = {
+const defaultFindButtonAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 70,
         height: 44,

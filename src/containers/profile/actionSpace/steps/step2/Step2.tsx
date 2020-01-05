@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
 import { VideoInterface } from '../../../../../global/videos/interface';
+import { IPreRoundedButtonAttributes } from '../../../../../global/utils/Style';
 import Button from '../../../../../components/button/rounded/RoundedButton';
-import { LocalRButtonAttributes } from '../step1/Logistics';
 import { VRAPI } from '../../../../../global/videos/request';
 import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 import {
@@ -13,8 +13,8 @@ import {
 
 
 const Step2: React.FC = () => {
-    const [ uploadBtnAttri, setUploadBtnAttri ] = useState<LocalRButtonAttributes>(defaultUploadBtnAttributes);
-    const [ cancelBtnAttri, setCancelBtnAttri ] = useState<LocalRButtonAttributes>(defaultCancelBtnAttributes);
+    const [ uploadBtnAttri, setUploadBtnAttri ] = useState<IPreRoundedButtonAttributes>(defaultUploadBtnAttributes);
+    const [ cancelBtnAttri, setCancelBtnAttri ] = useState<IPreRoundedButtonAttributes>(defaultCancelBtnAttributes);
     const [ videoResource, setVideoResource ]   = useState<Record<'video', FormData>>({video: new FormData()});
     const [ vHelper, setVHelper ]               = useState<boolean>(false);
     const [ vHelperText, setVHelperText ]       = useState<string>('.MP4 file only');

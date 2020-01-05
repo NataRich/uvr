@@ -3,31 +3,17 @@ import {
     UsernameInterface,
     PasswordInterface,
 } from '../../../global/user/interface';
-import {
-    ILabelEffectInputProps,
-    ILabelEffectInputStyle,
-} from '../../../components/input/labelEffect/interface';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
 
-export interface LocalInputAttributes {
-    style: ILabelEffectInputStyle,
-    props: ILabelEffectInputProps,
-};
-
-export interface AccountConfirmation {
+export interface IAccountConfirmation {
     account: EmailInterface | UsernameInterface;
     isConfirmed: boolean;
 };
 
-export interface PasswordConfirmation {
+export interface IPasswordConfirmation {
     password: PasswordInterface;
     isConfirmed: boolean;
 };
 
-export interface LocalButtonAttributes {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
+export interface IStyledBoxProp {
+    isConfirmed: boolean;
 };

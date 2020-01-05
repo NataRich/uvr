@@ -1,23 +1,9 @@
 import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../../../components/button/rounded/interface';
-import {
-    ILabelEffectInputProps,
-    ILabelEffectInputStyle,
-} from '../../../../../components/input/labelEffect/interface';
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../../../global/utils/Style';
 
-export type LocalRButtonAttributes = {
-    style: IRoundedButtonStyle;
-    props: IRoundedButtonProps;
-};
-
-export type LocalInputAttributes = {
-    style: ILabelEffectInputStyle;
-    props: ILabelEffectInputProps;
-};
-
-const defaultTrackIdInputAttributes: LocalInputAttributes = {
+const defaultTrackIdInputAttributes: IPreLabelEffectInputAttributes = {
     style: {
         width: 200,
         borderColor: '#1C3144',
@@ -32,7 +18,7 @@ const defaultTrackIdInputAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultAcquireTrackIdBtnAttributes: LocalRButtonAttributes = {
+const defaultAcquireTrackIdBtnAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 150,
         height: 40,

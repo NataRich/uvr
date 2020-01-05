@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 import { GlobalStyled } from '../../../global/style/Style.style';
 import { VGAPI } from '../../../global/videos/request';
 import { VideoFilterArgInterface } from '../../../global/videos/interface';
+import {
+    IPreIconInFrontInputAttributes,
+    IPreEllipticalButtonAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import Input from '../../../components/input/iconInFront/Input';
 import ButtonGroup from '../../../components/button/elliptical/Group';
 import Button from '../../../components/button/rounded/RoundedButton';
 import Filter from '../../../assets/icons/filter.svg';
-import {
-    SearchProps,
-    LocalInputAttributes,
-    LocalEButtonAttributes,
-    LocalRButtonAttributes,
-} from './Logistics';
+import { ISearchProps } from './interface';
 import {
     defaultInputAttributes,
     defaultSortButtonGroupAttributes,
@@ -25,16 +25,16 @@ import {
     StyledFilterOptionContainer,
 } from './Search.style';
 
-const Search: React.FC<SearchProps> = ({
+const Search: React.FC<ISearchProps> = ({
     setIsFetchingVideos,
     setVideos,
     page,
 }) => {
-    const [ inputAttri, setInputAttri ]                 = useState<LocalInputAttributes>(defaultInputAttributes);
-    const [ sortBtnGroupAttri, setSortBtnGroupAttri ]   = useState<LocalEButtonAttributes[]>(defaultSortButtonGroupAttributes);
-    const [ orderBtnGroupAttri, setOrderBtnGroupAttri ] = useState<LocalEButtonAttributes[]>(defaultOrderButtonGroupAttributes);
+    const [ inputAttri, setInputAttri ]                 = useState<IPreIconInFrontInputAttributes>(defaultInputAttributes);
+    const [ sortBtnGroupAttri, setSortBtnGroupAttri ]   = useState<IPreEllipticalButtonAttributes[]>(defaultSortButtonGroupAttributes);
+    const [ orderBtnGroupAttri, setOrderBtnGroupAttri ] = useState<IPreEllipticalButtonAttributes[]>(defaultOrderButtonGroupAttributes);
     const [ openFilter, setOpenFilter ]                 = useState<boolean>(false);
-    const [ findBtnAttri, setFindBtnAtri ]              = useState<LocalRButtonAttributes>(defaultFindButtonAttributes);
+    const [ findBtnAttri, setFindBtnAtri ]              = useState<IPreRoundedButtonAttributes>(defaultFindButtonAttributes);
 
     const onClickFilterHandler = () => setOpenFilter(!openFilter);
     const onChangeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => setInputAttri({...inputAttri, props: {...inputAttri.props, value: e.currentTarget.value}});

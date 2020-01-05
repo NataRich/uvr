@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-type Props = {
-    isConfirmed: boolean;
-};
+import { IStyledBoxProp } from './interface';
 
-export const StyledBox = styled.div<Props>`
+export const StyledBox = styled.div<IStyledBoxProp>`
     height: auto;
     .con-form-container {
         display: flex;

@@ -1,9 +1,9 @@
 import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import {
-    LocalButtonAttributes,
-    LocalInputAttributes,
-    AccountCreation,
-} from './interface';
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../global/utils/Style';
+import { AccountCreation } from './interface';
 
 const defaultAccount: AccountCreation = {
     account: {
@@ -27,7 +27,7 @@ const defaultInputStyle: ILabelEffectInputStyle = {
     width: 250,
 };
 
-const defaultUsernameAttributes: LocalInputAttributes = {
+const defaultUsernameAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -37,7 +37,7 @@ const defaultUsernameAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultEmailAttributes: LocalInputAttributes = {
+const defaultEmailAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -47,7 +47,7 @@ const defaultEmailAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultPasswordOneAttributes: LocalInputAttributes = {
+const defaultPasswordOneAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -57,7 +57,7 @@ const defaultPasswordOneAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultPasswordTwoAttributes: LocalInputAttributes = {
+const defaultPasswordTwoAttributes: IPreLabelEffectInputAttributes = {
     style: defaultInputStyle,
     props: {
         isRequired: true,
@@ -67,7 +67,7 @@ const defaultPasswordTwoAttributes: LocalInputAttributes = {
     },
 };
 
-const defaultCreateBtnAttributes: LocalButtonAttributes = {
+const defaultCreateBtnAttributes: IPreRoundedButtonAttributes = {
     style: {
         width: 200,
         height: 40,

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import { TrackIdInterface } from '../../../../../global/videos/interface';
 import { generateTrackId } from '../../../../../global/utils/utils';
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../../../global/utils/Style';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import Input from '../../../../../components/input/labelEffect/Input';
-import {
-    LocalRButtonAttributes,
-    LocalInputAttributes,
-} from './Logistics';
 import {
     defaultTrackIdInputAttributes,
     defaultAcquireTrackIdBtnAttributes,
@@ -16,8 +16,8 @@ import { VRAPI } from '../../../../../global/videos/request';
 import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step1: React.FC = () => {
-    const [ acquireBtnAttri, setAcquireBtnAttri ]   = useState<LocalRButtonAttributes>(defaultAcquireTrackIdBtnAttributes);
-    const [ trackIdAttri, setTrackIdAttri ]         = useState<LocalInputAttributes>(defaultTrackIdInputAttributes);
+    const [ acquireBtnAttri, setAcquireBtnAttri ]   = useState<IPreRoundedButtonAttributes>(defaultAcquireTrackIdBtnAttributes);
+    const [ trackIdAttri, setTrackIdAttri ]         = useState<IPreLabelEffectInputAttributes>(defaultTrackIdInputAttributes);
 
     const onChangeHandler = () => {};
 

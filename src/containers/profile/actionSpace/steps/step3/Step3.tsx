@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
 import { VideoInfoArgInterface } from '../../../../../global/videos/interface';
+import {
+    IPreLabelEffectInputAttributes,
+    IPreRoundedButtonAttributes,
+} from '../../../../../global/utils/Style';
 import Input from '../../../../../components/input/labelEffect/Input';
 import Group from '../../../../../components/button/elliptical/Group';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import { IGroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
-import {
-    LocalInputAttributes,
-    LocalRButtonAttributes,
-} from '../step1/Logistics';
 import {
     defaultTagBtnGroupAttributes,
     defaultTitleAttributes,
@@ -20,12 +20,12 @@ import { VRAPI } from '../../../../../global/videos/request';
 import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step3: React.FC = () => {
-    const [ titleAttri, setTitleAttri ]         = useState<LocalInputAttributes>(defaultTitleAttributes);
+    const [ titleAttri, setTitleAttri ]         = useState<IPreLabelEffectInputAttributes>(defaultTitleAttributes);
     const [ isTitleOkay, setIsTitleOkay ]       = useState<boolean>(false);
     const [ btnGroupAttri, setBtnGroupAttri ]   = useState<IGroupButtonAttributes['attributes']>(defaultTagBtnGroupAttributes);
     const [ description, setDescription ]       = useState<string>('');
     const [ isDOkay, setIsDOkay ]               = useState<boolean>(false);
-    const [ doneBtnAttri, setDoneBtnAttri ]     = useState<LocalRButtonAttributes>(defaultDoneButtonAttributes);
+    const [ doneBtnAttri, setDoneBtnAttri ]     = useState<IPreRoundedButtonAttributes>(defaultDoneButtonAttributes);
 
     const onChangeTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value: string = e.currentTarget.value;

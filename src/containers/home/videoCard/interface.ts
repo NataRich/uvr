@@ -1,10 +1,10 @@
 import { VideoClassType } from '../../../global/videos/class';
 
-export interface VideoCardAttributes {
-    props: VideoCardProps;
+export interface IVideoCardAttributes {
+    props: IVideoCardProps;
 };
 
-export interface VideoCardProps {
+export interface IVideoCardProps {
     video:      VideoClassType;
     hasDel?:    boolean;
 };

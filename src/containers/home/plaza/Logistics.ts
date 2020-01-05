@@ -1,21 +1,5 @@
-import { VideoClassType } from '../../../global/videos/class';
-import {
-    IRoundedButtonProps,
-    IRoundedButtonStyle,
-} from '../../../components/button/rounded/interface';
-
-export type PlazaProps = {
-    isFetchingVideos:   boolean;
-    page:               number;
-    maxPage:            number;
-    setPage:            React.Dispatch<React.SetStateAction<number>>;
-    videos:             VideoClassType[] | null;
-};
-
-export type LocalButtonAttributes = {
-    style: IRoundedButtonStyle,
-    props: IRoundedButtonProps,
-};
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
+import { IRoundedButtonStyle } from '../../../components/button/rounded/interface';
 
 const defaultButtonStyle: IRoundedButtonStyle = {
     width: 200,
@@ -30,7 +14,7 @@ const defaultButtonStyle: IRoundedButtonStyle = {
     loadingBorderColor: '',
 };
 
-const defaultPrevPageButtonAttributes: LocalButtonAttributes = {
+const defaultPrevPageButtonAttributes: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Previous',
@@ -39,7 +23,7 @@ const defaultPrevPageButtonAttributes: LocalButtonAttributes = {
     },
 };
 
-const defaultNextPageButtonAttributes: LocalButtonAttributes = {
+const defaultNextPageButtonAttributes: IPreRoundedButtonAttributes = {
     style: defaultButtonStyle,
     props: {
         defaultValue: 'Next',

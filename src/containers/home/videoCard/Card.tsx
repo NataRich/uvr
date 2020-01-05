@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import { VideoIdInterface } from '../../../global/videos/interface';
-import { VideoCardAttributes } from './interface';
+import { IVideoCardAttributes } from './interface';
 import { StyledVideoCardContainer } from './Card.style';
 import EButton from '../../../components/button/elliptical/BaseButton';
 import RButton from '../../../components/button/rounded/RoundedButton';
 import { VRAPI } from '../../../global/videos/request';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
-import { LocalRButtonAttributes } from './Logistics';
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
 import {
     defaultDelButtonAttributes,
     defaultBackButtonAttributes,
@@ -17,14 +17,14 @@ import {
 } from './Logistics';
 
 
-const VideoCard: React.FC<VideoCardAttributes> = ({
+const VideoCard: React.FC<IVideoCardAttributes> = ({
     props: {
         video,
         hasDel,
     },
 }) => {
     const [ openDescription, setOpenDescription ]   = useState<boolean>(false);
-    const [ delBtnAttri, setDelBtnAttri ]           = useState<LocalRButtonAttributes>(defaultDelButtonAttributes);
+    const [ delBtnAttri, setDelBtnAttri ]           = useState<IPreRoundedButtonAttributes>(defaultDelButtonAttributes);
 
     const onClick = () => {};
     const onClickWatchHandler = () => window.location.href='/';
