@@ -5,7 +5,7 @@ import { UGAPI } from '../../global/user/request';
 import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Entry from '../../containers/signup/entry/Entry';
 import Form from '../../containers/signup/form/Form';
-import Loader from '../loader/Loader';
+import Loader from '../login/loader/Loader';
 import ERelogIn from '../login/error/ERelogIn';
 
 const Signup: React.FC= () => {

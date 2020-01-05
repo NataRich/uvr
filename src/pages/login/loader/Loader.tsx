@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { GlobalStyled } from '../../global/style/Style.style';
+import { GlobalStyled } from '../../../global/style/Style.style';
 
 const Loader: React.FC = () => {
     return (
