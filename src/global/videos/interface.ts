@@ -160,7 +160,7 @@ export interface IAPIGeneralGetMethods {
      * @public @function getTrackId return the properties of the video of the track id, to fetch that specific video
      * 
      */
-    getTrackId: (payload: ITrackId) => Promise<VideoClassType | null>;
+    getTrackId: (payload: ITrackId, abortSignal: AbortSignal) => Promise<VideoClassType | null>;
 };
 
 export interface IAPIGeneralPostMethods {

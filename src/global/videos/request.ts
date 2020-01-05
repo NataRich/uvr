@@ -58,11 +58,12 @@ class VideoAPI {
         return await response.json();
     };
 
-    protected useGetArg = async (url: string, payload: any): Promise<IOneVideo> => {
+    protected useGetArg = async (url: string, payload: any, abortSignal: AbortSignal): Promise<IOneVideo> => {
         let argsArray: string[] = [];
         Object.keys(payload).forEach(key => argsArray.push(key + '=' + payload[key]));
         const URL: string = url + '?' + argsArray.join('&');
         const response: Response = await fetch(URL, {
+            signal: abortSignal,
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -115,9 +116,9 @@ class VideoAPI {
 };
 
 class VideoGeneralAPI extends VideoAPI implements IAPIGeneralGetMethods, IAPIGeneralPostMethods {
-    public getTrackId = async (payload: ITrackId): Promise<VideoClassType | null> => {
+    public getTrackId = async (payload: ITrackId, abortSignal: AbortSignal): Promise<VideoClassType | null> => {
         const URL: string = DOMAIN + this.VIDEOS_FETCH_ENDPOINT;
-        const response: IOneVideo = await this.useGetArg(URL, payload);
+        const response: IOneVideo = await this.useGetArg(URL, payload, abortSignal);
         if (!response.video)
             return null;
         const video: IAPIVideoParam = {
