@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import Logo from '../../../components/UVRLogo/Logo';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 
 const EUnLogIn: React.FC = () => {
     const onClickLogInHandler = () => window.location.href='/login';

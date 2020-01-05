@@ -1,7 +1,10 @@
 import React from 'react';
 
 import Logo from '../../../components/UVRLogo/Logo';
+
+import { GlobalStyled } from '../../../global/style/Style.style';
 import Button from '../../../components/button/rounded/RoundedButton';
+
 import { INavProps } from './interface';
 import {
     defaultLogoAttributes,
@@ -11,7 +14,6 @@ import {
     StyledBtnLoader,
     StyledProfileContainer,
 } from './Navigation.style';
-import { GlobalStyled } from '../../../global/style/Style.style';
 
 const Navigation: React.FC<INavProps> = ({
     user,

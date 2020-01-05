@@ -1,8 +1,9 @@
-import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes,
 } from '../../../global/utils/Style';
+import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
+
 import { AccountCreation } from './interface';
 
 const defaultAccount: AccountCreation = {

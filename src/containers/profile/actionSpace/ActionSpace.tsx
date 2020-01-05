@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { GlobalStyled } from '../../../global/style/Style.style';
 import Lock from '../../../assets/icons/lock.svg';
+
+import { GlobalStyled } from '../../../global/style/Style.style';
 import Step1 from './steps/step1/Step1';
 import Step2 from './steps/step2/Step2';
 import Step3 from './steps/step3/Step3';
+
 import {ActionSpaceProps } from './interface';
 import { StyledSpan } from './ActionSpace.style';
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import RoundedButton from './RoundedButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
+import RoundedButton from './RoundedButton';
+
 import {
     IGroupButtonAttributes,
     IRoundedButtonAttributes,

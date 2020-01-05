@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 
 import { ITrackId } from '../../../../../global/videos/interface';
+import { VRAPI } from '../../../../../global/videos/request';
 import { generateTrackId } from '../../../../../global/utils/utils';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes,
 } from '../../../../../global/utils/Style';
+import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import Input from '../../../../../components/input/labelEffect/Input';
+
 import {
     defaultTrackIdInputAttributes,
     defaultAcquireTrackIdBtnAttributes,
 } from './Logistics';
-import { VRAPI } from '../../../../../global/videos/request';
-import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step1: React.FC = () => {
     const [ acquireBtnAttri, setAcquireBtnAttri ]   = useState<IPreRoundedButtonAttributes>(defaultAcquireTrackIdBtnAttributes);

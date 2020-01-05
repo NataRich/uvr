@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
-import Logo from '../../../components/UVRLogo/Logo';
-import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import { URAPI } from '../../../global/user/request';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
+import Logo from '../../../components/UVRLogo/Logo';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 
 const ERelogIn: React.FC = () => {
     const [ isCopied, setIsCopied ] = useState<boolean>(false);

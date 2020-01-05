@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { StyledTallContainer } from './Home.style';
 import { GlobalStyled } from '../../global/style/Style.style';
 import { UserClassType } from '../../global/user/class';
 import { UGAPI } from '../../global/user/request';
@@ -11,6 +10,8 @@ import { Middleware } from '../../middlewares/API/APIMiddlewares';
 import Navigation from '../../containers/home/navigation/Navigation';
 import Search from '../../containers/home/search/Search';
 import Plaza from '../../containers/home/plaza/Plaza';
+
+import { StyledTallContainer } from './Home.style';
 
 const Home: React.FC = () => {
     const [ isAboutClicked, setIsAboutClicked ]     = useState<boolean>(false);

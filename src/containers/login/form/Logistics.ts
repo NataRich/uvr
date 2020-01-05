@@ -4,6 +4,7 @@ import {
 } from '../../../global/utils/Style';
 import { ILabelEffectInputStyle } from '../../../components/input/labelEffect/interface';
 import { IRoundedButtonStyle } from '../../../components/button/rounded/interface';
+
 import {
     IAccountConfirmation,
     IPasswordConfirmation,

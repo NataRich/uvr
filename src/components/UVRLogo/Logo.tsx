@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { GlobalStyled } from '../../global/style/Style.style';
-import { ILogoAttributes } from './interface';
 import logo from '../../assets/resources/logo.png';
+
+import { GlobalStyled } from '../../global/style/Style.style';
+
+import { ILogoAttributes } from './interface';
 import {
     StyledImg,
     StyledBox,

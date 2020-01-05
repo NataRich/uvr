@@ -1,10 +1,11 @@
+import Magnifier from '../../../assets/icons/magnifier.svg';
+
 import {
     IPreIconInFrontInputAttributes,
     IPreEllipticalButtonAttributes,
     IPreRoundedButtonAttributes
 } from '../../../global/utils/Style';
 import { IEllipticalButtonStyle } from '../../../components/button/elliptical/interface';
-import Magnifier from '../../../assets/icons/magnifier.svg';
 
 const defaultInputAttributes: IPreIconInFrontInputAttributes = {
     style: {

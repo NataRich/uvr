@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
+import Arrow from '../../../assets/icons/arrow.svg';
+
 import { GlobalStyled } from '../../../global/style/Style.style';
 import { IVideoFilterSelfArg } from '../../../global/videos/interface';
+import { VRAPI } from '../../../global/videos/request';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import VCardLoader from '../../home/videoCard/CardLoader';
 import VCard from '../../home/videoCard/Card';
 import NullVideo from '../../home/videoCard/NullVideo';
-import Arrow from '../../../assets/icons/arrow.svg';
+
+import { TrackProps } from './interface';
 import {
     defaultVideoArgPayload,
     defaultCardLoaderArray,
@@ -14,9 +19,6 @@ import {
     StyledDivLoader,
     StyledArrowContainer,
 } from './Track.style';
-import { TrackProps } from './interface';
-import { VRAPI } from '../../../global/videos/request';
-import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 
 const Track: React.FC<TrackProps> = ({
     isFetchingUser,

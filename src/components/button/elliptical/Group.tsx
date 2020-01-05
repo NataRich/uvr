@@ -1,7 +1,8 @@
 import React from 'react';
 
-import BaseButton from './BaseButton';
 import { GlobalStyled } from '../../../global/style/Style.style';
+import BaseButton from './BaseButton';
+
 import {
     IEllipticalButtonAttributes,
     IGroupButtonAttributes

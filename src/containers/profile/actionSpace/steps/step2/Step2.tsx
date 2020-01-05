@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
 import { IVideo } from '../../../../../global/videos/interface';
-import { IPreRoundedButtonAttributes } from '../../../../../global/utils/Style';
-import Button from '../../../../../components/button/rounded/RoundedButton';
 import { VRAPI } from '../../../../../global/videos/request';
+import { IPreRoundedButtonAttributes } from '../../../../../global/utils/Style';
 import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
+import Button from '../../../../../components/button/rounded/RoundedButton';
+
 import {
     defaultCancelBtnAttributes,
     defaultUploadBtnAttributes,
 } from './Logistics';
-
 
 const Step2: React.FC = () => {
     const [ uploadBtnAttri, setUploadBtnAttri ] = useState<IPreRoundedButtonAttributes>(defaultUploadBtnAttributes);

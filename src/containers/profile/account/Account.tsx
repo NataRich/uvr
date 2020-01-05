@@ -6,13 +6,17 @@ import {
     IUsername,
     ICode,
 } from '../../../global/user/interface';
+import { UGAPI, URAPI } from '../../../global/user/request';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes
 } from '../../../global/utils/Style';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import Logo from '../../../components/UVRLogo/Logo';
 import Input from '../../../components/input/labelEffect/Input';
 import Button from '../../../components/button/rounded/RoundedButton';
+
+import { AccountProps } from './interface';
 import {
     defaultLogoAttributes,
     defaultLogOutBtnAttributes,
@@ -28,10 +32,6 @@ import {
     StyledLogOutContainer,
     StyledProfileImageContainer,
 } from './Account.style';
-import { AccountProps } from './interface';
-import { UGAPI, URAPI } from '../../../global/user/request';
-import { Middleware } from '../../../middlewares/API/APIMiddlewares';
-
 
 const Account: React.FC<AccountProps> = ({
     user,

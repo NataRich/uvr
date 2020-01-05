@@ -6,6 +6,7 @@ import Button from '../../../components/button/rounded/RoundedButton';
 import VCard from '../videoCard/Card';
 import VCardLoader from '../videoCard/CardLoader';
 import NullVideo from '../videoCard/NullVideo';
+
 import { IPlazaProps } from './interface';
 import {
     defaultNextPageButtonAttributes,

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 
+import Filter from '../../../assets/icons/filter.svg';
 import { GlobalStyled } from '../../../global/style/Style.style';
-import { VGAPI } from '../../../global/videos/request';
-import { IVideoFilterArg } from '../../../global/videos/interface';
 import {
     IPreIconInFrontInputAttributes,
     IPreEllipticalButtonAttributes,
     IPreRoundedButtonAttributes,
 } from '../../../global/utils/Style';
+import { IVideoFilterArg } from '../../../global/videos/interface';
+import { VGAPI } from '../../../global/videos/request';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import Input from '../../../components/input/iconInFront/Input';
 import ButtonGroup from '../../../components/button/elliptical/Group';
 import Button from '../../../components/button/rounded/RoundedButton';
-import Filter from '../../../assets/icons/filter.svg';
+
 import { ISearchProps } from './interface';
 import {
     defaultInputAttributes,

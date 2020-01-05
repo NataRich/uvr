@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
 import { IVideoId } from '../../../global/videos/interface';
-import { IVideoCardAttributes } from './interface';
-import { StyledVideoCardContainer } from './Card.style';
-import EButton from '../../../components/button/elliptical/BaseButton';
-import RButton from '../../../components/button/rounded/RoundedButton';
 import { VRAPI } from '../../../global/videos/request';
 import { Middleware } from '../../../middlewares/API/APIMiddlewares';
-import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
+import EButton from '../../../components/button/elliptical/BaseButton';
+import RButton from '../../../components/button/rounded/RoundedButton';
+
+import { IVideoCardAttributes } from './interface';
 import {
     defaultDelButtonAttributes,
     defaultBackButtonAttributes,
     defaultMoreButtonAttributes,
     defaultWatchButtonAttributes,
 } from './Logistics';
-
+import { StyledVideoCardContainer } from './Card.style';
 
 const VideoCard: React.FC<IVideoCardAttributes> = ({
     props: {

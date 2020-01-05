@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
+import { UGAPI } from '../../../global/user/request';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes,
 } from '../../../global/utils/Style';
+import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import Input from '../../../components/input/labelEffect/Input';
 import Button from '../../../components/button/rounded/RoundedButton';
+
 import {
     IAccountConfirmation,
     IPasswordConfirmation,
@@ -19,8 +22,6 @@ import {
     defaultConfirmButtonAttri,
     defaultLogInButtonAttri,
 } from './Logistics';
-import { UGAPI } from '../../../global/user/request';
-import { Middleware } from '../../../middlewares/API/APIMiddlewares';
 import {
     StyledBox,
     StyledTextBox,

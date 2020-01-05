@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 import { GlobalStyled } from '../../../global/style/Style.style';
 import Logo from '../../../components/UVRLogo/Logo';
+
 import { defaultLogoAttributes } from './Logistics';
 import { StyledLogoContainer } from './Account.style';
 

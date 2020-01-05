@@ -1,5 +1,5 @@
-import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 import { IPreRoundedButtonAttributes } from '../../../global/utils/Style';
+import { ILogoAttributes } from '../../../components/UVRLogo/interface';
 
 const defaultLogoAttributes: ILogoAttributes = {
     style: {

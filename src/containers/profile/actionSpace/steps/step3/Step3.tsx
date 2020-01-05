@@ -3,21 +3,22 @@ import styled from 'styled-components';
 
 import { GlobalStyled } from '../../../../../global/style/Style.style';
 import { IVideoInfoArg } from '../../../../../global/videos/interface';
+import { VRAPI } from '../../../../../global/videos/request';
 import {
     IPreLabelEffectInputAttributes,
     IPreRoundedButtonAttributes,
 } from '../../../../../global/utils/Style';
+import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 import Input from '../../../../../components/input/labelEffect/Input';
 import Group from '../../../../../components/button/elliptical/Group';
 import Button from '../../../../../components/button/rounded/RoundedButton';
 import { IGroupButtonAttributes } from '../../../../../components/button/elliptical/interface';
+
 import {
     defaultTagBtnGroupAttributes,
     defaultTitleAttributes,
     defaultDoneButtonAttributes,
 } from './Logistics';
-import { VRAPI } from '../../../../../global/videos/request';
-import { Middleware } from '../../../../../middlewares/API/APIMiddlewares';
 
 const Step3: React.FC = () => {
     const [ titleAttri, setTitleAttri ]         = useState<IPreLabelEffectInputAttributes>(defaultTitleAttributes);
