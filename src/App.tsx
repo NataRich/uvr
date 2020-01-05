@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Error404 from './pages/404/404';
 import Login from './pages/login/Login';
@@ -11,11 +11,13 @@ const App: React.FC = () => {
   return (
     <div style={{ height: '100vh' }}>
       <Router>
-        <Route exact path='/' component={Home} />
-        <Route path='/login' component={Login} />
-        <Route path='/signup' component={Signup} />
-        <Route path='/profile' component={Profile} />
-        <Route component={Error404} />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Signup} />
+          <Route path='/profile' component={Profile} />
+          <Route component={Error404} />
+        </Switch>
       </Router>
     </div>
   );
