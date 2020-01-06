@@ -1,6 +1,18 @@
 import React from 'react';
 import marz from '../marz';
 import EventEmitter from '../marz/eventEmitter';
+
+// eslint-disable-next-line
+import Options from '../../../assets/icons/options.png';
+import Pause from '../../../assets/icons/pause.png';
+import Play from '../../../assets/icons/play.png';
+// eslint-disable-next-line
+import Resolution from '../../../assets/icons/resolution.png';
+import SoundOn from '../../../assets/icons/sound-on.png';
+import SoundOff from '../../../assets/icons/sound-off.png';
+// eslint-disable-next-line
+import Spinnder from '../../../assets/icons/spinner.png';
+
 import { StyledPlayerContainer } from './Player.styles';
 
 function formatTime(d: number) {
@@ -95,14 +107,14 @@ const Player: React.FC<IPlayerProps> = (props) => {
       <div className="video-controls" id="video-controls">
         <div className="control-btn play" id="play-pause" onClick={onPlayPauseClick}>
           {paused ? (
-            <img className="play-icon" src="img/play.png" />
+            <img className="play-icon" src={Play} alt='' />
           ) : (
-            <img className="pause-icon" src="img/pause.png" />
+            <img className="pause-icon" src={Pause} alt='' />
           )}
         </div>
         <div className="control-btn sound" id="mute" onClick={onMuteClick}>
-          {!mute && <img className="sound-on" src="img/sound-on.png" />}
-          {mute && <img className="sound-off" src="img/sound-off.png" />}
+          {!mute && <img className="sound-on" src={SoundOn} alt='' />}
+          {mute && <img className="sound-off" src={SoundOff} alt='' />}
         </div>
         <div className="time">
           <h5 className="initial-time" id="current-time-indicator" style={{ margin: 0 }}>
