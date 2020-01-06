@@ -27,7 +27,7 @@ const VideoCard: React.FC<IVideoCardAttributes> = ({
     const [ delBtnAttri, setDelBtnAttri ]           = useState<IPreRoundedButtonAttributes>(defaultDelButtonAttributes);
 
     const onClick = () => {};
-    const onClickWatchHandler = () => window.location.href='/';
+    const onClickWatchHandler = () => window.location.href=`/videos/${video.getTrackId()}`;
     const onClickMoreHandler = () => setOpenDescription(true);
     const onClickBackHandler = () => setOpenDescription(false);
 
