@@ -7,7 +7,8 @@ import { ITrackId } from '../../global/videos/interface';
 import { VGAPI } from '../../global/videos/request';
 import Loader from '../login/loader/Loader';
 import Error404 from '../404/404';
-import Player from '../../containers/video/player/Player.component';
+
+const PlayerDemo = require('../../containers/video/Player/PlayerDemo');
 
 interface IWatchProp {
     trackId: string;
@@ -37,7 +38,7 @@ const Watch: React.FC<RouteComponentProps<IWatchProp>> = (urlParam: RouteCompone
     else
         return (
             <GlobalStyled.Box.CenterBoxByRowNonSpaced>
-                <Player {...{videoSrc: video.getDirectory()}} />
+                <PlayerDemo.default fileDirectory={'./videos/test.mp4'} />
             </GlobalStyled.Box.CenterBoxByRowNonSpaced>
         );
 };
