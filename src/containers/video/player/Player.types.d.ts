@@ -1,3 +1,0 @@
-interface IPlayerProps {
-    videoSrc: string;
-}
